@@ -1,39 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Montage Studios</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-@keyframes fadeUp {
+html{
+scroll-behavior:smooth;
+}
 
-from {
+body{
+margin:0;
+overflow-x:hidden;
+font-family:Poppins;
+background:black;
+color:white;
+cursor:none;
+}
+
+/* CUSTOM CURSOR */
+
+.cursor{
+width:22px;
+height:22px;
+border:1px solid rgba(255,255,255,0.8);
+border-radius:50%;
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:99999;
+transition:
+width 0.25s ease,
+height 0.25s ease,
+background 0.25s ease,
+transform 0.08s linear;
+backdrop-filter:blur(4px);
+}
+
+.cursor-grow{
+width:70px;
+height:70px;
+background:rgba(255,255,255,0.08);
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+from{
 opacity:0;
 transform:translateY(40px);
 }
 
-to {
+to{
 opacity:1;
 transform:translateY(0);
 }
 
 }
 
-</style>
+@keyframes floating{
 
-</head>
+0%{
+transform:translateY(0px);
+}
 
-<body style="
-margin:0;
-overflow-x:hidden;
-font-family:Poppins;
-background:black;
-color:white;
-">
-<nav style="
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* NAVBAR */
+
+nav{
 position:fixed;
 top:0;
 left:0;
@@ -44,64 +97,40 @@ justify-content:space-between;
 align-items:center;
 box-sizing:border-box;
 z-index:999;
-  backdrop-filter:blur(14px);
+
+backdrop-filter:blur(14px);
 background:rgba(0,0,0,0.15);
 border-bottom:1px solid rgba(255,255,255,0.08);
-">
+}
 
-<div style="
+.logo{
 font-size:20px;
 font-weight:700;
 letter-spacing:-1px;
-">
+}
 
-Montage®
-
-</div>
-
-<div style="
+.nav-links{
 display:flex;
 gap:40px;
 font-size:14px;
 text-transform:uppercase;
 letter-spacing:2px;
-opacity:0.8;
-">
+opacity:0.85;
+}
 
-<div>Work</div>
-<div>Services</div>
-<div>Contact</div>
+.nav-links div{
+cursor:pointer;
+transition:0.4s ease;
+}
 
-</div>
+.nav-links div:hover{
+opacity:0.5;
+transform:translateY(-2px);
+}
 
-</nav>
-<video autoplay muted loop playsinline style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0.35;
-z-index:-2;
-">
+/* HERO */
 
-<source src="bg.mp4" type="video/mp4">
-
-</video>
-
-<div style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-z-index:-1;
-">
-</div>
-
-<div style="
+.hero{
 height:100vh;
 display:flex;
 flex-direction:column;
@@ -110,54 +139,32 @@ align-items:center;
 text-align:center;
 padding:20px;
 position:relative;
-z-index:1;
+z-index:2;
 
-animation:fadeUp 1.5s ease;
-">
+animation:fadeUp 1.4s ease;
+}
 
-<h1 style="
-font-size:clamp(60px,10vw,120px);
+.hero h1{
+font-size:clamp(60px,10vw,130px);
 font-weight:700;
-letter-spacing:-4px;
+letter-spacing:-5px;
 line-height:0.9;
 margin:0;
-text-shadow:0 0 40px rgba(255,255,255,0.15);
-">
+text-shadow:0 0 40px rgba(255,255,255,0.12);
+}
 
-Montage Studios
-
-</h1>
-
-<p style="
+.hero p{
 font-size:clamp(18px,2vw,24px);
 opacity:0.7;
 margin-top:20px;
 font-weight:300;
-letter-spacing:2px;
+letter-spacing:3px;
 text-transform:uppercase;
-">
+}
 
-Stories that Sell.
-
-</p>
-
-<button
-
-onmouseover="
-this.style.background='white';
-this.style.color='black';
-this.style.borderColor='white';
-"
-
-onmouseout="
-this.style.background='rgba(255,255,255,0.08)';
-this.style.color='white';
-this.style.borderColor='rgba(255,255,255,0.3)';
-"
-
-style="
+.hero button{
 margin-top:40px;
-padding:16px 38px;
+padding:18px 40px;
 border:1px solid rgba(255,255,255,0.3);
 border-radius:999px;
 background:rgba(255,255,255,0.08);
@@ -168,104 +175,280 @@ font-family:Poppins;
 cursor:pointer;
 
 transition:
-background 0.6s ease,
-color 0.6s ease,
-border-color 0.6s ease,
-box-shadow 0.6s ease;
+0.6s ease;
 
 box-shadow:
 0 0 30px rgba(255,255,255,0.05);
-">
 
-View Work
+animation:floating 4s ease-in-out infinite;
+}
 
-</button>
+.hero button:hover{
+background:white;
+color:black;
+transform:scale(1.05);
+box-shadow:0 0 60px rgba(255,255,255,0.25);
+}
 
-</div>
+/* VIDEO */
 
-<section style="
+.bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.35;
+z-index:-2;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+z-index:-1;
+}
+
+/* SHOWCASE */
+
+.showcase{
 min-height:100vh;
 background:white;
 color:black;
-padding:120px 10%;
+padding:140px 10%;
 display:flex;
 flex-direction:column;
 justify-content:center;
 position:relative;
 z-index:2;
-">
+}
 
-<h2 style="
+.showcase-label{
 font-size:14px;
 letter-spacing:4px;
 opacity:0.5;
 text-transform:uppercase;
 margin-bottom:20px;
-">
+}
 
-Selected Work
-
-</h2>
-
-<h3 style="
-font-size:clamp(40px,6vw,80px);
+.showcase-title{
+font-size:clamp(40px,6vw,90px);
 line-height:1;
 margin:0;
-max-width:800px;
-">
+max-width:900px;
+letter-spacing:-3px;
+}
 
-Crafting cinematic visuals for modern brands.
-
-</h3>
-<div style="
-margin-top:80px;
+.projects{
+margin-top:90px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
-">
+}
 
-<div style="
+.project-card{
 height:420px;
 border-radius:30px;
 overflow:hidden;
 position:relative;
 background:black;
 cursor:pointer;
-">
 
-<img src='https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop'
-style='
+transform-style:preserve-3d;
+
+transition:
+transform 0.5s ease,
+box-shadow 0.5s ease;
+}
+
+.project-card:hover{
+transform:translateY(-10px) scale(1.01);
+box-shadow:0 30px 80px rgba(0,0,0,0.18);
+}
+
+.project-card img{
 width:100%;
 height:100%;
 object-fit:cover;
-transition:0.8s ease;
-opacity:0.85;
-'
->
+transition:1s ease;
+opacity:0.88;
+}
 
-<div style="
+.project-card:hover img{
+transform:scale(1.08);
+opacity:1;
+}
+
+.project-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(0,0,0,0.7),
+rgba(0,0,0,0.1)
+);
+
+transition:0.6s ease;
+}
+
+.project-content{
 position:absolute;
 bottom:30px;
 left:30px;
 color:white;
-">
+z-index:2;
+}
 
-<div style="
-font-size:14px;
+.project-category{
+font-size:13px;
 letter-spacing:3px;
 opacity:0.7;
 text-transform:uppercase;
 margin-bottom:10px;
-">
-Commercial
-</div>
+}
 
-<div style="
+.project-title{
 font-size:34px;
 font-weight:700;
 line-height:1;
-max-width:250px;
-">
+max-width:260px;
+}
+
+/* FOOTER */
+
+.footer{
+padding:120px 10%;
+background:black;
+color:white;
+text-align:center;
+}
+
+.footer h2{
+font-size:clamp(40px,5vw,80px);
+line-height:1;
+margin:0;
+letter-spacing:-3px;
+}
+
+.footer p{
+opacity:0.6;
+margin-top:20px;
+font-size:18px;
+}
+
+.footer button{
+margin-top:40px;
+padding:18px 40px;
+border:none;
+border-radius:999px;
+background:white;
+color:black;
+font-size:16px;
+font-family:Poppins;
+cursor:pointer;
+transition:0.5s ease;
+}
+
+.footer button:hover{
+transform:scale(1.05);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+nav{
+padding:22px 24px;
+}
+
+.nav-links{
+gap:18px;
+font-size:11px;
+}
+
+.showcase{
+padding:120px 7%;
+}
+
+.project-card{
+height:320px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<nav>
+
+<div class="logo">
+Montage®
+</div>
+
+<div class="nav-links">
+<div>Work</div>
+<div>Services</div>
+<div>Contact</div>
+</div>
+
+</nav>
+
+<video autoplay muted loop playsinline class="bg-video">
+<source src="bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<section class="hero">
+
+<h1>
+Montage Studios
+</h1>
+
+<p>
+Stories that Sell.
+</p>
+
+<button>
+View Work
+</button>
+
+</section>
+
+<section class="showcase">
+
+<div class="showcase-label">
+Selected Work
+</div>
+
+<h2 class="showcase-title">
+Crafting cinematic visuals for modern brands.
+</h2>
+
+<div class="projects">
+
+<div class="project-card magnetic">
+
+<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+Commercial
+</div>
+
+<div class="project-title">
 Luxury Brand Campaign
 </div>
 
@@ -273,48 +456,19 @@ Luxury Brand Campaign
 
 </div>
 
-<div style="
-height:420px;
-border-radius:30px;
-overflow:hidden;
-position:relative;
-background:black;
-cursor:pointer;
-">
+<div class="project-card magnetic">
 
-<img src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop'
-style='
-width:100%;
-height:100%;
-object-fit:cover;
-transition:0.8s ease;
-opacity:0.85;
-'
->
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
 
-<div style="
-position:absolute;
-bottom:30px;
-left:30px;
-color:white;
-">
+<div class="project-overlay"></div>
 
-<div style="
-font-size:14px;
-letter-spacing:3px;
-opacity:0.7;
-text-transform:uppercase;
-margin-bottom:10px;
-">
+<div class="project-content">
+
+<div class="project-category">
 Social Media
 </div>
 
-<div style="
-font-size:34px;
-font-weight:700;
-line-height:1;
-max-width:250px;
-">
+<div class="project-title">
 Cinematic Reel Production
 </div>
 
@@ -323,7 +477,73 @@ Cinematic Reel Production
 </div>
 
 </div>
+
 </section>
+
+<section class="footer">
+
+<h2>
+Let’s Create Something Cinematic.
+</h2>
+
+<p>
+Premium visual storytelling for modern brands.
+</p>
+
+<button>
+Start a Project
+</button>
+
+</section>
+
+<script>
+
+/* CURSOR */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", (e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+document.querySelectorAll("button,.project-card,.nav-links div").forEach((el)=>{
+
+el.addEventListener("mouseenter", ()=>{
+
+cursor.classList.add("cursor-grow");
+
+});
+
+el.addEventListener("mouseleave", ()=>{
+
+cursor.classList.remove("cursor-grow");
+
+});
+
+});
+
+/* PARALLAX */
+
+document.addEventListener("mousemove",(e)=>{
+
+const x = (window.innerWidth / 2 - e.pageX) / 40;
+const y = (window.innerHeight / 2 - e.pageY) / 40;
+
+document.querySelectorAll(".project-card").forEach((card)=>{
+
+card.style.transform = `
+rotateY(${x}deg)
+rotateX(${-y}deg)
+`;
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
