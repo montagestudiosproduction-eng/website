@@ -22,6 +22,42 @@ overflow-x:hidden;
 font-family:Poppins;
 background:black;
 color:white;
+cursor:none;
+}
+
+/* CURSOR */
+
+.cursor{
+width:14px;
+height:14px;
+background:white;
+border-radius:50%;
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:99999;
+
+box-shadow:
+0 0 20px rgba(255,255,255,0.6);
+
+transition:
+transform 0.15s ease,
+width 0.25s ease,
+height 0.25s ease,
+background 0.25s ease;
+}
+
+.cursor-grow{
+width:48px;
+height:48px;
+
+background:
+rgba(255,255,255,0.08);
+
+border:
+1px solid rgba(255,255,255,0.3);
 }
 
 /* ANIMATIONS */
@@ -383,6 +419,14 @@ scale(1.02);
 
 @media(max-width:768px){
 
+body{
+cursor:auto;
+}
+
+.cursor{
+display:none;
+}
+
 nav{
 padding:20px 24px;
 }
@@ -407,6 +451,8 @@ height:320px;
 </head>
 
 <body>
+
+<div class="cursor"></div>
 
 <nav>
 
@@ -515,6 +561,37 @@ Start a Project
 </button>
 
 </section>
+
+<script>
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+document.querySelectorAll(
+"button,.project-card,.nav-links div"
+).forEach((el)=>{
+
+el.addEventListener("mouseenter",()=>{
+
+cursor.classList.add("cursor-grow");
+
+});
+
+el.addEventListener("mouseleave",()=>{
+
+cursor.classList.remove("cursor-grow");
+
+});
+
+});
+
+</script>
 
 </body>
 
