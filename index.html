@@ -22,34 +22,6 @@ overflow-x:hidden;
 font-family:Poppins;
 background:black;
 color:white;
-cursor:none;
-}
-
-/* CUSTOM CURSOR */
-
-.cursor{
-width:22px;
-height:22px;
-border:1px solid rgba(255,255,255,0.8);
-border-radius:50%;
-position:fixed;
-top:0;
-left:0;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:99999;
-transition:
-width 0.25s ease,
-height 0.25s ease,
-background 0.25s ease,
-transform 0.08s linear;
-backdrop-filter:blur(4px);
-}
-
-.cursor-grow{
-width:70px;
-height:70px;
-background:rgba(255,255,255,0.08);
 }
 
 /* ANIMATIONS */
@@ -91,16 +63,28 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:28px 60px;
+padding:22px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 box-sizing:border-box;
 z-index:999;
 
-backdrop-filter:blur(14px);
-background:rgba(0,0,0,0.15);
-border-bottom:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.06);
+
+backdrop-filter:
+blur(30px)
+saturate(180%);
+
+-webkit-backdrop-filter:
+blur(30px)
+saturate(180%);
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 8px 32px rgba(0,0,0,0.18);
 }
 
 .logo{
@@ -112,7 +96,7 @@ letter-spacing:-1px;
 .nav-links{
 display:flex;
 gap:40px;
-font-size:14px;
+font-size:13px;
 text-transform:uppercase;
 letter-spacing:2px;
 opacity:0.85;
@@ -155,7 +139,7 @@ text-shadow:0 0 40px rgba(255,255,255,0.12);
 
 .hero p{
 font-size:clamp(18px,2vw,24px);
-opacity:0.7;
+opacity:0.72;
 margin-top:20px;
 font-weight:300;
 letter-spacing:3px;
@@ -165,29 +149,49 @@ text-transform:uppercase;
 .hero button{
 margin-top:40px;
 padding:18px 40px;
-border:1px solid rgba(255,255,255,0.3);
 border-radius:999px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+
+border:
+1px solid rgba(255,255,255,0.15);
+
+background:
+rgba(255,255,255,0.08);
+
+backdrop-filter:
+blur(24px)
+saturate(180%);
+
+-webkit-backdrop-filter:
+blur(24px)
+saturate(180%);
+
 color:white;
 font-size:16px;
 font-family:Poppins;
 cursor:pointer;
 
 transition:
-0.6s ease;
+all 0.6s ease;
 
 box-shadow:
-0 0 30px rgba(255,255,255,0.05);
+0 8px 40px rgba(0,0,0,0.25),
+inset 0 1px 1px rgba(255,255,255,0.08);
 
 animation:floating 4s ease-in-out infinite;
 }
 
 .hero button:hover{
-background:white;
+
+background:
+rgba(255,255,255,0.95);
+
 color:black;
-transform:scale(1.05);
-box-shadow:0 0 60px rgba(255,255,255,0.25);
+
+transform:
+translateY(-4px);
+
+box-shadow:
+0 20px 60px rgba(255,255,255,0.18);
 }
 
 /* VIDEO */
@@ -209,7 +213,13 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.45);
+background:
+linear-gradient(
+to bottom,
+rgba(0,0,0,0.3),
+rgba(0,0,0,0.6)
+);
+
 z-index:-1;
 }
 
@@ -252,22 +262,24 @@ gap:30px;
 
 .project-card{
 height:420px;
-border-radius:30px;
+border-radius:34px;
 overflow:hidden;
 position:relative;
 background:black;
 cursor:pointer;
 
-transform-style:preserve-3d;
-
 transition:
-transform 0.5s ease,
-box-shadow 0.5s ease;
+transform 0.6s ease,
+box-shadow 0.6s ease;
 }
 
 .project-card:hover{
-transform:translateY(-10px) scale(1.01);
-box-shadow:0 30px 80px rgba(0,0,0,0.18);
+transform:
+translateY(-10px)
+scale(1.02);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,0.18);
 }
 
 .project-card img{
@@ -286,13 +298,13 @@ opacity:1;
 .project-overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(
+
+background:
+linear-gradient(
 to top,
-rgba(0,0,0,0.7),
+rgba(0,0,0,0.75),
 rgba(0,0,0,0.1)
 );
-
-transition:0.6s ease;
 }
 
 .project-content{
@@ -321,7 +333,7 @@ max-width:260px;
 /* FOOTER */
 
 .footer{
-padding:120px 10%;
+padding:140px 10%;
 background:black;
 color:white;
 text-align:center;
@@ -345,16 +357,26 @@ margin-top:40px;
 padding:18px 40px;
 border:none;
 border-radius:999px;
-background:white;
+
+background:
+rgba(255,255,255,0.95);
+
 color:black;
+
 font-size:16px;
 font-family:Poppins;
 cursor:pointer;
+
 transition:0.5s ease;
+
+box-shadow:
+0 10px 40px rgba(255,255,255,0.12);
 }
 
 .footer button:hover{
-transform:scale(1.05);
+transform:
+translateY(-4px)
+scale(1.02);
 }
 
 /* MOBILE */
@@ -362,12 +384,12 @@ transform:scale(1.05);
 @media(max-width:768px){
 
 nav{
-padding:22px 24px;
+padding:20px 24px;
 }
 
 .nav-links{
 gap:18px;
-font-size:11px;
+font-size:10px;
 }
 
 .showcase{
@@ -385,8 +407,6 @@ height:320px;
 </head>
 
 <body>
-
-<div class="cursor"></div>
 
 <nav>
 
@@ -436,7 +456,7 @@ Crafting cinematic visuals for modern brands.
 
 <div class="projects">
 
-<div class="project-card magnetic">
+<div class="project-card">
 
 <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop">
 
@@ -456,7 +476,7 @@ Luxury Brand Campaign
 
 </div>
 
-<div class="project-card magnetic">
+<div class="project-card">
 
 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
 
@@ -496,54 +516,6 @@ Start a Project
 
 </section>
 
-<script>
-
-/* CURSOR */
-
-const cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove", (e)=>{
-
-cursor.style.left = e.clientX + "px";
-cursor.style.top = e.clientY + "px";
-
-});
-
-document.querySelectorAll("button,.project-card,.nav-links div").forEach((el)=>{
-
-el.addEventListener("mouseenter", ()=>{
-
-cursor.classList.add("cursor-grow");
-
-});
-
-el.addEventListener("mouseleave", ()=>{
-
-cursor.classList.remove("cursor-grow");
-
-});
-
-});
-
-/* PARALLAX */
-
-document.addEventListener("mousemove",(e)=>{
-
-const x = (window.innerWidth / 2 - e.pageX) / 40;
-const y = (window.innerHeight / 2 - e.pageY) / 40;
-
-document.querySelectorAll(".project-card").forEach((card)=>{
-
-card.style.transform = `
-rotateY(${x}deg)
-rotateX(${-y}deg)
-`;
-
-});
-
-});
-
-</script>
-
 </body>
+
 </html>
