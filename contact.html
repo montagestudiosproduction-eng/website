@@ -12,11 +12,311 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
-background:black;
+background:#050505;
 color:white;
 font-family:Poppins;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-sizing:border-box;
+z-index:999;
+
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:
+blur(30px)
+saturate(180%);
+
+-webkit-backdrop-filter:
+blur(30px)
+saturate(180%);
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+}
+
+.logo a{
+text-decoration:none;
+color:white;
+font-size:20px;
+font-weight:700;
+letter-spacing:-1px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+opacity:0.8;
+transition:0.4s ease;
+}
+
+.nav-links a:hover{
+opacity:1;
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+padding:
+220px 10% 120px;
+}
+
+.hero-label{
+font-size:14px;
+letter-spacing:4px;
+text-transform:uppercase;
+opacity:0.5;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:clamp(60px,9vw,130px);
+line-height:0.9;
+letter-spacing:-5px;
+margin:0;
+max-width:1000px;
+}
+
+.hero p{
+margin-top:30px;
+font-size:20px;
+line-height:1.7;
+opacity:0.65;
+max-width:720px;
+}
+
+/* CONTACT GRID */
+
+.contact-grid{
+padding:
+0 10% 140px;
+
+display:grid;
+grid-template-columns:
+1fr 1fr;
+
+gap:40px;
+}
+
+/* INFO PANEL */
+
+.contact-info{
+padding:50px;
+border-radius:34px;
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:
+blur(20px);
+}
+
+.contact-title{
+font-size:42px;
+font-weight:700;
+line-height:1;
+margin-bottom:30px;
+}
+
+.contact-desc{
+font-size:17px;
+line-height:1.8;
+opacity:0.68;
+margin-bottom:50px;
+}
+
+.contact-links{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-link{
+padding:20px 24px;
+border-radius:20px;
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+text-decoration:none;
+color:white;
+
+transition:0.5s ease;
+}
+
+.contact-link:hover{
+transform:
+translateY(-4px);
+
+background:
+rgba(255,255,255,0.08);
+}
+
+.contact-link-title{
+font-size:13px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:0.5;
+margin-bottom:10px;
+}
+
+.contact-link-value{
+font-size:22px;
+font-weight:600;
+}
+
+/* FORM */
+
+.form-box{
+padding:50px;
+border-radius:34px;
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:
+blur(20px);
+}
+
+.form-title{
+font-size:42px;
+font-weight:700;
+margin-bottom:40px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+input,
+textarea{
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+border-radius:20px;
+
+padding:20px;
+
+color:white;
+font-family:Poppins;
+font-size:15px;
+
+outline:none;
+
+transition:0.4s ease;
+}
+
+input:focus,
+textarea:focus{
+border:
+1px solid rgba(255,255,255,0.3);
+
+background:
+rgba(255,255,255,0.06);
+}
+
+textarea{
+min-height:160px;
+resize:none;
+}
+
+button{
+margin-top:10px;
+
+padding:18px 40px;
+
+border:none;
+border-radius:999px;
+
+background:white;
+color:black;
+
+font-size:16px;
+font-family:Poppins;
+
+cursor:pointer;
+
+transition:0.5s ease;
+}
+
+button:hover{
+transform:
+translateY(-4px)
+scale(1.02);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+nav{
+padding:20px 24px;
+}
+
+.nav-links{
+gap:18px;
+font-size:10px;
+}
+
+.hero{
+padding:
+180px 7% 100px;
+}
+
+.contact-grid{
+padding:
+0 7% 100px;
+
+grid-template-columns:
+1fr;
+}
+
+.contact-info,
+.form-box{
+padding:36px;
+}
+
 }
 
 </style>
@@ -25,9 +325,127 @@ font-family:Poppins;
 
 <body>
 
+<nav>
+
+<div class="logo">
+<a href="index.html">
+Montage®
+</a>
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="work.html">
+Work
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-label">
+Contact
+</div>
+
 <h1>
-Contact Page
+Let’s build something visually unforgettable.
 </h1>
+
+<p>
+Whether you're launching a brand, scaling your social presence, or creating a cinematic campaign — Montage Studios helps modern brands stand out through visuals that actually make people stop.
+</p>
+
+</section>
+
+<section class="contact-grid">
+
+<div class="contact-info">
+
+<div class="contact-title">
+Start a Conversation
+</div>
+
+<div class="contact-desc">
+We work with brands, creators, fashion labels, hospitality businesses, and modern companies looking to elevate their digital presence through cinematic storytelling.
+</div>
+
+<div class="contact-links">
+
+<a href="#" class="contact-link">
+
+<div class="contact-link-title">
+Instagram
+</div>
+
+<div class="contact-link-value">
+@montagestudios
+</div>
+
+</a>
+
+<a href="#" class="contact-link">
+
+<div class="contact-link-title">
+Email
+</div>
+
+<div class="contact-link-value">
+hello@montagestudios.com
+</div>
+
+</a>
+
+<a href="#" class="contact-link">
+
+<div class="contact-link-title">
+WhatsApp
+</div>
+
+<div class="contact-link-value">
+Start Chat →
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="form-box">
+
+<div class="form-title">
+Project Inquiry
+</div>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="text" placeholder="Brand / Company">
+
+<textarea placeholder="Tell us about your project..."></textarea>
+
+<button type="submit">
+Send Inquiry
+</button>
+
+</form>
+
+</div>
+
+</section>
 
 </body>
 
