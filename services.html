@@ -12,11 +12,301 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
-background:black;
+background:#050505;
 color:white;
 font-family:Poppins;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-sizing:border-box;
+z-index:999;
+
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:
+blur(30px)
+saturate(180%);
+
+-webkit-backdrop-filter:
+blur(30px)
+saturate(180%);
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+}
+
+.logo a{
+text-decoration:none;
+color:white;
+font-size:20px;
+font-weight:700;
+letter-spacing:-1px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+opacity:0.8;
+transition:0.4s ease;
+}
+
+.nav-links a:hover{
+opacity:1;
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+padding:
+220px 10% 120px;
+}
+
+.hero-label{
+font-size:14px;
+letter-spacing:4px;
+text-transform:uppercase;
+opacity:0.5;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:clamp(60px,9vw,130px);
+line-height:0.9;
+letter-spacing:-5px;
+margin:0;
+max-width:1000px;
+}
+
+.hero p{
+margin-top:30px;
+font-size:20px;
+line-height:1.7;
+opacity:0.65;
+max-width:720px;
+}
+
+/* SERVICES */
+
+.services{
+padding:
+0 10% 140px;
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+}
+
+.service-card{
+padding:42px;
+border-radius:34px;
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:
+blur(20px);
+
+transition:
+0.6s ease;
+}
+
+.service-card:hover{
+transform:
+translateY(-8px);
+
+background:
+rgba(255,255,255,0.06);
+
+box-shadow:
+0 30px 80px rgba(0,0,0,0.3);
+}
+
+.service-number{
+font-size:14px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:0.4;
+margin-bottom:30px;
+}
+
+.service-title{
+font-size:36px;
+font-weight:700;
+line-height:1;
+margin-bottom:24px;
+}
+
+.service-desc{
+font-size:16px;
+line-height:1.8;
+opacity:0.68;
+}
+
+/* PROCESS */
+
+.process{
+padding:
+140px 10%;
+
+background:white;
+color:black;
+}
+
+.process-label{
+font-size:14px;
+letter-spacing:4px;
+text-transform:uppercase;
+opacity:0.5;
+margin-bottom:24px;
+}
+
+.process h2{
+font-size:clamp(40px,6vw,90px);
+line-height:0.95;
+letter-spacing:-4px;
+max-width:900px;
+margin:0;
+}
+
+.process-grid{
+margin-top:80px;
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:30px;
+}
+
+.process-card{
+padding:36px;
+border-radius:30px;
+background:#f5f5f5;
+}
+
+.process-step{
+font-size:14px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:0.4;
+margin-bottom:20px;
+}
+
+.process-title{
+font-size:30px;
+font-weight:700;
+margin-bottom:16px;
+}
+
+.process-desc{
+line-height:1.8;
+opacity:0.65;
+}
+
+/* CTA */
+
+.cta{
+padding:140px 10%;
+text-align:center;
+}
+
+.cta h2{
+font-size:clamp(40px,6vw,90px);
+line-height:0.95;
+letter-spacing:-4px;
+margin:0;
+}
+
+.cta p{
+margin-top:24px;
+font-size:20px;
+opacity:0.65;
+}
+
+.cta button{
+margin-top:40px;
+
+padding:18px 40px;
+
+border:none;
+border-radius:999px;
+
+background:white;
+color:black;
+
+font-size:16px;
+font-family:Poppins;
+
+cursor:pointer;
+
+transition:0.5s ease;
+}
+
+.cta button:hover{
+transform:
+translateY(-4px)
+scale(1.02);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+nav{
+padding:20px 24px;
+}
+
+.nav-links{
+gap:18px;
+font-size:10px;
+}
+
+.hero{
+padding:
+180px 7% 100px;
+}
+
+.services{
+padding:
+0 7% 100px;
+}
+
+.process{
+padding:
+100px 7%;
+}
+
 }
 
 </style>
@@ -25,9 +315,195 @@ font-family:Poppins;
 
 <body>
 
+<nav>
+
+<div class="logo">
+<a href="index.html">
+Montage®
+</a>
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="work.html">
+Work
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-label">
+Services
+</div>
+
 <h1>
-Services Page
+Creative visuals built for modern brand growth.
 </h1>
+
+<p>
+Montage Studios combines cinematic storytelling, social-first strategy, and premium production to help brands stand out in a crowded digital world.
+</p>
+
+</section>
+
+<section class="services">
+
+<div class="service-card">
+
+<div class="service-number">
+01
+</div>
+
+<div class="service-title">
+Cinematic Reels
+</div>
+
+<div class="service-desc">
+High-retention short-form content crafted to elevate perception, increase engagement, and strengthen brand identity across social platforms.
+</div>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-number">
+02
+</div>
+
+<div class="service-title">
+Commercial Films
+</div>
+
+<div class="service-desc">
+Luxury cinematic campaigns designed for products, fashion brands, hospitality, and modern businesses seeking premium visual storytelling.
+</div>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-number">
+03
+</div>
+
+<div class="service-title">
+Digital Marketing
+</div>
+
+<div class="service-desc">
+Creative-led marketing systems built around attention, content strategy, audience psychology, and premium brand positioning.
+</div>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-number">
+04
+</div>
+
+<div class="service-title">
+Creative Direction
+</div>
+
+<div class="service-desc">
+From visual concepts to campaign execution, we help brands shape a cinematic and memorable digital presence.
+</div>
+
+</div>
+
+</section>
+
+<section class="process">
+
+<div class="process-label">
+Process
+</div>
+
+<h2>
+From concept to campaign — every frame is intentional.
+</h2>
+
+<div class="process-grid">
+
+<div class="process-card">
+
+<div class="process-step">
+Step 01
+</div>
+
+<div class="process-title">
+Strategy
+</div>
+
+<div class="process-desc">
+Understanding the brand, audience, positioning, and campaign objective before production begins.
+</div>
+
+</div>
+
+<div class="process-card">
+
+<div class="process-step">
+Step 02
+</div>
+
+<div class="process-title">
+Production
+</div>
+
+<div class="process-desc">
+Cinematic shooting, lighting, direction, and storytelling designed to create visually premium content.
+</div>
+
+</div>
+
+<div class="process-card">
+
+<div class="process-step">
+Step 03
+</div>
+
+<div class="process-title">
+Distribution
+</div>
+
+<div class="process-desc">
+Optimizing content for social media, digital campaigns, engagement, and brand visibility.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+Your Brand Needs Better Storytelling.
+</h2>
+
+<p>
+Modern attention is earned through visuals.
+</p>
+
+<button>
+Start a Project
+</button>
+
+</section>
 
 </body>
 
