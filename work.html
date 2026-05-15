@@ -12,11 +12,312 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
-background:black;
+background:#050505;
 color:white;
 font-family:Poppins;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-sizing:border-box;
+z-index:999;
+
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:
+blur(30px)
+saturate(180%);
+
+-webkit-backdrop-filter:
+blur(30px)
+saturate(180%);
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+}
+
+.logo a{
+text-decoration:none;
+color:white;
+font-size:20px;
+font-weight:700;
+letter-spacing:-1px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+opacity:0.8;
+transition:0.4s ease;
+}
+
+.nav-links a:hover{
+opacity:1;
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+padding:
+220px 10% 120px;
+
+position:relative;
+}
+
+.hero-label{
+font-size:14px;
+letter-spacing:4px;
+text-transform:uppercase;
+opacity:0.5;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:clamp(60px,9vw,130px);
+line-height:0.9;
+letter-spacing:-5px;
+margin:0;
+max-width:1000px;
+}
+
+.hero p{
+margin-top:30px;
+font-size:20px;
+line-height:1.7;
+opacity:0.65;
+max-width:700px;
+}
+
+/* FILTERS */
+
+.filters{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+padding:0 10%;
+margin-bottom:80px;
+}
+
+.filter-btn{
+padding:14px 24px;
+border-radius:999px;
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+
+backdrop-filter:
+blur(20px);
+
+transition:0.5s ease;
+cursor:pointer;
+}
+
+.filter-btn:hover{
+background:white;
+color:black;
+transform:translateY(-2px);
+}
+
+/* PROJECT GRID */
+
+.projects{
+padding:0 10% 120px;
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(380px,1fr));
+
+gap:34px;
+}
+
+.project{
+position:relative;
+height:520px;
+border-radius:34px;
+overflow:hidden;
+cursor:pointer;
+
+background:black;
+
+transition:
+transform 0.7s ease,
+box-shadow 0.7s ease;
+}
+
+.project:hover{
+transform:
+translateY(-10px)
+scale(1.01);
+
+box-shadow:
+0 40px 100px rgba(0,0,0,0.4);
+}
+
+.project img{
+width:100%;
+height:100%;
+object-fit:cover;
+
+transition:1.2s ease;
+opacity:0.9;
+}
+
+.project:hover img{
+transform:scale(1.08);
+opacity:1;
+}
+
+.project-overlay{
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,0.85),
+rgba(0,0,0,0.1)
+);
+}
+
+.project-content{
+position:absolute;
+bottom:36px;
+left:36px;
+z-index:2;
+}
+
+.project-category{
+font-size:13px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:0.7;
+margin-bottom:12px;
+}
+
+.project-title{
+font-size:42px;
+font-weight:700;
+line-height:0.95;
+max-width:320px;
+margin-bottom:18px;
+}
+
+.project-desc{
+font-size:15px;
+line-height:1.7;
+opacity:0.72;
+max-width:320px;
+}
+
+/* CTA */
+
+.cta{
+padding:140px 10%;
+text-align:center;
+background:black;
+}
+
+.cta h2{
+font-size:clamp(40px,6vw,90px);
+line-height:0.95;
+letter-spacing:-4px;
+margin:0;
+}
+
+.cta p{
+margin-top:24px;
+font-size:20px;
+opacity:0.65;
+}
+
+.cta button{
+margin-top:40px;
+
+padding:18px 40px;
+
+border:none;
+border-radius:999px;
+
+background:white;
+color:black;
+
+font-size:16px;
+font-family:Poppins;
+
+cursor:pointer;
+
+transition:0.5s ease;
+}
+
+.cta button:hover{
+transform:
+translateY(-4px)
+scale(1.02);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+nav{
+padding:20px 24px;
+}
+
+.nav-links{
+gap:18px;
+font-size:10px;
+}
+
+.hero{
+padding:
+180px 7% 100px;
+}
+
+.projects{
+padding:
+0 7% 100px;
+}
+
+.project{
+height:420px;
+}
+
+.project-title{
+font-size:34px;
+}
+
 }
 
 </style>
@@ -25,9 +326,187 @@ font-family:Poppins;
 
 <body>
 
+<nav>
+
+<div class="logo">
+<a href="index.html">
+Montage®
+</a>
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="#">
+Services
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-label">
+Selected Projects
+</div>
+
 <h1>
-Work Page
+Visual campaigns designed to stop attention.
 </h1>
+
+<p>
+Cinematic storytelling, luxury visuals, and modern brand-focused content crafted for fashion, hospitality, products, and digital-first businesses.
+</p>
+
+</section>
+
+<div class="filters">
+
+<div class="filter-btn">
+All
+</div>
+
+<div class="filter-btn">
+Commercial
+</div>
+
+<div class="filter-btn">
+Fashion
+</div>
+
+<div class="filter-btn">
+Social Media
+</div>
+
+<div class="filter-btn">
+Luxury
+</div>
+
+</div>
+
+<section class="projects">
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+Commercial Campaign
+</div>
+
+<div class="project-title">
+Luxury Perfume Visual
+</div>
+
+<div class="project-desc">
+Editorial product storytelling with cinematic lighting and luxury motion design.
+</div>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+Social Media
+</div>
+
+<div class="project-title">
+Cinematic Reel Production
+</div>
+
+<div class="project-desc">
+High-retention short-form content crafted for modern brand growth and engagement.
+</div>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+Fashion Film
+</div>
+
+<div class="project-title">
+Jewellery Editorial Campaign
+</div>
+
+<div class="project-desc">
+Conceptual fashion visuals designed with cinematic mood and premium storytelling.
+</div>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+Hospitality
+</div>
+
+<div class="project-title">
+Luxury Resort Showcase
+</div>
+
+<div class="project-desc">
+Immersive visuals built to elevate hospitality branding and online perception.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+Your Brand Deserves Better Visuals.
+</h2>
+
+<p>
+Modern marketing powered by cinematic storytelling.
+</p>
+
+<button>
+Start a Project
+</button>
+
+</section>
 
 </body>
 
