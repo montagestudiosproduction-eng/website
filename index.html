@@ -129,6 +129,11 @@ font-weight:700;
 letter-spacing:-1px;
 }
 
+.logo a{
+text-decoration:none;
+color:white;
+}
+
 .nav-links{
 display:flex;
 gap:40px;
@@ -138,12 +143,13 @@ letter-spacing:2px;
 opacity:0.85;
 }
 
-.nav-links div{
-cursor:pointer;
+.nav-links a{
+text-decoration:none;
+color:white;
 transition:0.4s ease;
 }
 
-.nav-links div:hover{
+.nav-links a:hover{
 opacity:0.5;
 transform:translateY(-2px);
 }
@@ -457,13 +463,25 @@ height:320px;
 <nav>
 
 <div class="logo">
+<a href="index.html">
 Montage®
+</a>
 </div>
 
 <div class="nav-links">
-<div>Work</div>
-<div>Services</div>
-<div>Contact</div>
+
+<a href="work.html">
+Work
+</a>
+
+<a href="#">
+Services
+</a>
+
+<a href="#">
+Contact
+</a>
+
 </div>
 
 </nav>
@@ -574,7 +592,7 @@ cursor.style.top = e.clientY + "px";
 });
 
 document.querySelectorAll(
-"button,.project-card,.nav-links div"
+"button,.project-card,.nav-links a"
 ).forEach((el)=>{
 
 el.addEventListener("mouseenter",()=>{
