@@ -381,44 +381,60 @@ color:white;
 text-align:center;
 }
 
-.footer h2{
-font-size:clamp(40px,5vw,80px);
-line-height:1;
+.footer-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:60px;
+flex-wrap:wrap;
+text-align:left;
+}
+
+.footer-brand h2{
+font-size:42px;
 margin:0;
-letter-spacing:-3px;
+letter-spacing:-2px;
 }
 
-.footer p{
-opacity:0.6;
-margin-top:20px;
-font-size:18px;
+.footer-brand p{
+margin-top:16px;
+max-width:320px;
+line-height:1.7;
+opacity:0.65;
 }
 
-.footer button{
-margin-top:40px;
-padding:18px 40px;
-border:none;
-border-radius:999px;
-
-background:
-rgba(255,255,255,0.95);
-
-color:black;
-
-font-size:16px;
-font-family:Poppins;
-cursor:pointer;
-
-transition:0.5s ease;
-
-box-shadow:
-0 10px 40px rgba(255,255,255,0.12);
+.footer-links,
+.footer-socials{
+display:flex;
+flex-direction:column;
+gap:16px;
 }
 
-.footer button:hover{
-transform:
-translateY(-4px)
-scale(1.02);
+.footer-links a,
+.footer-socials a{
+text-decoration:none;
+color:white;
+opacity:0.7;
+transition:0.4s ease;
+font-size:15px;
+}
+
+.footer-links a:hover,
+.footer-socials a:hover{
+opacity:1;
+transform:translateX(4px);
+}
+
+.footer-bottom{
+margin-top:80px;
+padding-top:30px;
+
+border-top:
+1px solid rgba(255,255,255,0.08);
+
+opacity:0.45;
+font-size:14px;
+text-align:left;
 }
 
 /* MOBILE */
@@ -515,24 +531,22 @@ font-size:28px;
 padding:100px 8%;
 }
 
-.footer h2{
-font-size:clamp(34px,10vw,58px);
-line-height:1;
-letter-spacing:-2px;
+.footer-top{
+flex-direction:column;
+gap:50px;
 }
 
-.footer p{
-font-size:15px;
-line-height:1.7;
+.footer-brand h2{
+font-size:36px;
 }
 
-.footer button{
-margin-top:28px;
-padding:15px 28px;
-font-size:14px;
+.footer-bottom{
+margin-top:50px;
+text-align:left;
 }
 
 }
+
 </style>
 
 </head>
@@ -647,17 +661,61 @@ Music Videos
 
 <section class="footer">
 
+<div class="footer-top">
+
+<div class="footer-brand">
+
 <h2>
-Let’s Create Something Cinematic.
+Montage®
 </h2>
 
 <p>
-Premium visual storytelling for modern brands.
+Cinematic storytelling for modern brands.
 </p>
 
-<button>
-Start a Project
-</button>
+</div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="work.html">
+Work
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+<div class="footer-socials">
+
+<a href="#">
+Instagram
+</a>
+
+<a href="#">
+Email
+</a>
+
+<a href="#">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© Montage Studios
+</div>
 
 </section>
 
