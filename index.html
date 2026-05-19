@@ -4,30 +4,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Montage Studios</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-background:#050505;
-color:#f5f1ea;
-font-family:'Inter',sans-serif;
+margin:0;
 overflow-x:hidden;
+font-family:Poppins,sans-serif;
+background:black;
+color:white;
 }
-section{padding:120px 10%;}
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+.logo a{
+text-decoration:none;
+color:white;
+font-size:20px;
+font-weight:700;
+letter-spacing:-1px;
+}
+.nav-links{
+display:flex;
+gap:40px;
+}
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+opacity:.82;
+transition:.3s ease;
+}
+.nav-links a:hover{
+opacity:1;
+transform:translateY(-2px);
+}
 .hero{
 height:100vh;
-position:relative;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
+padding:20px;
+position:relative;
 overflow:hidden;
 }
-.hero video{
+.bg-video{
 position:absolute;
+inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
@@ -36,29 +74,29 @@ opacity:.35;
 .overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.82));
+background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.7));
 }
 .hero-content{
 position:relative;
+z-index:2;
 max-width:900px;
-padding:20px;
 }
 .hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(72px,10vw,160px);
-font-weight:600;
-letter-spacing:2px;
-line-height:.95;
-margin-bottom:24px;
+font-size:clamp(70px,10vw,140px);
+letter-spacing:-5px;
+line-height:.9;
+margin:0;
 }
 .hero p{
-font-size:clamp(16px,2vw,22px);
-letter-spacing:5px;
-text-transform:uppercase;
+font-size:clamp(18px,2vw,24px);
 opacity:.72;
-margin-bottom:40px;
+margin-top:20px;
+font-weight:300;
+letter-spacing:4px;
+text-transform:uppercase;
 }
-.buttons{
+.hero-buttons{
+margin-top:40px;
 display:flex;
 gap:18px;
 justify-content:center;
@@ -71,136 +109,203 @@ text-decoration:none;
 font-size:14px;
 letter-spacing:2px;
 text-transform:uppercase;
-transition:.3s ease;
+transition:.4s ease;
 }
 .primary{
-background:#f5f1ea;
-color:#050505;
+background:white;
+color:black;
 }
 .secondary{
-border:1px solid rgba(255,255,255,.2);
-color:#f5f1ea;
+border:1px solid rgba(255,255,255,.15);
+background:rgba(255,255,255,.05);
+color:white;
 }
-.btn:hover{transform:translateY(-3px);}
-.heading{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(42px,6vw,72px);
+.btn:hover{
+transform:translateY(-3px);
+}
+.showcase{
+min-height:100vh;
+padding:140px 10%;
+background:white;
+color:black;
+}
+.showcase-label{
+font-size:13px;
+letter-spacing:4px;
+text-transform:uppercase;
+opacity:.5;
 margin-bottom:18px;
-text-align:center;
 }
-.subtext{
-max-width:760px;
-margin:0 auto 70px;
-text-align:center;
-line-height:1.9;
-opacity:.75;
+.showcase-title{
+font-size:clamp(42px,6vw,90px);
+line-height:1;
+letter-spacing:-3px;
+max-width:900px;
 }
-.grid{
+.projects{
+margin-top:90px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:28px;
 }
-.card{
-position:relative;
+.project-card{
 height:420px;
-border-radius:28px;
+border-radius:32px;
 overflow:hidden;
-background:#111;
+position:relative;
+background:black;
 }
-.card img{
+.project-card img{
 width:100%;
 height:100%;
 object-fit:cover;
-filter:brightness(.72);
-transition:.5s ease;
+transition:1s ease;
 }
-.card:hover img{transform:scale(1.05);}
-.card-content{
+.project-card:hover img{
+transform:scale(1.05);
+}
+.project-overlay{
 position:absolute;
-bottom:0;
-padding:32px;
-background:linear-gradient(to top, rgba(0,0,0,.88), transparent);
-width:100%;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.08));
 }
-.card-content h3{
-font-family:'Cormorant Garamond',serif;
-font-size:42px;
+.project-content{
+position:absolute;
+bottom:30px;
+left:30px;
+color:white;
+z-index:2;
+}
+.project-category{
+font-size:12px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:.72;
 margin-bottom:10px;
 }
-.card-content p{
-opacity:.75;
-line-height:1.7;
+.project-title{
+font-size:34px;
+font-weight:700;
 }
-.cta{
-text-align:center;
-padding:140px 10%;
-background:#0b0b0b;
+.footer{
+padding:120px 10%;
+background:black;
+color:white;
 }
-footer{
-padding:60px 10%;
+.footer-top{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:60px;
+}
+.footer-brand h2{
+font-size:42px;
+margin-bottom:16px;
+}
+.footer-brand p{
+max-width:320px;
+line-height:1.8;
+opacity:.68;
+}
+.footer-links,.footer-socials{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+.footer-links a,.footer-socials a{
+text-decoration:none;
+color:white;
+opacity:.72;
+transition:.3s ease;
+}
+.footer-links a:hover,.footer-socials a:hover{
+opacity:1;
+transform:translateX(4px);
+}
+.footer-bottom{
+margin-top:70px;
+padding-top:30px;
 border-top:1px solid rgba(255,255,255,.08);
-text-align:center;
-opacity:.65;
-font-size:14px;
-letter-spacing:2px;
-text-transform:uppercase;
+opacity:.5;
 }
 @media(max-width:768px){
-section{padding:90px 7%;}
-.hero h1{font-size:72px;}
-.hero p{letter-spacing:3px;}
-.card{height:340px;}
-.card-content h3{font-size:34px;}
+nav{padding:18px 20px;}
+.nav-links{gap:14px;}
+.nav-links a{font-size:9px;}
+.hero h1{font-size:clamp(52px,16vw,82px);}
+.hero p{font-size:13px;letter-spacing:2px;}
+.showcase{padding:100px 7%;}
+.showcase-title{font-size:clamp(34px,10vw,54px);}
+.project-card{height:300px;}
+.footer{padding:90px 8%;}
+.footer-top{flex-direction:column;}
 }
 </style>
 </head>
 <body>
+<nav>
+<div class="logo"><a href="index.html">Montage®</a></div>
+<div class="nav-links">
+<a href="work.html">Work</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
 <section class="hero">
-<video autoplay muted loop playsinline>
+<video autoplay muted loop playsinline class="bg-video">
 <source src="bg.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
 <div class="hero-content">
 <h1>Montage Studios</h1>
 <p>Editorial Storytelling • Cinematic Direction • Premium Visual Identity</p>
-<div class="buttons">
-<a href="#contact" class="btn primary">Start a Project</a>
-<a href="#narratives" class="btn secondary">Explore the Archive</a>
-</div>
-</div>
-</section>
-<section id="narratives">
-<h2 class="heading">Visual Narratives</h2>
-<p class="subtext">
-A curated cinematic presentation crafted to feel like a trailer experience — restrained, atmospheric, and emotionally paced.
-</p>
-<div class="grid">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1400&auto=format&fit=crop" alt="Music Videos">
-<div class="card-content">
-<h3>Music Videos</h3>
-<p>Performance-driven visuals with cinematic pacing, atmosphere, and editorial energy.</p>
-</div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1400&auto=format&fit=crop" alt="Brand Films">
-<div class="card-content">
-<h3>Brand Films</h3>
-<p>Luxury hospitality, fashion, and premium commercial storytelling designed to elevate perception.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="cta" id="contact">
-<h2 class="heading">Built for brands that want emotional presence.</h2>
-<p class="subtext">Montage Studios creates cinematic visual systems that feel intentional, immersive, and premium from the very first frame.</p>
-<div class="buttons">
+<div class="hero-buttons">
 <a href="contact.html" class="btn primary">Start a Project</a>
-<a href="work.html" class="btn secondary">View Selected Stories</a>
+<a href="work.html" class="btn secondary">Explore the Archive</a>
+</div>
 </div>
 </section>
-<footer>
-Montage Studios — Cinematic Storytelling Studio
-</footer>
+<section class="showcase">
+<div class="showcase-label">Visual Narratives</div>
+<h2 class="showcase-title">Crafting cinematic visuals for modern brands.</h2>
+<div class="projects">
+<div class="project-card">
+<img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200&auto=format&fit=crop">
+<div class="project-overlay"></div>
+<div class="project-content">
+<div class="project-category">Commercial</div>
+<div class="project-title">Brand Films</div>
+</div>
+</div>
+<div class="project-card">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+<div class="project-overlay"></div>
+<div class="project-content">
+<div class="project-category">Editorial</div>
+<div class="project-title">Music Videos</div>
+</div>
+</div>
+</div>
+</section>
+<section class="footer">
+<div class="footer-top">
+<div class="footer-brand">
+<h2>Montage®</h2>
+<p>Cinematic storytelling studio creating emotionally paced visual experiences for modern luxury brands.</p>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="work.html">Work</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+</div>
+<div class="footer-socials">
+<a href="#">Instagram</a>
+<a href="#">Email</a>
+<a href="#">WhatsApp</a>
+</div>
+</div>
+<div class="footer-bottom">© Montage Studios</div>
+</section>
 </body>
 </html>
