@@ -1,1 +1,482 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Montage Studios</title><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"><style>:root{--bg:#0D0D0D;--secondary:#1A1A1A;--text:#E5E5E5;--accent:#C5A880}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:min(1400px,90%);margin:auto}.navbar{position:fixed;top:0;width:100%;padding:30px 0;background:rgba(0,0,0,.3);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05);z-index:999}.nav-wrapper{display:flex;justify-content:space-between;align-items:center}.nav-links{display:flex;gap:50px;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:#888}.nav-links a:hover{color:#fff}.brand-title{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:.2em;text-transform:uppercase}.brand-sub{font-size:9px;letter-spacing:.35em;color:var(--accent);margin-top:5px;text-transform:uppercase}.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}.overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.75))}.hero-content{position:relative;z-index:2;max-width:1000px;padding:0 20px}.luxury-label{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--accent)}h1{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,9vw,130px);font-weight:300;line-height:.95;margin-top:25px}p{max-width:700px;margin:30px auto 0;color:#999;line-height:1.8}.button-group{display:flex;justify-content:center;gap:18px;margin-top:45px;flex-wrap:wrap}.button{padding:16px 34px;font-size:10px;text-transform:uppercase;letter-spacing:.3em;transition:.8s cubic-bezier(.25,1,.5,1)}.button-primary{background:var(--text);color:var(--bg)}.button-outline{border:1px solid rgba(255,255,255,.2)}.section{padding:140px 0}.editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:50px}.project-large{grid-column:span 7}.project-small{grid-column:span 5;margin-top:120px}.project-image img{width:100%;display:block;opacity:.75}.project-category{font-size:10px;letter-spacing:.35em;color:var(--accent);margin-top:24px;text-transform:uppercase}.project-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;margin-top:14px}.footer{padding:50px 0;border-top:1px solid rgba(255,255,255,.05);text-align:center;color:#777;font-size:11px;letter-spacing:.2em;text-transform:uppercase}@media(max-width:900px){.nav-links{display:none}.editorial-grid{grid-template-columns:1fr}.project-small{margin-top:0}h1{font-size:58px}}</style></head><body><header class="navbar"><div class="container nav-wrapper"><a href="index.html"><div class="brand-title">Montage Studios</div><div class="brand-sub">Cinematic Storytelling Studio</div></a><nav class="nav-links"><a href="work.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><a href="contact.html" class="button button-outline">Start a Project</a></div></header><section class="hero"><video autoplay muted loop playsinline><source src="bg.mp4" type="video/mp4"></video><div class="overlay"></div><div class="hero-content"><div class="luxury-label">Atmosphere Amplification Studio</div><h1>We preserve the unwritten feeling of physical spaces.</h1><p>Crafting immersive cinematic identities for boutique hospitality, editorial brands, and emotionally driven environments.</p><div class="button-group"><a href="work.html" class="button button-outline">Explore the Archive</a><a href="contact.html" class="button button-primary">Start a Project</a></div></div></section><section class="section"><div class="container"><div class="editorial-grid"><div class="project-large"><div class="project-image"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"></div><div class="project-category">Hospitality</div><div class="project-title">The Slow Living Aesthetic</div><p>A cinematic study in architectural shadow and emotional pacing.</p></div><div class="project-small"><div class="project-image"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop"></div><div class="project-category">Editorial</div><div class="project-title">Ethereal Geometries</div><p>Luxury spatial storytelling through cinematic stillness.</p></div></div></div></section><footer class="footer">© 2026 Montage Studios</footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Montage Studios</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#0D0D0D;
+--text:#E5E5E5;
+--accent:#C5A880;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:min(1400px,90%);
+margin:auto;
+}
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:28px 0;
+z-index:999;
+
+background:rgba(0,0,0,0.35);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+}
+
+.nav-wrapper{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.brand{
+display:flex;
+flex-direction:column;
+}
+
+.brand-title{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+letter-spacing:0.2em;
+text-transform:uppercase;
+}
+
+.brand-sub{
+font-size:9px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:var(--accent);
+margin-top:5px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:#888;
+}
+
+.nav-links a:hover{
+color:white;
+}
+
+.hero{
+position:relative;
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+text-align:center;
+}
+
+.hero video{
+position:absolute;
+inset:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+opacity:0.4;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+to bottom,
+rgba(0,0,0,0.45),
+rgba(0,0,0,0.75)
+);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:1000px;
+padding:0 20px;
+}
+
+.label{
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:var(--accent);
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(60px,9vw,130px);
+font-weight:300;
+line-height:0.95;
+margin-top:25px;
+}
+
+.hero p{
+max-width:700px;
+margin:30px auto 0;
+line-height:1.8;
+color:#888;
+font-size:15px;
+}
+
+.button-group{
+display:flex;
+justify-content:center;
+gap:18px;
+margin-top:45px;
+flex-wrap:wrap;
+}
+
+.button{
+padding:18px 38px;
+
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+
+transition:0.6s ease;
+}
+
+.button-primary{
+background:white;
+color:black;
+}
+
+.button-primary:hover{
+background:var(--accent);
+}
+
+.button-outline{
+border:
+1px solid rgba(255,255,255,0.2);
+}
+
+.button-outline:hover{
+border-color:var(--accent);
+background:rgba(255,255,255,0.03);
+}
+
+.section{
+padding:
+140px 0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:
+repeat(12,1fr);
+
+gap:50px;
+}
+
+.large{
+grid-column:span 7;
+}
+
+.small{
+grid-column:span 5;
+margin-top:120px;
+}
+
+.project-image{
+overflow:hidden;
+background:black;
+}
+
+.project-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.82;
+
+transition:1.5s ease;
+}
+
+.project-image:hover img{
+transform:scale(1.05);
+opacity:1;
+}
+
+.category{
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:var(--accent);
+
+margin-top:24px;
+}
+
+.project-title{
+font-family:'Cormorant Garamond',serif;
+font-size:42px;
+font-weight:300;
+
+margin-top:14px;
+}
+
+.project-description{
+margin-top:16px;
+line-height:1.8;
+color:#888;
+font-size:14px;
+}
+
+.quote{
+margin-top:120px;
+
+padding-left:30px;
+
+border-left:
+1px solid rgba(197,168,128,0.4);
+}
+
+.quote p{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(42px,5vw,90px);
+font-style:italic;
+font-weight:300;
+line-height:1;
+}
+
+.footer{
+padding:50px 0;
+
+border-top:
+1px solid rgba(255,255,255,0.05);
+
+text-align:center;
+
+font-size:11px;
+letter-spacing:0.2em;
+text-transform:uppercase;
+color:#666;
+}
+
+@media(max-width:900px){
+
+.nav-links{
+display:none;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.large,
+.small{
+grid-column:auto;
+margin-top:0;
+}
+
+.hero h1{
+font-size:58px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="container nav-wrapper">
+
+<a href="index.html" class="brand">
+
+<span class="brand-title">
+Montage Studios
+</span>
+
+<span class="brand-sub">
+Cinematic Storytelling Studio
+</span>
+
+</a>
+
+<nav class="nav-links">
+
+<a href="work.html">
+Work
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<video autoplay muted loop playsinline>
+
+<source src="bg.mp4" type="video/mp4">
+
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<div class="label">
+Atmosphere Amplification Studio
+</div>
+
+<h1>
+We preserve the unwritten feeling of physical spaces.
+</h1>
+
+<p>
+Crafting immersive cinematic identities for boutique hospitality, editorial brands, and emotionally driven environments.
+</p>
+
+<div class="button-group">
+
+<a href="work.html" class="button button-outline">
+Explore the Archive
+</a>
+
+<a href="contact.html" class="button button-primary">
+Start a Project
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="grid">
+
+<div class="large">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop">
+
+</div>
+
+<div class="category">
+Hospitality
+</div>
+
+<h2 class="project-title">
+The Slow Living Aesthetic
+</h2>
+
+<p class="project-description">
+A cinematic study in architectural shadow and emotional pacing.
+</p>
+
+</div>
+
+<div class="small">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop">
+
+</div>
+
+<div class="category">
+Editorial
+</div>
+
+<h2 class="project-title">
+Ethereal Geometries
+</h2>
+
+<p class="project-description">
+Luxury spatial storytelling through cinematic stillness.
+</p>
+
+</div>
+
+</div>
+
+<div class="quote">
+
+<p>
+“Every interior space carries emotional atmosphere.”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+© 2026 Montage Studios
+
+</footer>
+
+</body>
+
+</html>
