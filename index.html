@@ -1,1 +1,516 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Montage Studios</title><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"><style>:root{--bg:#0D0D0D;--text:#E5E5E5;--accent:#C5A880}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:min(1400px,90%);margin:auto}.navbar{position:fixed;top:0;left:0;width:100%;padding:28px 0;z-index:999;background:rgba(0,0,0,.35);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05)}.nav-wrapper{display:flex;justify-content:space-between;align-items:center}.brand-title{font-family:'Cinzel',serif;font-size:28px;letter-spacing:.25em;text-transform:uppercase}.brand-sub{font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-top:5px}.nav-links{display:flex;gap:40px;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:#888}.nav-links a:hover{color:#fff}.hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;filter:contrast(1.2)}.overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.92))}.hero-content{position:relative;z-index:2;max-width:1200px;padding:0 20px}.label{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--accent)}.hero h1{font-family:'Cinzel',serif;font-size:clamp(78px,11vw,180px);font-weight:500;line-height:.9;margin-top:25px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 40px rgba(255,255,255,.08)}.hero p{max-width:760px;margin:35px auto 0;line-height:1.9;color:#9a9a9a;font-size:16px}.button-group{display:flex;justify-content:center;gap:18px;margin-top:50px;flex-wrap:wrap}.button{padding:18px 38px;font-size:10px;letter-spacing:.35em;text-transform:uppercase;transition:.6s ease}.button-primary{background:#fff;color:#000}.button-primary:hover{background:var(--accent)}.button-outline{border:1px solid rgba(255,255,255,.15)}.button-outline:hover{border-color:var(--accent);background:rgba(255,255,255,.03)}.section{padding:140px 0}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:50px}.large{grid-column:span 7}.small{grid-column:span 5;margin-top:120px}.project-image{overflow:hidden;background:#000}.project-image img{width:100%;height:100%;object-fit:cover;opacity:.78;transition:1.4s ease}.project-image:hover img{transform:scale(1.06);opacity:1}.category{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-top:24px}.project-title{font-family:'Cinzel',serif;font-size:42px;font-weight:400;margin-top:14px;letter-spacing:.08em}.project-description{margin-top:16px;line-height:1.8;color:#888;font-size:14px}.quote{margin-top:120px;padding-left:30px;border-left:1px solid rgba(197,168,128,.4)}.quote p{font-family:'Cinzel',serif;font-size:clamp(38px,4vw,72px);font-weight:400;line-height:1.2;letter-spacing:.04em}.footer{padding:50px 0;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#666}@media(max-width:900px){.nav-links{display:none}.grid{grid-template-columns:1fr}.large,.small{grid-column:auto;margin-top:0}.hero h1{font-size:68px;letter-spacing:.08em}}</style></head><body><header class="navbar"><div class="container nav-wrapper"><a href="index.html"><div class="brand-title">Montage Studios</div><div class="brand-sub">Cinematic Production House</div></a><nav class="nav-links"><a href="work.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header><section class="hero"><video autoplay muted loop playsinline><source src="bg.mp4" type="video/mp4"></video><div class="overlay"></div><div class="hero-content"><div class="label">Modern Cinematic Storytelling</div><h1>Montage Studios</h1><p>Montage Studios creates cinematic commercials, luxury brand films, high-retention reels, and editorial campaigns designed to dominate perception across modern digital culture.</p><div class="button-group"><a href="work.html" class="button button-outline">View Projects</a><a href="contact.html" class="button button-primary">Start a Project</a></div></div></section><section class="section"><div class="container"><div class="grid"><div class="large"><div class="project-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop"></div><div class="category">Commercial Production</div><h2 class="project-title">Luxury Motion Campaigns</h2><p class="project-description">Cinematic campaigns built for modern brands, fashion culture, music visuals, and premium digital storytelling.</p></div><div class="small"><div class="project-image"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop"></div><div class="category">Editorial Visuals</div><h2 class="project-title">Modern Brand Identity Films</h2><p class="project-description">Editorial production blending cinematic pacing, modern culture, and emotionally driven visual direction.</p></div></div><div class="quote"><p>“Attention is earned through emotion, not noise.”</p></div></div></section><footer class="footer">© 2026 Montage Studios</footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Montage Studios</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#0D0D0D;
+--text:#E5E5E5;
+--accent:#C5A880;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:min(1400px,90%);
+margin:auto;
+}
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:28px 0;
+z-index:999;
+
+background:rgba(0,0,0,0.35);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+}
+
+.nav-wrapper{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.brand-title{
+font-family:'Cinzel',serif;
+font-size:28px;
+letter-spacing:0.25em;
+text-transform:uppercase;
+}
+
+.brand-sub{
+font-size:9px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:var(--accent);
+margin-top:5px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:#888;
+}
+
+.nav-links a:hover{
+color:white;
+}
+
+.hero{
+position:relative;
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+text-align:center;
+}
+
+.hero video{
+position:absolute;
+inset:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+opacity:0.28;
+
+filter:contrast(1.2);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+to bottom,
+rgba(0,0,0,0.6),
+rgba(0,0,0,0.92)
+);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+
+max-width:1400px;
+
+padding:0 20px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.label{
+font-size:10px;
+letter-spacing:0.4em;
+text-transform:uppercase;
+color:var(--accent);
+
+margin-bottom:24px;
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+
+font-size:clamp(64px,8vw,140px);
+
+font-weight:500;
+
+line-height:1;
+
+letter-spacing:0.18em;
+
+text-transform:uppercase;
+
+text-shadow:
+0 0 40px rgba(255,255,255,0.08);
+
+white-space:nowrap;
+
+text-align:center;
+}
+
+.hero p{
+max-width:760px;
+
+margin:35px auto 0;
+
+line-height:1.9;
+
+color:#9a9a9a;
+
+font-size:16px;
+
+text-align:center;
+}
+
+.button-group{
+display:flex;
+justify-content:center;
+gap:18px;
+margin-top:50px;
+flex-wrap:wrap;
+}
+
+.button{
+padding:18px 38px;
+
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+
+transition:0.6s ease;
+}
+
+.button-primary{
+background:white;
+color:black;
+}
+
+.button-primary:hover{
+background:var(--accent);
+}
+
+.button-outline{
+border:
+1px solid rgba(255,255,255,0.15);
+}
+
+.button-outline:hover{
+border-color:var(--accent);
+background:rgba(255,255,255,0.03);
+}
+
+.section{
+padding:140px 0;
+}
+
+.grid{
+display:grid;
+
+grid-template-columns:
+repeat(12,1fr);
+
+gap:50px;
+}
+
+.large{
+grid-column:span 7;
+}
+
+.small{
+grid-column:span 5;
+margin-top:120px;
+}
+
+.project-image{
+overflow:hidden;
+background:black;
+}
+
+.project-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.78;
+
+transition:1.4s ease;
+}
+
+.project-image:hover img{
+transform:scale(1.06);
+opacity:1;
+}
+
+.category{
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
+color:var(--accent);
+
+margin-top:24px;
+}
+
+.project-title{
+font-family:'Cinzel',serif;
+font-size:42px;
+font-weight:400;
+
+margin-top:14px;
+
+letter-spacing:0.08em;
+}
+
+.project-description{
+margin-top:16px;
+line-height:1.8;
+color:#888;
+font-size:14px;
+}
+
+.quote{
+margin-top:120px;
+
+padding-left:30px;
+
+border-left:
+1px solid rgba(197,168,128,0.4);
+}
+
+.quote p{
+font-family:'Cinzel',serif;
+
+font-size:clamp(38px,4vw,72px);
+
+font-weight:400;
+
+line-height:1.2;
+
+letter-spacing:0.04em;
+}
+
+.footer{
+padding:50px 0;
+
+border-top:
+1px solid rgba(255,255,255,0.05);
+
+text-align:center;
+
+font-size:11px;
+letter-spacing:0.2em;
+text-transform:uppercase;
+color:#666;
+}
+
+@media(max-width:900px){
+
+.nav-links{
+display:none;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.large,
+.small{
+grid-column:auto;
+margin-top:0;
+}
+
+.hero h1{
+font-size:52px;
+
+letter-spacing:0.08em;
+
+white-space:normal;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="container nav-wrapper">
+
+<a href="index.html">
+
+<div class="brand-title">
+Montage Studios
+</div>
+
+<div class="brand-sub">
+Cinematic Production House
+</div>
+
+</a>
+
+<nav class="nav-links">
+
+<a href="work.html">
+Work
+</a>
+
+<a href="services.html">
+Services
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<video autoplay muted loop playsinline>
+
+<source src="bg.mp4" type="video/mp4">
+
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<div class="label">
+Modern Cinematic Storytelling
+</div>
+
+<h1>
+Montage Studios
+</h1>
+
+<p>
+Montage Studios creates cinematic commercials, luxury brand films, high-retention reels, and editorial campaigns designed to dominate perception across modern digital culture.
+</p>
+
+<div class="button-group">
+
+<a href="work.html" class="button button-outline">
+View Projects
+</a>
+
+<a href="contact.html" class="button button-primary">
+Start a Project
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="grid">
+
+<div class="large">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop">
+
+</div>
+
+<div class="category">
+Commercial Production
+</div>
+
+<h2 class="project-title">
+Luxury Motion Campaigns
+</h2>
+
+<p class="project-description">
+Cinematic campaigns built for modern brands, fashion culture, music visuals, and premium digital storytelling.
+</p>
+
+</div>
+
+<div class="small">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop">
+
+</div>
+
+<div class="category">
+Editorial Visuals
+</div>
+
+<h2 class="project-title">
+Modern Brand Identity Films
+</h2>
+
+<p class="project-description">
+Editorial production blending cinematic pacing, modern culture, and emotionally driven visual direction.
+</p>
+
+</div>
+
+</div>
+
+<div class="quote">
+
+<p>
+“Attention is earned through emotion, not noise.”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+© 2026 Montage Studios
+
+</footer>
+
+</body>
+
+</html>
