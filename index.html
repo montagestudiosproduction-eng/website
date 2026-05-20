@@ -1,23 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Montage Studios</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montage Studios — Cinematic Atmosphere & Storytelling</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+body{background:#0D0D0D;color:#E5E5E5;overflow-x:hidden;font-family:Inter,sans-serif;}
+html{scroll-behavior:smooth;}
+.reveal{opacity:0;transform:translateY(20px);transition:all 1s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+</style>
 </head>
-<body style="margin:0;overflow:hidden;font-family:Poppins;background:black;">
-<video autoplay muted loop playsinline style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.45;z-index:-2;">
+<body class="antialiased">
+<header class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/5">
+<div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+<a href="#" class="font-serif text-2xl tracking-widest uppercase text-white">Montage Studios</a>
+<nav class="hidden md:flex space-x-12 text-xs tracking-widest uppercase text-neutral-400">
+<a href="#philosophy" class="hover:text-white transition">Philosophy</a>
+<a href="#portfolio" class="hover:text-white transition">Selected Works</a>
+<a href="#contact" class="hover:text-white transition">Initiate Dialogue</a>
+</nav>
+</div>
+</header>
+<section class="relative min-h-screen flex items-center justify-center pt-24 px-6 overflow-hidden">
+<video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-30">
 <source src="bg.mp4" type="video/mp4">
 </video>
-<div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;position:relative;z-index:2;padding:0 20px;">
-<h1 style="font-size:clamp(60px, 10vw, 120px);font-weight:700;letter-spacing:-4px;line-height:0.9;margin:0;text-shadow:0 0 40px rgba(255,255,255,0.15);">
-Montage Studios
-</h1>
-<p style="font-size:clamp(18px, 2vw, 24px);opacity:0.7;margin-top:20px;font-weight:300;letter-spacing:2px;text-transform:uppercase;">
-Stories that Sell.
-</p>
-<button onmouseover="this.style.background='white';this.style.color='black';" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.color='white';" style="margin-top:40px;padding:16px 38px;border:1px solid rgba(255,255,255,0.3);border-radius:999px;background:rgba(255,255,255,0.08);color:white;font-size:16px;font-family:Poppins;cursor:pointer;transition:0.6s ease;">
-View Work
-</button>
+<div class="absolute inset-0 bg-black/60"></div>
+<div class="max-w-4xl text-center z-20 space-y-8">
+<span class="text-xs tracking-[0.3em] uppercase text-[#C5A880] inline-block reveal">Atmosphere Amplification Studio</span>
+<h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.1] text-white reveal" style="transition-delay:200ms;">We preserve the unwritten feeling of physical spaces.</h1>
+<p class="max-w-xl mx-auto text-sm sm:text-base font-light text-neutral-400 leading-relaxed tracking-wide reveal" style="transition-delay:400ms;">Crafting immersive cinematic identities for boutique hospitality and slow-living environments.</p>
+<div class="pt-4 reveal" style="transition-delay:600ms;">
+<a href="#portfolio" class="inline-block border border-neutral-700 hover:border-[#C5A880] px-8 py-4 text-xs tracking-widest uppercase text-white transition-all duration-500">Explore Visual Pacing</a>
 </div>
+</div>
+</section>
+<section id="portfolio" class="py-32 px-6 max-w-7xl mx-auto space-y-20">
+<div class="space-y-4">
+<span class="text-xs tracking-widest text-neutral-500 uppercase block">Selected Case Fragments</span>
+<h3 class="font-serif text-3xl sm:text-4xl font-light tracking-tight text-white">Immersive Atmospheric Transformations</h3>
+</div>
+</section>
+<footer class="py-12 px-6 border-t border-white/5 text-center text-neutral-600 text-xs tracking-widest">
+<p>&copy; 2026 Montage Studios. All Rights Reserved.</p>
+</footer>
+<script>
+const revealElements=document.querySelectorAll('.reveal');
+const checkReveal=()=>{const triggerBottom=window.innerHeight*0.85;revealElements.forEach(el=>{const boxTop=el.getBoundingClientRect().top;if(boxTop<triggerBottom){el.classList.add('active');}})};
+window.addEventListener('scroll',checkReveal);
+window.addEventListener('DOMContentLoaded',()=>{setTimeout(checkReveal,300);});
+</script>
 </body>
 </html>
