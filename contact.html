@@ -8,313 +8,236 @@
 
 <title>Contact — Montage Studios</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-html{
-scroll-behavior:smooth;
+:root{
+--bg:#0D0D0D;
+--text:#E5E5E5;
+--accent:#C5A880;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-margin:0;
-background:#050505;
-color:white;
-font-family:Poppins;
+background:var(--bg);
+color:var(--text);
+font-family:'Inter',sans-serif;
 overflow-x:hidden;
 }
 
-/* NAVBAR */
+a{
+text-decoration:none;
+color:inherit;
+}
 
-nav{
+.container{
+width:min(1200px,90%);
+margin:auto;
+}
+
+.navbar{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:22px 50px;
+padding:28px 0;
+z-index:999;
+
+background:rgba(0,0,0,0.35);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+}
+
+.nav-wrapper{
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-sizing:border-box;
-z-index:999;
-
-background:rgba(255,255,255,0.05);
-
-backdrop-filter:
-blur(30px)
-saturate(180%);
-
--webkit-backdrop-filter:
-blur(30px)
-saturate(180%);
-
-border-bottom:
-1px solid rgba(255,255,255,0.08);
 }
 
-.logo a{
-text-decoration:none;
-color:white;
-font-size:20px;
-font-weight:700;
-letter-spacing:-1px;
+.brand-title{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+letter-spacing:0.2em;
+text-transform:uppercase;
 }
 
 .nav-links{
 display:flex;
 gap:40px;
-font-size:13px;
-letter-spacing:2px;
+font-size:10px;
+letter-spacing:0.35em;
 text-transform:uppercase;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-opacity:0.8;
-transition:0.4s ease;
+color:#888;
 }
 
 .nav-links a:hover{
-opacity:1;
-transform:translateY(-2px);
+color:white;
 }
-
-/* HERO */
 
 .hero{
 padding:
-220px 10% 120px;
+220px 0 140px;
 }
 
-.hero-label{
-font-size:14px;
-letter-spacing:4px;
+.label{
+font-size:10px;
+letter-spacing:0.35em;
 text-transform:uppercase;
-opacity:0.5;
-margin-bottom:30px;
+color:var(--accent);
 }
 
 .hero h1{
-font-size:clamp(60px,9vw,130px);
-line-height:0.9;
-letter-spacing:-5px;
-margin:0;
-max-width:1000px;
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(60px,8vw,120px);
+font-weight:300;
+line-height:0.95;
+margin-top:25px;
+max-width:900px;
 }
 
 .hero p{
+max-width:700px;
 margin-top:30px;
-font-size:20px;
-line-height:1.7;
-opacity:0.65;
-max-width:720px;
+line-height:1.8;
+color:#888;
+font-size:15px;
 }
 
-/* CONTACT GRID */
-
 .contact-grid{
-padding:
-0 10% 140px;
-
 display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:40px;
+gap:80px;
+
+padding-bottom:140px;
 }
 
-/* INFO PANEL */
-
-.contact-info{
-padding:50px;
-border-radius:34px;
-
-background:
-rgba(255,255,255,0.04);
-
-border:
-1px solid rgba(255,255,255,0.08);
-
-backdrop-filter:
-blur(20px);
-}
-
-.contact-title{
-font-size:42px;
-font-weight:700;
-line-height:1;
-margin-bottom:30px;
-}
-
-.contact-desc{
-font-size:17px;
-line-height:1.8;
-opacity:0.68;
-margin-bottom:50px;
-}
-
-.contact-links{
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.contact-link{
-padding:20px 24px;
-border-radius:20px;
-
-background:
-rgba(255,255,255,0.04);
-
-border:
-1px solid rgba(255,255,255,0.08);
-
-text-decoration:none;
-color:white;
-
-transition:0.5s ease;
-}
-
-.contact-link:hover{
-transform:
-translateY(-4px);
-
-background:
-rgba(255,255,255,0.08);
-}
-
-.contact-link-title{
-font-size:13px;
-letter-spacing:3px;
-text-transform:uppercase;
-opacity:0.5;
-margin-bottom:10px;
-}
-
-.contact-link-value{
-font-size:22px;
-font-weight:600;
-}
-
-/* FORM */
-
-.form-box{
-padding:50px;
-border-radius:34px;
-
-background:
-rgba(255,255,255,0.04);
-
-border:
-1px solid rgba(255,255,255,0.08);
-
-backdrop-filter:
-blur(20px);
-}
-
-.form-title{
-font-size:42px;
-font-weight:700;
-margin-bottom:40px;
-}
-
-form{
-display:flex;
-flex-direction:column;
-gap:20px;
+.form-group{
+margin-bottom:28px;
 }
 
 input,
 textarea{
+width:100%;
 
-background:
-rgba(255,255,255,0.04);
+padding:22px;
+
+background:#151515;
 
 border:
-1px solid rgba(255,255,255,0.08);
-
-border-radius:20px;
-
-padding:20px;
+1px solid rgba(255,255,255,0.05);
 
 color:white;
-font-family:Poppins;
-font-size:15px;
 
-outline:none;
-
-transition:0.4s ease;
-}
-
-input:focus,
-textarea:focus{
-border:
-1px solid rgba(255,255,255,0.3);
-
-background:
-rgba(255,255,255,0.06);
+font-family:'Inter',sans-serif;
+font-size:14px;
 }
 
 textarea{
-min-height:160px;
+min-height:180px;
 resize:none;
 }
 
 button{
-margin-top:10px;
+margin-top:20px;
 
-padding:18px 40px;
+padding:18px 38px;
 
 border:none;
-border-radius:999px;
 
 background:white;
 color:black;
 
-font-size:16px;
-font-family:Poppins;
+font-size:10px;
+letter-spacing:0.35em;
+text-transform:uppercase;
 
 cursor:pointer;
 
-transition:0.5s ease;
+transition:0.6s ease;
 }
 
 button:hover{
-transform:
-translateY(-4px)
-scale(1.02);
+background:var(--accent);
 }
 
-/* MOBILE */
+.contact-info h2{
+font-family:'Cormorant Garamond',serif;
+font-size:54px;
+font-weight:300;
+margin-bottom:30px;
+}
+
+.contact-info p{
+line-height:1.9;
+color:#888;
+margin-bottom:18px;
+}
+
+.contact-links{
+margin-top:40px;
+
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.contact-links a{
+font-size:14px;
+color:#ccc;
+transition:0.5s ease;
+}
+
+.contact-links a:hover{
+color:white;
+}
+
+.footer{
+padding:50px 0;
+
+border-top:
+1px solid rgba(255,255,255,0.05);
+
+text-align:center;
+
+font-size:11px;
+letter-spacing:0.2em;
+text-transform:uppercase;
+color:#666;
+}
 
 @media(max-width:900px){
 
-nav{
-padding:20px 24px;
-}
-
 .nav-links{
-gap:18px;
-font-size:10px;
+display:none;
 }
 
 .hero{
 padding:
-180px 7% 100px;
+180px 0 100px;
 }
 
 .contact-grid{
-padding:
-0 7% 100px;
-
-grid-template-columns:
-1fr;
+grid-template-columns:1fr;
 }
 
-.contact-info,
-.form-box{
-padding:36px;
+.contact-info h2{
+font-size:42px;
 }
 
 }
@@ -325,19 +248,19 @@ padding:36px;
 
 <body>
 
-<nav>
+<header class="navbar">
 
-<div class="logo">
+<div class="container nav-wrapper">
+
 <a href="index.html">
-Montage®
-</a>
+
+<div class="brand-title">
+Montage Studios
 </div>
 
-<div class="nav-links">
-
-<a href="index.html">
-Home
 </a>
+
+<nav class="nav-links">
 
 <a href="work.html">
 Work
@@ -347,105 +270,115 @@ Work
 Services
 </a>
 
-</div>
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
 
 </nav>
 
+</div>
+
+</header>
+
+<main class="container">
+
 <section class="hero">
 
-<div class="hero-label">
-Contact
+<div class="label">
+Begin the Conversation
 </div>
 
 <h1>
-Let’s build something visually unforgettable.
+Your visual identity should feel unforgettable.
 </h1>
 
 <p>
-Whether you're launching a brand, scaling your social presence, or creating a cinematic campaign — Montage Studios helps modern brands stand out through visuals that actually make people stop.
+Share your vision, atmosphere, and emotional direction. Let’s build something cinematic together.
 </p>
 
 </section>
 
 <section class="contact-grid">
 
+<div>
+
+<div class="form-group">
+
+<input type="text" placeholder="Name">
+
+</div>
+
+<div class="form-group">
+
+<input type="text" placeholder="Brand">
+
+</div>
+
+<div class="form-group">
+
+<input type="email" placeholder="Email">
+
+</div>
+
+<div class="form-group">
+
+<textarea placeholder="Tell us about your vision..."></textarea>
+
+</div>
+
+<button>
+
+Start a Project
+
+</button>
+
+</div>
+
 <div class="contact-info">
 
-<div class="contact-title">
-Start a Conversation
-</div>
+<h2>
+Observation-First Communication
+</h2>
 
-<div class="contact-desc">
-We work with brands, creators, fashion labels, hospitality businesses, and modern companies looking to elevate their digital presence through cinematic storytelling.
-</div>
+<p>
+Montage Studios works with hospitality brands, editorial campaigns, luxury environments, and emotionally driven visual systems.
+</p>
+
+<p>
+Every collaboration begins through atmosphere, emotional clarity, and cinematic intention.
+</p>
 
 <div class="contact-links">
 
-<a href="#" class="contact-link">
-
-<div class="contact-link-title">
+<a href="#">
 Instagram
-</div>
-
-<div class="contact-link-value">
-@montagestudios
-</div>
-
 </a>
 
-<a href="#" class="contact-link">
-
-<div class="contact-link-title">
-Email
-</div>
-
-<div class="contact-link-value">
+<a href="#">
 hello@montagestudios.com
-</div>
-
 </a>
 
-<a href="#" class="contact-link">
-
-<div class="contact-link-title">
+<a href="#">
 WhatsApp
-</div>
-
-<div class="contact-link-value">
-Start Chat →
-</div>
-
 </a>
 
 </div>
-
-</div>
-
-<div class="form-box">
-
-<div class="form-title">
-Project Inquiry
-</div>
-
-<form>
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Email Address">
-
-<input type="text" placeholder="Brand / Company">
-
-<textarea placeholder="Tell us about your project..."></textarea>
-
-<button type="submit">
-Send Inquiry
-</button>
-
-</form>
 
 </div>
 
 </section>
+
+</main>
+
+<footer class="footer">
+
+© 2026 Montage Studios
+
+</footer>
 
 </body>
 
