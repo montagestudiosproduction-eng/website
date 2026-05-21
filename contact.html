@@ -85,18 +85,19 @@ text-transform:uppercase;
 
 .book-btn{
 padding:14px 24px;
-border:1px solid rgba(255,255,255,.14);
+border:1px solid rgba(201,169,97,.22);
 border-radius:999px;
 font-size:10px;
 letter-spacing:.28em;
 text-transform:uppercase;
-background:rgba(255,255,255,.06);
+background:rgba(201,169,97,.10);
+color:#d8c28a;
 backdrop-filter:blur(10px);
 transition:.35s ease;
 }
 
 .book-btn:hover{
-background:#fff;
+background:#c9a961;
 color:#000;
 transform:translateY(-2px);
 }
@@ -205,7 +206,7 @@ width:100%;
 padding:18px;
 border:none;
 border-radius:999px;
-background:#fff;
+background:#c9a961;
 color:#000;
 font-size:12px;
 letter-spacing:.28em;
@@ -459,26 +460,26 @@ Montage<sup>®</sup>
 
 <script>
 
-const cursor = document.querySelector('.custom-cursor');
+const cursor=document.querySelector('.custom-cursor');
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove',(e)=>{
 
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
+cursor.style.left=e.clientX+'px';
+cursor.style.top=e.clientY+'px';
 
 });
 
-const hoverElements = document.querySelectorAll(
-'a, button, input, textarea'
+const hoverElements=document.querySelectorAll(
+'a,button,input,textarea'
 );
 
-hoverElements.forEach(el => {
+hoverElements.forEach(el=>{
 
-el.addEventListener('mouseenter', () => {
+el.addEventListener('mouseenter',()=>{
 cursor.classList.add('active');
 });
 
-el.addEventListener('mouseleave', () => {
+el.addEventListener('mouseleave',()=>{
 cursor.classList.remove('active');
 });
 
