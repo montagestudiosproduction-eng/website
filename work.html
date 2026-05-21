@@ -60,6 +60,7 @@ z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
+width:100%;
 }
 
 .logo{
@@ -68,12 +69,36 @@ font-weight:800;
 letter-spacing:-2px;
 }
 
+.nav-right{
+display:flex;
+align-items:center;
+gap:22px;
+}
+
 .nav-links{
 display:flex;
 gap:30px;
 font-size:11px;
 letter-spacing:.28em;
 text-transform:uppercase;
+}
+
+.book-btn{
+padding:14px 24px;
+border:1px solid rgba(255,255,255,.14);
+border-radius:999px;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
+transition:.35s ease;
+}
+
+.book-btn:hover{
+background:#fff;
+color:#000;
+transform:translateY(-2px);
 }
 
 /* HERO */
@@ -274,8 +299,17 @@ padding:22px 0;
 font-size:22px;
 }
 
+.nav-right{
+gap:12px;
+}
+
 .nav-links{
 gap:18px;
+font-size:7px;
+}
+
+.book-btn{
+padding:10px 14px;
 font-size:7px;
 }
 
@@ -362,11 +396,20 @@ font-size:40px;
 Montage<sup>®</sup>
 </a>
 
+<div class="nav-right">
+
 <nav class="nav-links">
-<a href="services.html">Services</a>
+<a href="work.html">Work</a>
 <a href="archive.html">Archive</a>
+<a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 </nav>
+
+<a href="contact.html" class="book-btn">
+Book Now
+</a>
+
+</div>
 
 </div>
 
@@ -443,8 +486,6 @@ A curated archive of cinematic campaigns, music visuals, luxury storytelling and
 
 <div class="project-grid">
 
-<!-- CARD -->
-
 <a href="project.html" class="project-card">
 
 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop">
@@ -473,8 +514,6 @@ Open Project
 
 </a>
 
-<!-- CARD -->
-
 <a href="project.html" class="project-card">
 
 <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop">
@@ -502,8 +541,6 @@ Open Project
 </div>
 
 </a>
-
-<!-- CARD -->
 
 <a href="project.html" class="project-card">
 
