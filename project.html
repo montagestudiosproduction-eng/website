@@ -1,1 +1,475 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Project — Montage Studios</title><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#fff;color:#000;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:min(1240px,92%);margin:auto}.navbar{position:fixed;top:0;left:0;width:100%;padding:24px 0;background:rgba(0,0,0,.28);backdrop-filter:blur(14px);z-index:999;border-bottom:1px solid rgba(255,255,255,.08)}.nav-wrapper{display:flex;justify-content:space-between;align-items:center}.logo{font-size:34px;font-weight:800;letter-spacing:-2px;color:#fff}.nav-links{display:flex;gap:30px;font-size:11px;letter-spacing:.28em;text-transform:uppercase}.nav-links a{color:#f0f0f0}.hero{position:relative;height:82vh;overflow:hidden;display:flex;align-items:flex-end}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.72))}.hero-content{position:relative;z-index:2;color:#fff;padding-bottom:70px}.hero-label{font-size:11px;letter-spacing:.45em;text-transform:uppercase;color:#d4d4d4}.hero h1{margin-top:18px;font-size:clamp(72px,10vw,180px);font-weight:800;line-height:.88;letter-spacing:-7px}.filter-bar{padding:28px 0;border-bottom:1px solid rgba(0,0,0,.06);background:#fff;position:sticky;top:0;z-index:100}.filter-title{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:#777}.body-section{padding:70px 0 120px}.project-row{display:grid;grid-template-columns:220px 1fr;gap:60px;padding:46px 0;border-bottom:1px solid rgba(0,0,0,.08);align-items:flex-start}.thumb{width:100%;height:160px;border-radius:20px;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover}.project-text h2{font-size:54px;font-weight:800;line-height:.92;letter-spacing:-3px}.project-note{margin-top:20px;font-size:16px;line-height:1.9;color:#555;max-width:760px}.project-meta{margin-top:22px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#000}.footer{padding:100px 0 60px;background:#000;color:#fff}.footer-logo{font-size:52px;font-weight:800;letter-spacing:-4px}.copyright{margin-top:60px;color:#777;font-size:14px}@media(max-width:768px){.navbar{padding:22px 0}.logo{font-size:22px}.nav-links{gap:18px;font-size:7px}.hero{height:64vh}.hero-content{padding-bottom:50px}.hero h1{font-size:74px;letter-spacing:-5px}.body-section{padding:40px 0 90px}.project-row{grid-template-columns:1fr;gap:22px;padding:34px 0}.thumb{height:220px}.project-text h2{font-size:42px;letter-spacing:-2px}.project-note{font-size:14px;line-height:1.8}.footer{padding:70px 0 50px}.footer-logo{font-size:40px}}</style></head><body><header class="navbar"><div class="container nav-wrapper"><div class="logo">Montage<sup>®</sup></div><nav class="nav-links"><a href="index.html">Home</a><a href="work.html">Work</a><a href="contact.html">Contact</a></nav></div></header><section class="hero"><video autoplay muted loop playsinline webkit-playsinline preload="auto"><source src="bg.mp4" type="video/mp4"></video><div class="overlay"></div><div class="container hero-content"><div class="hero-label">Case Study</div><h1>Veloura Sarees.</h1></div></section><section class="filter-bar"><div class="container"><div class="filter-title">Proud Projects</div></div></section><section class="body-section"><div class="container"><div class="project-row"><div class="thumb"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop"></div><div class="project-text"><h2>Project Overview</h2><p class="project-note">Luxury cinematic storytelling crafted to modernize traditional saree branding for digital-first audiences while maintaining emotional heritage and timeless visual elegance.</p><div class="project-meta">Campaign / Fashion / Luxury</div></div></div><div class="project-row"><div class="thumb"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop"></div><div class="project-text"><h2>Production Challenges</h2><p class="project-note">The entire production had to be executed within a single daylight window while preserving cinematic continuity across multiple locations and styling transitions.</p><div class="project-meta">Lighting / Scheduling / Direction</div></div></div><div class="project-row"><div class="thumb"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop"></div><div class="project-text"><h2>Behind The Scenes</h2><p class="project-note">A stripped-down agile production setup allowed the team to move rapidly while maintaining a premium visual language optimized for reels and campaign edits.</p><div class="project-meta">BTS / Workflow / Pipeline</div></div></div></div></section><footer class="footer"><div class="container"><div class="footer-logo">Montage<sup>®</sup></div><div class="copyright">© Montage Studios</div></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Project — Montage Studios</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="cursor.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#fff;
+      color:#000;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1240px,92%);
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:24px 0;
+      background:rgba(0,0,0,.28);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:999;
+    }
+
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:34px;
+      font-weight:800;
+      letter-spacing:-2px;
+      color:#fff;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+      font-size:11px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+    }
+
+    .nav-links a{
+      color:#f0f0f0;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      height:82vh;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+      to bottom,
+      rgba(0,0,0,.08),
+      rgba(0,0,0,.72)
+      );
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      color:#fff;
+      padding-bottom:70px;
+    }
+
+    .hero-label{
+      font-size:11px;
+      letter-spacing:.45em;
+      text-transform:uppercase;
+      color:#d4d4d4;
+    }
+
+    .hero h1{
+      margin-top:18px;
+      font-size:clamp(72px,10vw,180px);
+      font-weight:800;
+      line-height:.88;
+      letter-spacing:-7px;
+    }
+
+    /* SECTION */
+
+    .body-section{
+      padding:80px 0 120px;
+    }
+
+    .project-row{
+      display:grid;
+      grid-template-columns:240px 1fr;
+      gap:60px;
+      align-items:flex-start;
+      padding:52px 0;
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+
+    .thumb{
+      width:100%;
+      height:180px;
+      border-radius:22px;
+      overflow:hidden;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:.6s ease;
+    }
+
+    .project-row:hover img{
+      transform:scale(1.04);
+    }
+
+    .project-text h2{
+      font-size:58px;
+      font-weight:800;
+      line-height:.92;
+      letter-spacing:-4px;
+    }
+
+    .project-note{
+      margin-top:20px;
+      font-size:16px;
+      line-height:1.9;
+      color:#555;
+      max-width:760px;
+    }
+
+    .project-meta{
+      margin-top:24px;
+      font-size:11px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:#000;
+    }
+
+    /* FOOTER */
+
+    .footer{
+      padding:100px 0 60px;
+      background:#000;
+      color:#fff;
+    }
+
+    .footer-logo{
+      font-size:52px;
+      font-weight:800;
+      letter-spacing:-4px;
+    }
+
+    .copyright{
+      margin-top:60px;
+      color:#777;
+      font-size:14px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .navbar{
+        padding:22px 0;
+      }
+
+      .logo{
+        font-size:22px;
+      }
+
+      .nav-links{
+        gap:18px;
+        font-size:7px;
+      }
+
+      .hero{
+        height:64vh;
+      }
+
+      .hero-content{
+        padding-bottom:50px;
+      }
+
+      .hero h1{
+        font-size:74px;
+        letter-spacing:-5px;
+      }
+
+      .body-section{
+        padding:40px 0 90px;
+      }
+
+      .project-row{
+        grid-template-columns:1fr;
+        gap:24px;
+        padding:34px 0;
+      }
+
+      .thumb{
+        height:220px;
+      }
+
+      .project-text h2{
+        font-size:42px;
+        letter-spacing:-2px;
+      }
+
+      .project-note{
+        font-size:14px;
+        line-height:1.8;
+      }
+
+      .footer{
+        padding:70px 0 50px;
+      }
+
+      .footer-logo{
+        font-size:40px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- CUSTOM CURSOR -->
+
+  <div class="custom-cursor"></div>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <div class="container nav-wrapper">
+
+      <div class="logo">
+        Montage<sup>®</sup>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+
+      <source src="bg.mp4" type="video/mp4">
+
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="container hero-content">
+
+      <div class="hero-label">
+        Case Study
+      </div>
+
+      <h1>
+        Veloura Sarees.
+      </h1>
+
+    </div>
+
+  </section>
+
+  <!-- BODY -->
+
+  <section class="body-section">
+
+    <div class="container">
+
+      <!-- ROW -->
+
+      <div class="project-row">
+
+        <div class="thumb">
+
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+        <div class="project-text">
+
+          <h2>
+            Project Overview
+          </h2>
+
+          <p class="project-note">
+            Luxury cinematic storytelling crafted to modernize traditional saree branding for digital-first audiences while maintaining emotional heritage and timeless visual elegance.
+          </p>
+
+          <div class="project-meta">
+            Campaign / Fashion / Luxury
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ROW -->
+
+      <div class="project-row">
+
+        <div class="thumb">
+
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+        <div class="project-text">
+
+          <h2>
+            Production Challenges
+          </h2>
+
+          <p class="project-note">
+            The entire production had to be executed within a single daylight window while preserving cinematic continuity across multiple locations and styling transitions.
+          </p>
+
+          <div class="project-meta">
+            Lighting / Scheduling / Direction
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ROW -->
+
+      <div class="project-row">
+
+        <div class="thumb">
+
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+        <div class="project-text">
+
+          <h2>
+            Behind The Scenes
+          </h2>
+
+          <p class="project-note">
+            A stripped-down agile production setup allowed the team to move rapidly while maintaining a premium visual language optimized for reels and campaign edits.
+          </p>
+
+          <div class="project-meta">
+            BTS / Workflow / Pipeline
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-logo">
+        Montage<sup>®</sup>
+      </div>
+
+      <div class="copyright">
+        © Montage Studios
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- CURSOR SCRIPT -->
+
+  <script>
+
+    const cursor = document.querySelector('.custom-cursor');
+
+    document.addEventListener('mousemove', (e) => {
+
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+
+    });
+
+    const hoverElements = document.querySelectorAll(
+      'a, button, img, .project-row'
+    );
+
+    hoverElements.forEach(el => {
+
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>
