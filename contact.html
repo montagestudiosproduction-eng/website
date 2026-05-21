@@ -3,441 +3,461 @@
 
 <head>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Services — Montage Studios</title>
+<title>Contact — Montage Studios</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="cursor.css">
+<link rel="stylesheet" href="cursor.css">
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#000;
-      color:#fff;
-      overflow-x:hidden;
-    }
+body{
+font-family:'Inter',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-    .container{
-      width:min(1280px,92%);
-      margin:auto;
-    }
+.container{
+width:min(1280px,92%);
+margin:auto;
+}
 
-    /* NAVBAR */
+/* NAVBAR */
 
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:24px 0;
-      background:rgba(0,0,0,.28);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      z-index:999;
-    }
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:24px 0;
+background:rgba(0,0,0,.28);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
 
-    .nav-wrapper{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+.nav-wrapper{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-    .logo{
-      font-size:34px;
-      font-weight:800;
-      letter-spacing:-2px;
-    }
+.logo{
+font-size:34px;
+font-weight:800;
+letter-spacing:-2px;
+}
 
-    .nav-links{
-      display:flex;
-      gap:30px;
-      font-size:11px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-    }
+.nav-links{
+display:flex;
+gap:30px;
+font-size:11px;
+letter-spacing:.28em;
+text-transform:uppercase;
+}
 
-    /* HERO */
+/* HERO */
 
-    .hero{
-      padding:220px 0 120px;
-    }
+.hero{
+padding:220px 0 120px;
+}
 
-    .hero-label{
-      font-size:11px;
-      letter-spacing:.45em;
-      text-transform:uppercase;
-      color:#9d9d9d;
-    }
+.hero-label{
+font-size:11px;
+letter-spacing:.45em;
+text-transform:uppercase;
+color:#9d9d9d;
+}
 
-    .hero h1{
-      margin-top:20px;
-      font-size:clamp(72px,10vw,180px);
-      font-weight:800;
-      line-height:.88;
-      letter-spacing:-7px;
-    }
+.hero h1{
+margin-top:20px;
+font-size:clamp(72px,10vw,180px);
+font-weight:800;
+line-height:.88;
+letter-spacing:-7px;
+}
 
-    .hero p{
-      margin-top:26px;
-      max-width:760px;
-      font-size:18px;
-      line-height:1.9;
-      color:#cfcfcf;
-    }
+.hero p{
+margin-top:26px;
+max-width:760px;
+font-size:18px;
+line-height:1.9;
+color:#cfcfcf;
+}
 
-    /* SERVICES */
+/* CONTACT */
 
-    .services{
-      padding:0 0 120px;
-    }
+.contact-section{
+padding:0 0 120px;
+}
 
-    .service-card{
-      display:grid;
-      grid-template-columns:220px 1fr;
-      gap:60px;
-      padding:54px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:flex-start;
+}
 
-    .service-number{
-      font-size:13px;
-      letter-spacing:.3em;
-      text-transform:uppercase;
-      color:#8d8d8d;
-    }
+.contact-card{
+padding:40px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+background:#0d0d0d;
+}
 
-    .service-content h2{
-      font-size:56px;
-      font-weight:800;
-      line-height:.92;
-      letter-spacing:-4px;
-    }
+.contact-card h2{
+font-size:42px;
+font-weight:800;
+letter-spacing:-2px;
+}
 
-    .service-content p{
-      margin-top:22px;
-      max-width:760px;
-      font-size:16px;
-      line-height:1.9;
-      color:#cfcfcf;
-    }
+.contact-card p{
+margin-top:18px;
+font-size:16px;
+line-height:1.9;
+color:#cfcfcf;
+}
 
-    .service-tags{
-      margin-top:28px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
+.contact-links{
+margin-top:34px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
 
-    .tag{
-      padding:12px 18px;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:999px;
-      font-size:10px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      background:#111;
-    }
+.contact-links a{
+font-size:14px;
+letter-spacing:.28em;
+text-transform:uppercase;
+color:#fff;
+}
 
-    /* FOOTER */
+/* FORM */
 
-    .footer{
-      padding:100px 0 60px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+.form-group{
+margin-bottom:24px;
+}
 
-    .footer-logo{
-      font-size:52px;
-      font-weight:800;
-      letter-spacing:-4px;
-    }
+input,
+textarea{
+width:100%;
+padding:18px 20px;
+border:none;
+outline:none;
+background:#111;
+color:#fff;
+border-radius:18px;
+font-size:15px;
+}
 
-    .copyright{
-      margin-top:60px;
-      color:#777;
-      font-size:14px;
-    }
+textarea{
+min-height:160px;
+resize:none;
+}
 
-    /* MOBILE */
+.submit-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:999px;
+background:#fff;
+color:#000;
+font-size:12px;
+letter-spacing:.28em;
+text-transform:uppercase;
+cursor:pointer;
+transition:.4s ease;
+}
 
-    @media(max-width:768px){
+.submit-btn:hover{
+transform:translateY(-2px);
+}
 
-      .navbar{
-        padding:22px 0;
-      }
+/* FOOTER */
 
-      .logo{
-        font-size:22px;
-      }
+.footer{
+padding:100px 0 60px;
+border-top:1px solid rgba(255,255,255,.08);
+}
 
-      .nav-links{
-        gap:18px;
-        font-size:7px;
-      }
+.footer-logo{
+font-size:52px;
+font-weight:800;
+letter-spacing:-4px;
+}
 
-      .hero{
-        padding:170px 0 80px;
-      }
+.copyright{
+margin-top:60px;
+color:#777;
+font-size:14px;
+}
 
-      .hero h1{
-        font-size:74px;
-        letter-spacing:-5px;
-      }
+/* MOBILE */
 
-      .hero p{
-        font-size:15px;
-        line-height:1.8;
-      }
+@media(max-width:768px){
 
-      .services{
-        padding:0 0 90px;
-      }
+.navbar{
+padding:22px 0;
+}
 
-      .service-card{
-        grid-template-columns:1fr;
-        gap:24px;
-        padding:40px 0;
-      }
+.logo{
+font-size:22px;
+}
 
-      .service-content h2{
-        font-size:42px;
-        letter-spacing:-2px;
-      }
+.nav-links{
+gap:18px;
+font-size:7px;
+}
 
-      .service-content p{
-        font-size:14px;
-        line-height:1.8;
-      }
+.hero{
+padding:170px 0 80px;
+}
 
-      .footer{
-        padding:70px 0 50px;
-      }
+.hero h1{
+font-size:74px;
+letter-spacing:-5px;
+}
 
-      .footer-logo{
-        font-size:40px;
-      }
+.hero p{
+font-size:15px;
+line-height:1.8;
+}
 
-    }
+.contact-section{
+padding:0 0 90px;
+}
 
-  </style>
+.contact-grid{
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.contact-card{
+padding:28px;
+}
+
+.contact-card h2{
+font-size:34px;
+}
+
+.contact-card p{
+font-size:14px;
+}
+
+.footer{
+padding:70px 0 50px;
+}
+
+.footer-logo{
+font-size:40px;
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <!-- CUSTOM CURSOR -->
+<!-- CUSTOM CURSOR -->
 
-  <div class="custom-cursor"></div>
+<div class="custom-cursor"></div>
 
-  <!-- NAVBAR -->
+<!-- NAVBAR -->
 
-  <header class="navbar">
+<header class="navbar">
 
-    <div class="container nav-wrapper">
+<div class="container nav-wrapper">
 
-      <div class="logo">
-        Montage<sup>®</sup>
-      </div>
+<a href="index.html" class="logo">
+Montage<sup>®</sup>
+</a>
 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="work.html">Work</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<nav class="nav-links">
+<a href="work.html">Work</a>
+<a href="archive.html">Archive</a>
+<a href="services.html">Services</a>
+</nav>
 
-    </div>
+</div>
 
-  </header>
+</header>
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="container">
+<div class="container">
 
-      <div class="hero-label">
-        Services
-      </div>
+<div class="hero-label">
+Contact
+</div>
 
-      <h1>
-        What We Create.
-      </h1>
+<h1>
+Let’s Build Something Cinematic.
+</h1>
 
-      <p>
-        Cinematic visual systems engineered for modern brands, artists and businesses that want attention, emotion and retention across digital platforms.
-      </p>
+<p>
+Reach out for campaigns, brand films, music videos, commercials or creative collaborations engineered for modern attention.
+</p>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <!-- SERVICES -->
+<!-- CONTACT -->
 
-  <section class="services">
+<section class="contact-section">
 
-    <div class="container">
+<div class="container">
 
-      <!-- CARD -->
+<div class="contact-grid">
 
-      <div class="service-card">
+<!-- LEFT -->
 
-        <div class="service-number">
-          01
-        </div>
+<div class="contact-card">
 
-        <div class="service-content">
+<h2>
+Contact Info
+</h2>
 
-          <h2>
-            Brand Films
-          </h2>
+<p>
+Available for premium cinematic productions, branded storytelling and digital-first campaigns.
+</p>
 
-          <p>
-            Premium cinematic storytelling designed to establish emotional connection, visual identity and modern brand perception across digital campaigns.
-          </p>
+<div class="contact-links">
 
-          <div class="service-tags">
+<a href="#">
+Instagram
+</a>
 
-            <div class="tag">Commercial</div>
-            <div class="tag">Luxury</div>
-            <div class="tag">Campaign</div>
+<a href="#">
+Email
+</a>
 
-          </div>
+<a href="#">
+WhatsApp
+</a>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-      <!-- CARD -->
+<!-- RIGHT -->
 
-      <div class="service-card">
+<div class="contact-card">
 
-        <div class="service-number">
-          02
-        </div>
+<h2>
+Start a Project
+</h2>
 
-        <div class="service-content">
+<p>
+Share your idea, vision or business goal and let’s engineer a cinematic visual system around it.
+</p>
 
-          <h2>
-            Music Videos
-          </h2>
+<form>
 
-          <p>
-            Atmosphere-driven visuals crafted to amplify sound, emotion and artist identity through cinematic framing and movement.
-          </p>
+<div class="form-group">
 
-          <div class="service-tags">
+<input type="text" placeholder="Your Name">
 
-            <div class="tag">Artist</div>
-            <div class="tag">Performance</div>
-            <div class="tag">Narrative</div>
+</div>
 
-          </div>
+<div class="form-group">
 
-        </div>
+<input type="email" placeholder="Your Email">
 
-      </div>
+</div>
 
-      <!-- CARD -->
+<div class="form-group">
 
-      <div class="service-card">
+<textarea placeholder="Tell us about your project"></textarea>
 
-        <div class="service-number">
-          03
-        </div>
+</div>
 
-        <div class="service-content">
+<button class="submit-btn">
+Send Inquiry
+</button>
 
-          <h2>
-            Product Campaigns
-          </h2>
+</form>
 
-          <p>
-            Social-first product visuals optimized for engagement, retention and luxury perception across reels and advertising systems.
-          </p>
+</div>
 
-          <div class="service-tags">
+</div>
 
-            <div class="tag">Product</div>
-            <div class="tag">Reels</div>
-            <div class="tag">Ads</div>
+</div>
 
-          </div>
+</section>
 
-        </div>
+<!-- FOOTER -->
 
-      </div>
+<footer class="footer">
 
-    </div>
+<div class="container">
 
-  </section>
+<div class="footer-logo">
+Montage<sup>®</sup>
+</div>
 
-  <!-- FOOTER -->
+<div class="copyright">
+© Montage Studios
+</div>
 
-  <footer class="footer">
+</div>
 
-    <div class="container">
+</footer>
 
-      <div class="footer-logo">
-        Montage<sup>®</sup>
-      </div>
+<!-- CURSOR -->
 
-      <div class="copyright">
-        © Montage Studios
-      </div>
+<script>
 
-    </div>
+const cursor = document.querySelector('.custom-cursor');
 
-  </footer>
+document.addEventListener('mousemove', (e) => {
 
-  <!-- CURSOR SCRIPT -->
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
 
-  <script>
+});
 
-    const cursor = document.querySelector('.custom-cursor');
+const hoverElements = document.querySelectorAll(
+'a, button, input, textarea'
+);
 
-    document.addEventListener('mousemove', (e) => {
+hoverElements.forEach(el => {
 
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
+el.addEventListener('mouseenter', () => {
+cursor.classList.add('active');
+});
 
-    });
+el.addEventListener('mouseleave', () => {
+cursor.classList.remove('active');
+});
 
-    const hoverElements = document.querySelectorAll(
-      'a, button, .service-card'
-    );
+});
 
-    hoverElements.forEach(el => {
-
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('active');
-      });
-
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('active');
-      });
-
-    });
-
-  </script>
+</script>
 
 </body>
 
