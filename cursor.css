@@ -24,7 +24,8 @@ body{
 .custom-cursor.active{
   width:52px;
   height:52px;
-  background:rgba(255,255,255,.12);
+  background:rgba(201,169,97,.18);
+  border:1px solid rgba(201,169,97,.55);
 }
 
 @media(max-width:768px){
