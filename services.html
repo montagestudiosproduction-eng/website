@@ -60,6 +60,7 @@ z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
+width:100%;
 }
 
 .logo{
@@ -68,12 +69,36 @@ font-weight:800;
 letter-spacing:-2px;
 }
 
+.nav-right{
+display:flex;
+align-items:center;
+gap:22px;
+}
+
 .nav-links{
 display:flex;
 gap:30px;
 font-size:11px;
 letter-spacing:.28em;
 text-transform:uppercase;
+}
+
+.book-btn{
+padding:14px 24px;
+border:1px solid rgba(255,255,255,.14);
+border-radius:999px;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
+transition:.35s ease;
+}
+
+.book-btn:hover{
+background:#fff;
+color:#000;
+transform:translateY(-2px);
 }
 
 /* HERO */
@@ -189,8 +214,17 @@ padding:22px 0;
 font-size:22px;
 }
 
+.nav-right{
+gap:12px;
+}
+
 .nav-links{
 gap:18px;
+font-size:7px;
+}
+
+.book-btn{
+padding:10px 14px;
 font-size:7px;
 }
 
@@ -244,11 +278,7 @@ font-size:40px;
 
 <body>
 
-<!-- CUSTOM CURSOR -->
-
 <div class="custom-cursor"></div>
-
-<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -258,17 +288,24 @@ font-size:40px;
 Montage<sup>®</sup>
 </a>
 
+<div class="nav-right">
+
 <nav class="nav-links">
 <a href="work.html">Work</a>
 <a href="archive.html">Archive</a>
+<a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 </nav>
+
+<a href="contact.html" class="book-btn">
+Book Now
+</a>
+
+</div>
 
 </div>
 
 </header>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -290,13 +327,9 @@ Cinematic visual systems engineered for modern brands, artists and businesses th
 
 </section>
 
-<!-- SERVICES -->
-
 <section class="services">
 
 <div class="container">
-
-<!-- CARD -->
 
 <div class="service-card">
 
@@ -326,8 +359,6 @@ Premium cinematic storytelling designed to establish emotional connection, visua
 
 </div>
 
-<!-- CARD -->
-
 <div class="service-card">
 
 <div class="service-number">
@@ -355,8 +386,6 @@ Atmosphere-driven visuals crafted to amplify sound, emotion and artist identity 
 </div>
 
 </div>
-
-<!-- CARD -->
 
 <div class="service-card">
 
@@ -390,8 +419,6 @@ Social-first product visuals optimized for engagement, retention and luxury perc
 
 </section>
 
-<!-- FOOTER -->
-
 <footer class="footer">
 
 <div class="container">
@@ -407,8 +434,6 @@ Montage<sup>®</sup>
 </div>
 
 </footer>
-
-<!-- CURSOR -->
 
 <script>
 
