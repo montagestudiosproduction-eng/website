@@ -3,441 +3,441 @@
 
 <head>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Services — Montage Studios</title>
+<title>Services — Montage Studios</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="cursor.css">
+<link rel="stylesheet" href="cursor.css">
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#000;
-      color:#fff;
-      overflow-x:hidden;
-    }
+body{
+font-family:'Inter',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-    .container{
-      width:min(1280px,92%);
-      margin:auto;
-    }
+.container{
+width:min(1280px,92%);
+margin:auto;
+}
 
-    /* NAVBAR */
+/* NAVBAR */
 
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:24px 0;
-      background:rgba(0,0,0,.28);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      z-index:999;
-    }
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:24px 0;
+background:rgba(0,0,0,.28);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
 
-    .nav-wrapper{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+.nav-wrapper{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-    .logo{
-      font-size:34px;
-      font-weight:800;
-      letter-spacing:-2px;
-    }
+.logo{
+font-size:34px;
+font-weight:800;
+letter-spacing:-2px;
+}
 
-    .nav-links{
-      display:flex;
-      gap:30px;
-      font-size:11px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-    }
+.nav-links{
+display:flex;
+gap:30px;
+font-size:11px;
+letter-spacing:.28em;
+text-transform:uppercase;
+}
 
-    /* HERO */
+/* HERO */
 
-    .hero{
-      padding:220px 0 120px;
-    }
+.hero{
+padding:220px 0 120px;
+}
 
-    .hero-label{
-      font-size:11px;
-      letter-spacing:.45em;
-      text-transform:uppercase;
-      color:#9d9d9d;
-    }
+.hero-label{
+font-size:11px;
+letter-spacing:.45em;
+text-transform:uppercase;
+color:#9d9d9d;
+}
 
-    .hero h1{
-      margin-top:20px;
-      font-size:clamp(72px,10vw,180px);
-      font-weight:800;
-      line-height:.88;
-      letter-spacing:-7px;
-    }
+.hero h1{
+margin-top:20px;
+font-size:clamp(72px,10vw,180px);
+font-weight:800;
+line-height:.88;
+letter-spacing:-7px;
+}
 
-    .hero p{
-      margin-top:26px;
-      max-width:760px;
-      font-size:18px;
-      line-height:1.9;
-      color:#cfcfcf;
-    }
+.hero p{
+margin-top:26px;
+max-width:760px;
+font-size:18px;
+line-height:1.9;
+color:#cfcfcf;
+}
 
-    /* SERVICES */
+/* SERVICES */
 
-    .services{
-      padding:0 0 120px;
-    }
+.services{
+padding:0 0 120px;
+}
 
-    .service-card{
-      display:grid;
-      grid-template-columns:220px 1fr;
-      gap:60px;
-      padding:54px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+.service-card{
+display:grid;
+grid-template-columns:220px 1fr;
+gap:60px;
+padding:54px 0;
+border-top:1px solid rgba(255,255,255,.08);
+}
 
-    .service-number{
-      font-size:13px;
-      letter-spacing:.3em;
-      text-transform:uppercase;
-      color:#8d8d8d;
-    }
+.service-number{
+font-size:13px;
+letter-spacing:.3em;
+text-transform:uppercase;
+color:#8d8d8d;
+}
 
-    .service-content h2{
-      font-size:56px;
-      font-weight:800;
-      line-height:.92;
-      letter-spacing:-4px;
-    }
+.service-content h2{
+font-size:56px;
+font-weight:800;
+line-height:.92;
+letter-spacing:-4px;
+}
 
-    .service-content p{
-      margin-top:22px;
-      max-width:760px;
-      font-size:16px;
-      line-height:1.9;
-      color:#cfcfcf;
-    }
+.service-content p{
+margin-top:22px;
+max-width:760px;
+font-size:16px;
+line-height:1.9;
+color:#cfcfcf;
+}
 
-    .service-tags{
-      margin-top:28px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
+.service-tags{
+margin-top:28px;
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
 
-    .tag{
-      padding:12px 18px;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:999px;
-      font-size:10px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      background:#111;
-    }
+.tag{
+padding:12px 18px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+background:#111;
+}
 
-    /* FOOTER */
+/* FOOTER */
 
-    .footer{
-      padding:100px 0 60px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+.footer{
+padding:100px 0 60px;
+border-top:1px solid rgba(255,255,255,.08);
+}
 
-    .footer-logo{
-      font-size:52px;
-      font-weight:800;
-      letter-spacing:-4px;
-    }
+.footer-logo{
+font-size:52px;
+font-weight:800;
+letter-spacing:-4px;
+}
 
-    .copyright{
-      margin-top:60px;
-      color:#777;
-      font-size:14px;
-    }
+.copyright{
+margin-top:60px;
+color:#777;
+font-size:14px;
+}
 
-    /* MOBILE */
+/* MOBILE */
 
-    @media(max-width:768px){
+@media(max-width:768px){
 
-      .navbar{
-        padding:22px 0;
-      }
+.navbar{
+padding:22px 0;
+}
 
-      .logo{
-        font-size:22px;
-      }
+.logo{
+font-size:22px;
+}
 
-      .nav-links{
-        gap:18px;
-        font-size:7px;
-      }
+.nav-links{
+gap:18px;
+font-size:7px;
+}
 
-      .hero{
-        padding:170px 0 80px;
-      }
+.hero{
+padding:170px 0 80px;
+}
 
-      .hero h1{
-        font-size:74px;
-        letter-spacing:-5px;
-      }
+.hero h1{
+font-size:74px;
+letter-spacing:-5px;
+}
 
-      .hero p{
-        font-size:15px;
-        line-height:1.8;
-      }
+.hero p{
+font-size:15px;
+line-height:1.8;
+}
 
-      .services{
-        padding:0 0 90px;
-      }
+.services{
+padding:0 0 90px;
+}
 
-      .service-card{
-        grid-template-columns:1fr;
-        gap:24px;
-        padding:40px 0;
-      }
+.service-card{
+grid-template-columns:1fr;
+gap:24px;
+padding:40px 0;
+}
 
-      .service-content h2{
-        font-size:42px;
-        letter-spacing:-2px;
-      }
+.service-content h2{
+font-size:42px;
+letter-spacing:-2px;
+}
 
-      .service-content p{
-        font-size:14px;
-        line-height:1.8;
-      }
+.service-content p{
+font-size:14px;
+line-height:1.8;
+}
 
-      .footer{
-        padding:70px 0 50px;
-      }
+.footer{
+padding:70px 0 50px;
+}
 
-      .footer-logo{
-        font-size:40px;
-      }
+.footer-logo{
+font-size:40px;
+}
 
-    }
+}
 
-  </style>
+</style>
 
 </head>
 
 <body>
 
-  <!-- CUSTOM CURSOR -->
+<!-- CUSTOM CURSOR -->
 
-  <div class="custom-cursor"></div>
+<div class="custom-cursor"></div>
 
-  <!-- NAVBAR -->
+<!-- NAVBAR -->
 
-  <header class="navbar">
+<header class="navbar">
 
-    <div class="container nav-wrapper">
+<div class="container nav-wrapper">
 
-      <div class="logo">
-        Montage<sup>®</sup>
-      </div>
+<a href="index.html" class="logo">
+Montage<sup>®</sup>
+</a>
 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="work.html">Work</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<nav class="nav-links">
+<a href="work.html">Work</a>
+<a href="archive.html">Archive</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-    </div>
+</div>
 
-  </header>
+</header>
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="container">
+<div class="container">
 
-      <div class="hero-label">
-        Services
-      </div>
+<div class="hero-label">
+Services
+</div>
 
-      <h1>
-        What We Create.
-      </h1>
+<h1>
+What We Create.
+</h1>
 
-      <p>
-        Cinematic visual systems engineered for modern brands, artists and businesses that want attention, emotion and retention across digital platforms.
-      </p>
+<p>
+Cinematic visual systems engineered for modern brands, artists and businesses that want attention, emotion and retention across digital platforms.
+</p>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <!-- SERVICES -->
+<!-- SERVICES -->
 
-  <section class="services">
+<section class="services">
 
-    <div class="container">
+<div class="container">
 
-      <!-- CARD -->
+<!-- CARD -->
 
-      <div class="service-card">
+<div class="service-card">
 
-        <div class="service-number">
-          01
-        </div>
+<div class="service-number">
+01
+</div>
 
-        <div class="service-content">
+<div class="service-content">
 
-          <h2>
-            Brand Films
-          </h2>
+<h2>
+Brand Films
+</h2>
 
-          <p>
-            Premium cinematic storytelling designed to establish emotional connection, visual identity and modern brand perception across digital campaigns.
-          </p>
+<p>
+Premium cinematic storytelling designed to establish emotional connection, visual identity and modern brand perception across digital campaigns.
+</p>
 
-          <div class="service-tags">
+<div class="service-tags">
 
-            <div class="tag">Commercial</div>
-            <div class="tag">Luxury</div>
-            <div class="tag">Campaign</div>
+<div class="tag">Commercial</div>
+<div class="tag">Luxury</div>
+<div class="tag">Campaign</div>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-      <!-- CARD -->
+<!-- CARD -->
 
-      <div class="service-card">
+<div class="service-card">
 
-        <div class="service-number">
-          02
-        </div>
+<div class="service-number">
+02
+</div>
 
-        <div class="service-content">
+<div class="service-content">
 
-          <h2>
-            Music Videos
-          </h2>
+<h2>
+Music Videos
+</h2>
 
-          <p>
-            Atmosphere-driven visuals crafted to amplify sound, emotion and artist identity through cinematic framing and movement.
-          </p>
+<p>
+Atmosphere-driven visuals crafted to amplify sound, emotion and artist identity through cinematic framing and movement.
+</p>
 
-          <div class="service-tags">
+<div class="service-tags">
 
-            <div class="tag">Artist</div>
-            <div class="tag">Performance</div>
-            <div class="tag">Narrative</div>
+<div class="tag">Artist</div>
+<div class="tag">Performance</div>
+<div class="tag">Narrative</div>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-      <!-- CARD -->
+<!-- CARD -->
 
-      <div class="service-card">
+<div class="service-card">
 
-        <div class="service-number">
-          03
-        </div>
+<div class="service-number">
+03
+</div>
 
-        <div class="service-content">
+<div class="service-content">
 
-          <h2>
-            Product Campaigns
-          </h2>
+<h2>
+Product Campaigns
+</h2>
 
-          <p>
-            Social-first product visuals optimized for engagement, retention and luxury perception across reels and advertising systems.
-          </p>
+<p>
+Social-first product visuals optimized for engagement, retention and luxury perception across reels and advertising systems.
+</p>
 
-          <div class="service-tags">
+<div class="service-tags">
 
-            <div class="tag">Product</div>
-            <div class="tag">Reels</div>
-            <div class="tag">Ads</div>
+<div class="tag">Product</div>
+<div class="tag">Reels</div>
+<div class="tag">Ads</div>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
 
-  <footer class="footer">
+<footer class="footer">
 
-    <div class="container">
+<div class="container">
 
-      <div class="footer-logo">
-        Montage<sup>®</sup>
-      </div>
+<div class="footer-logo">
+Montage<sup>®</sup>
+</div>
 
-      <div class="copyright">
-        © Montage Studios
-      </div>
+<div class="copyright">
+© Montage Studios
+</div>
 
-    </div>
+</div>
 
-  </footer>
+</footer>
 
-  <!-- CURSOR SCRIPT -->
+<!-- CURSOR -->
 
-  <script>
+<script>
 
-    const cursor = document.querySelector('.custom-cursor');
+const cursor = document.querySelector('.custom-cursor');
 
-    document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', (e) => {
 
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
 
-    });
+});
 
-    const hoverElements = document.querySelectorAll(
-      'a, button, .service-card'
-    );
+const hoverElements = document.querySelectorAll(
+'a, button, .service-card'
+);
 
-    hoverElements.forEach(el => {
+hoverElements.forEach(el => {
 
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('active');
-      });
+el.addEventListener('mouseenter', () => {
+cursor.classList.add('active');
+});
 
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('active');
-      });
+el.addEventListener('mouseleave', () => {
+cursor.classList.remove('active');
+});
 
-    });
+});
 
-  </script>
+</script>
 
 </body>
 
