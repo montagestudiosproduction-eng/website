@@ -3,589 +3,590 @@
 
 <head>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Work — Montage Studios</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="cursor.css">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:'Inter',sans-serif;
-      background:#000;
-      color:#fff;
-      overflow-x:hidden;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .container{
-      width:min(1280px,92%);
-      margin:auto;
-    }
-
-    /* NAVBAR */
-
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:24px 0;
-      background:rgba(0,0,0,.28);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      z-index:999;
-    }
-
-    .nav-wrapper{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .logo{
-      font-size:34px;
-      font-weight:800;
-      letter-spacing:-2px;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:30px;
-      font-size:11px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-    }
-
-    /* HERO */
-
-    .hero{
-      position:relative;
-      height:76vh;
-      overflow:hidden;
-      display:flex;
-      align-items:flex-end;
-    }
-
-    .hero video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      opacity:.62;
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-      to bottom,
-      rgba(0,0,0,.1),
-      rgba(0,0,0,.75)
-      );
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      padding-bottom:70px;
-    }
-
-    .hero-label{
-      font-size:11px;
-      letter-spacing:.45em;
-      text-transform:uppercase;
-      color:#d4d4d4;
-    }
-
-    .hero h1{
-      margin-top:18px;
-      font-size:clamp(72px,10vw,180px);
-      font-weight:800;
-      line-height:.88;
-      letter-spacing:-7px;
-    }
-
-    /* INTRO */
-
-    .intro{
-      padding:70px 0 30px;
-    }
-
-    .intro p{
-      max-width:760px;
-      font-size:18px;
-      line-height:1.9;
-      color:#cfcfcf;
-    }
-
-    /* FILTERS */
-
-    .filters{
-      padding:20px 0 50px;
-    }
-
-    .filter-row{
-      display:flex;
-      gap:14px;
-      overflow-x:auto;
-    }
-
-    .filter-btn{
-      white-space:nowrap;
-      padding:14px 24px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:#111;
-      font-size:10px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-    }
-
-    /* PROJECT GRID */
-
-    .featured-projects{
-      padding:20px 0 120px;
-    }
-
-    .project-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:28px;
-    }
-
-    .project-card{
-      position:relative;
-      height:520px;
-      border-radius:28px;
-      overflow:hidden;
-    }
-
-    .project-card img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:.6s ease;
-    }
-
-    .project-card:hover img{
-      transform:scale(1.04);
-    }
-
-    .project-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-      to top,
-      rgba(0,0,0,.82),
-      rgba(0,0,0,.12)
-      );
-    }
-
-    .project-content{
-      position:absolute;
-      bottom:34px;
-      left:34px;
-      right:34px;
-    }
-
-    .project-category{
-      font-size:10px;
-      letter-spacing:.35em;
-      text-transform:uppercase;
-      color:#cfcfcf;
-    }
-
-    .project-title{
-      margin-top:16px;
-      font-size:44px;
-      font-weight:800;
-      line-height:.92;
-      letter-spacing:-3px;
-    }
-
-    .project-description{
-      margin-top:18px;
-      font-size:15px;
-      line-height:1.8;
-      color:#d7d7d7;
-    }
-
-    .project-link{
-      display:inline-flex;
-      margin-top:24px;
-      font-size:11px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      border-bottom:1px solid #fff;
-      padding-bottom:6px;
-    }
-
-    /* FOOTER */
-
-    .footer{
-      padding:100px 0 60px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-
-    .footer-logo{
-      font-size:52px;
-      font-weight:800;
-      letter-spacing:-4px;
-    }
-
-    .copyright{
-      margin-top:60px;
-      color:#777;
-      font-size:14px;
-    }
-
-    /* MOBILE */
-
-    @media(max-width:768px){
-
-      .navbar{
-        padding:22px 0;
-      }
-
-      .logo{
-        font-size:22px;
-      }
-
-      .nav-links{
-        gap:18px;
-        font-size:7px;
-      }
-
-      .hero{
-        height:62vh;
-      }
-
-      .hero-content{
-        padding-bottom:54px;
-      }
-
-      .hero h1{
-        font-size:74px;
-        letter-spacing:-5px;
-      }
-
-      .intro{
-        padding:50px 0 24px;
-      }
-
-      .intro p{
-        font-size:15px;
-        line-height:1.8;
-      }
-
-      .filters{
-        padding:12px 0 40px;
-      }
-
-      .filter-btn{
-        padding:12px 18px;
-        font-size:8px;
-      }
-
-      .featured-projects{
-        padding:10px 0 90px;
-      }
-
-      .project-card{
-        height:420px;
-      }
-
-      .project-content{
-        left:24px;
-        right:24px;
-        bottom:24px;
-      }
-
-      .project-title{
-        font-size:36px;
-      }
-
-      .project-description{
-        font-size:14px;
-      }
-
-      .footer{
-        padding:70px 0 50px;
-      }
-
-      .footer-logo{
-        font-size:40px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Work — Montage Studios</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="cursor.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:min(1280px,92%);
+margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:24px 0;
+background:rgba(0,0,0,.28);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.nav-wrapper{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:34px;
+font-weight:800;
+letter-spacing:-2px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+font-size:11px;
+letter-spacing:.28em;
+text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+height:76vh;
+overflow:hidden;
+display:flex;
+align-items:flex-end;
+}
+
+.hero video{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:.62;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,.1),
+rgba(0,0,0,.75)
+);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding-bottom:70px;
+}
+
+.hero-label{
+font-size:11px;
+letter-spacing:.45em;
+text-transform:uppercase;
+color:#d4d4d4;
+}
+
+.hero h1{
+margin-top:18px;
+font-size:clamp(72px,10vw,180px);
+font-weight:800;
+line-height:.88;
+letter-spacing:-7px;
+}
+
+/* INTRO */
+
+.intro{
+padding:70px 0 30px;
+}
+
+.intro p{
+max-width:760px;
+font-size:18px;
+line-height:1.9;
+color:#cfcfcf;
+}
+
+/* FILTERS */
+
+.filters{
+padding:20px 0 50px;
+}
+
+.filter-row{
+display:flex;
+gap:14px;
+overflow-x:auto;
+}
+
+.filter-btn{
+white-space:nowrap;
+padding:14px 24px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.08);
+background:#111;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+}
+
+/* PROJECT GRID */
+
+.featured-projects{
+padding:20px 0 120px;
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+}
+
+.project-card{
+position:relative;
+height:520px;
+border-radius:28px;
+overflow:hidden;
+}
+
+.project-card img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s ease;
+}
+
+.project-card:hover img{
+transform:scale(1.04);
+}
+
+.project-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(0,0,0,.82),
+rgba(0,0,0,.12)
+);
+}
+
+.project-content{
+position:absolute;
+bottom:34px;
+left:34px;
+right:34px;
+}
+
+.project-category{
+font-size:10px;
+letter-spacing:.35em;
+text-transform:uppercase;
+color:#cfcfcf;
+}
+
+.project-title{
+margin-top:16px;
+font-size:44px;
+font-weight:800;
+line-height:.92;
+letter-spacing:-3px;
+}
+
+.project-description{
+margin-top:18px;
+font-size:15px;
+line-height:1.8;
+color:#d7d7d7;
+}
+
+.project-link{
+display:inline-flex;
+margin-top:24px;
+font-size:11px;
+letter-spacing:.28em;
+text-transform:uppercase;
+border-bottom:1px solid #fff;
+padding-bottom:6px;
+}
+
+/* FOOTER */
+
+.footer{
+padding:100px 0 60px;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-logo{
+font-size:52px;
+font-weight:800;
+letter-spacing:-4px;
+}
+
+.copyright{
+margin-top:60px;
+color:#777;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.navbar{
+padding:22px 0;
+}
+
+.logo{
+font-size:22px;
+}
+
+.nav-links{
+gap:18px;
+font-size:7px;
+}
+
+.hero{
+height:62vh;
+}
+
+.hero-content{
+padding-bottom:54px;
+}
+
+.hero h1{
+font-size:74px;
+letter-spacing:-5px;
+}
+
+.intro{
+padding:50px 0 24px;
+}
+
+.intro p{
+font-size:15px;
+line-height:1.8;
+}
+
+.filters{
+padding:12px 0 40px;
+}
+
+.filter-btn{
+padding:12px 18px;
+font-size:8px;
+}
+
+.featured-projects{
+padding:10px 0 90px;
+}
+
+.project-card{
+height:420px;
+}
+
+.project-content{
+left:24px;
+right:24px;
+bottom:24px;
+}
+
+.project-title{
+font-size:36px;
+}
+
+.project-description{
+font-size:14px;
+}
+
+.footer{
+padding:70px 0 50px;
+}
+
+.footer-logo{
+font-size:40px;
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <!-- CUSTOM CURSOR -->
-  <div class="custom-cursor"></div>
+<!-- CUSTOM CURSOR -->
 
-  <!-- NAVBAR -->
+<div class="custom-cursor"></div>
 
-  <header class="navbar">
+<!-- NAVBAR -->
 
-    <div class="container nav-wrapper">
+<header class="navbar">
 
-      <div class="logo">
-        Montage<sup>®</sup>
-      </div>
+<div class="container nav-wrapper">
 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<a href="index.html" class="logo">
+Montage<sup>®</sup>
+</a>
 
-    </div>
+<nav class="nav-links">
+<a href="services.html">Services</a>
+<a href="archive.html">Archive</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-  </header>
+</div>
 
-  <!-- HERO -->
+</header>
 
-  <section class="hero">
+<!-- HERO -->
 
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+<section class="hero">
 
-      <source src="bg.mp4" type="video/mp4">
+<video autoplay muted loop playsinline webkit-playsinline preload="auto">
 
-    </video>
+<source src="bg.mp4" type="video/mp4">
 
-    <div class="overlay"></div>
+</video>
 
-    <div class="container hero-content">
+<div class="overlay"></div>
 
-      <div class="hero-label">
-        Montage Archive
-      </div>
+<div class="container hero-content">
 
-      <h1>
-        Selected Work.
-      </h1>
+<div class="hero-label">
+Montage Archive
+</div>
 
-    </div>
+<h1>
+Selected Work.
+</h1>
 
-  </section>
+</div>
 
-  <!-- INTRO -->
+</section>
 
-  <section class="intro">
+<!-- INTRO -->
 
-    <div class="container">
+<section class="intro">
 
-      <p>
-        A curated archive of cinematic campaigns, music visuals, luxury storytelling and modern brand films engineered for digital attention.
-      </p>
+<div class="container">
 
-    </div>
+<p>
+A curated archive of cinematic campaigns, music visuals, luxury storytelling and modern brand films engineered for digital attention.
+</p>
 
-  </section>
+</div>
 
-  <!-- FILTERS -->
+</section>
 
-  <section class="filters">
+<!-- FILTERS -->
 
-    <div class="container">
+<section class="filters">
 
-      <div class="filter-row">
+<div class="container">
 
-        <button class="filter-btn">All</button>
-        <button class="filter-btn">Music Videos</button>
-        <button class="filter-btn">Cafe</button>
-        <button class="filter-btn">Product</button>
-        <button class="filter-btn">Saree</button>
-        <button class="filter-btn">Fashion</button>
-        <button class="filter-btn">Luxury</button>
-        <button class="filter-btn">Commercial</button>
+<div class="filter-row">
 
-      </div>
+<button class="filter-btn">All</button>
+<button class="filter-btn">Music Videos</button>
+<button class="filter-btn">Cafe</button>
+<button class="filter-btn">Product</button>
+<button class="filter-btn">Saree</button>
+<button class="filter-btn">Fashion</button>
+<button class="filter-btn">Luxury</button>
+<button class="filter-btn">Commercial</button>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
-  <!-- PROJECT GRID -->
+</section>
 
-  <section class="featured-projects">
+<!-- PROJECT GRID -->
 
-    <div class="container">
+<section class="featured-projects">
 
-      <div class="project-grid">
+<div class="container">
 
-        <!-- CARD -->
+<div class="project-grid">
 
-        <a href="project.html" class="project-card">
+<!-- CARD -->
 
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop">
+<a href="project.html" class="project-card">
 
-          <div class="project-overlay"></div>
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop">
 
-          <div class="project-content">
+<div class="project-overlay"></div>
 
-            <div class="project-category">
-              Fashion / Campaign
-            </div>
+<div class="project-content">
 
-            <h2 class="project-title">
-              Veloura Sarees
-            </h2>
+<div class="project-category">
+Fashion / Campaign
+</div>
 
-            <p class="project-description">
-              Luxury cinematic storytelling crafted for modern digital fashion branding.
-            </p>
+<h2 class="project-title">
+Veloura Sarees
+</h2>
 
-            <div class="project-link">
-              Open Project
-            </div>
+<p class="project-description">
+Luxury cinematic storytelling crafted for modern digital fashion branding.
+</p>
 
-          </div>
+<div class="project-link">
+Open Project
+</div>
 
-        </a>
+</div>
 
-        <!-- CARD -->
+</a>
 
-        <a href="project.html" class="project-card">
+<!-- CARD -->
 
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop">
+<a href="project.html" class="project-card">
 
-          <div class="project-overlay"></div>
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop">
 
-          <div class="project-content">
+<div class="project-overlay"></div>
 
-            <div class="project-category">
-              Music Video
-            </div>
+<div class="project-content">
 
-            <h2 class="project-title">
-              Midnight Echo
-            </h2>
+<div class="project-category">
+Music Video
+</div>
 
-            <p class="project-description">
-              Atmospheric visuals engineered using immersive low-light production.
-            </p>
+<h2 class="project-title">
+Midnight Echo
+</h2>
 
-            <div class="project-link">
-              Open Project
-            </div>
+<p class="project-description">
+Atmospheric visuals engineered using immersive low-light production.
+</p>
 
-          </div>
+<div class="project-link">
+Open Project
+</div>
 
-        </a>
+</div>
 
-        <!-- CARD -->
+</a>
 
-        <a href="project.html" class="project-card">
+<!-- CARD -->
 
-          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop">
+<a href="project.html" class="project-card">
 
-          <div class="project-overlay"></div>
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop">
 
-          <div class="project-content">
+<div class="project-overlay"></div>
 
-            <div class="project-category">
-              Cafe / Commercial
-            </div>
+<div class="project-content">
 
-            <h2 class="project-title">
-              Noir Coffee
-            </h2>
+<div class="project-category">
+Cafe / Commercial
+</div>
 
-            <p class="project-description">
-              Social-first cinematic campaign optimized for modern reel retention.
-            </p>
+<h2 class="project-title">
+Noir Coffee
+</h2>
 
-            <div class="project-link">
-              Open Project
-            </div>
+<p class="project-description">
+Social-first cinematic campaign optimized for modern reel retention.
+</p>
 
-          </div>
+<div class="project-link">
+Open Project
+</div>
 
-        </a>
+</div>
 
-      </div>
+</a>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
-  <!-- FOOTER -->
+</section>
 
-  <footer class="footer">
+<!-- FOOTER -->
 
-    <div class="container">
+<footer class="footer">
 
-      <div class="footer-logo">
-        Montage<sup>®</sup>
-      </div>
+<div class="container">
 
-      <div class="copyright">
-        © Montage Studios
-      </div>
+<div class="footer-logo">
+Montage<sup>®</sup>
+</div>
 
-    </div>
+<div class="copyright">
+© Montage Studios
+</div>
 
-  </footer>
+</div>
 
-  <!-- CURSOR SCRIPT -->
+</footer>
 
-  <script>
+<!-- CURSOR -->
 
-    const cursor = document.querySelector('.custom-cursor');
+<script>
 
-    document.addEventListener('mousemove', (e) => {
+const cursor = document.querySelector('.custom-cursor');
 
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
+document.addEventListener('mousemove', (e) => {
 
-    });
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
 
-    const hoverElements = document.querySelectorAll(
-      'a, button, img, .work-card, .project-card'
-    );
+});
 
-    hoverElements.forEach(el => {
+const hoverElements = document.querySelectorAll(
+'a, button, img, .work-card, .project-card'
+);
 
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('active');
-      });
+hoverElements.forEach(el => {
 
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('active');
-      });
+el.addEventListener('mouseenter', () => {
+cursor.classList.add('active');
+});
 
-    });
+el.addEventListener('mouseleave', () => {
+cursor.classList.remove('active');
+});
 
-  </script>
+});
+
+</script>
 
 </body>
 
