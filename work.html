@@ -85,18 +85,19 @@ text-transform:uppercase;
 
 .book-btn{
 padding:14px 24px;
-border:1px solid rgba(255,255,255,.14);
+border:1px solid rgba(201,169,97,.22);
 border-radius:999px;
 font-size:10px;
 letter-spacing:.28em;
 text-transform:uppercase;
-background:rgba(255,255,255,.06);
+background:rgba(201,169,97,.10);
+color:#d8c28a;
 backdrop-filter:blur(10px);
 transition:.35s ease;
 }
 
 .book-btn:hover{
-background:#fff;
+background:#c9a961;
 color:#000;
 transform:translateY(-2px);
 }
@@ -382,11 +383,7 @@ font-size:40px;
 
 <body>
 
-<!-- CUSTOM CURSOR -->
-
 <div class="custom-cursor"></div>
-
-<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -415,8 +412,6 @@ Book Now
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
@@ -441,8 +436,6 @@ Selected Work.
 
 </section>
 
-<!-- INTRO -->
-
 <section class="intro">
 
 <div class="container">
@@ -454,8 +447,6 @@ A curated archive of cinematic campaigns, music visuals, luxury storytelling and
 </div>
 
 </section>
-
-<!-- FILTERS -->
 
 <section class="filters">
 
@@ -477,8 +468,6 @@ A curated archive of cinematic campaigns, music visuals, luxury storytelling and
 </div>
 
 </section>
-
-<!-- PROJECT GRID -->
 
 <section class="featured-projects">
 
@@ -576,8 +565,6 @@ Open Project
 
 </section>
 
-<!-- FOOTER -->
-
 <footer class="footer">
 
 <div class="container">
@@ -594,30 +581,28 @@ Montage<sup>®</sup>
 
 </footer>
 
-<!-- CURSOR -->
-
 <script>
 
-const cursor = document.querySelector('.custom-cursor');
+const cursor=document.querySelector('.custom-cursor');
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove',(e)=>{
 
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
+cursor.style.left=e.clientX+'px';
+cursor.style.top=e.clientY+'px';
 
 });
 
-const hoverElements = document.querySelectorAll(
-'a, button, img, .work-card, .project-card'
+const hoverElements=document.querySelectorAll(
+'a,button,img,.project-card'
 );
 
-hoverElements.forEach(el => {
+hoverElements.forEach(el=>{
 
-el.addEventListener('mouseenter', () => {
+el.addEventListener('mouseenter',()=>{
 cursor.classList.add('active');
 });
 
-el.addEventListener('mouseleave', () => {
+el.addEventListener('mouseleave',()=>{
 cursor.classList.remove('active');
 });
 
