@@ -25,6 +25,10 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Inter',sans-serif;
 background:#000;
@@ -85,18 +89,19 @@ text-transform:uppercase;
 
 .book-btn{
 padding:14px 24px;
-border:1px solid rgba(255,255,255,.14);
+border:1px solid rgba(201,169,97,.22);
 border-radius:999px;
 font-size:10px;
 letter-spacing:.28em;
 text-transform:uppercase;
-background:rgba(255,255,255,.06);
+background:rgba(201,169,97,.10);
+color:#d8c28a;
 backdrop-filter:blur(10px);
 transition:.35s ease;
 }
 
 .book-btn:hover{
-background:#fff;
+background:#c9a961;
 color:#000;
 transform:translateY(-2px);
 }
@@ -128,7 +133,7 @@ inset:0;
 background:linear-gradient(
 to bottom,
 rgba(0,0,0,.15),
-rgba(0,0,0,.75)
+rgba(0,0,0,.78)
 );
 }
 
@@ -462,40 +467,34 @@ font-size:42px;
 
 <body>
 
-<!-- CUSTOM CURSOR -->
-
 <div class="custom-cursor"></div>
-
-<!-- NAVBAR -->
 
 <header class="navbar">
 
-  <div class="container nav-wrapper">
+<div class="container nav-wrapper">
 
-    <a href="index.html" class="logo">
-      Montage<sup>®</sup>
-    </a>
+<a href="index.html" class="logo">
+Montage<sup>®</sup>
+</a>
 
-    <div class="nav-right">
+<div class="nav-right">
 
-      <nav class="nav-links">
-        <a href="work.html">Work</a>
-        <a href="archive.html">Archive</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<nav class="nav-links">
+<a href="work.html">Work</a>
+<a href="archive.html">Archive</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-      <a href="contact.html" class="book-btn">
-        Book Now
-      </a>
+<a href="contact.html" class="book-btn">
+Book Now
+</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </header>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -521,8 +520,6 @@ Cinematic Storytelling For Modern Brands.
 </div>
 
 </section>
-
-<!-- ABOUT -->
 
 <section class="about">
 
@@ -550,8 +547,6 @@ Montage Studios creates cinematic visual systems for modern brands, artists and 
 
 </section>
 
-<!-- BRANDS -->
-
 <section class="brands">
 
 <div class="container">
@@ -572,8 +567,6 @@ Brands We Worked With
 </div>
 
 </section>
-
-<!-- VISUAL GALLERY -->
 
 <section class="visual-gallery">
 
@@ -604,8 +597,6 @@ Explore
 
 </section>
 
-<!-- ARCHIVE -->
-
 <section class="archive">
 
 <div class="container">
@@ -626,8 +617,6 @@ View Projects
 
 </section>
 
-<!-- FOOTER -->
-
 <footer class="footer">
 
 <div class="container">
@@ -644,30 +633,28 @@ Montage<sup>®</sup>
 
 </footer>
 
-<!-- CURSOR -->
-
 <script>
 
-const cursor = document.querySelector('.custom-cursor');
+const cursor=document.querySelector('.custom-cursor');
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove',(e)=>{
 
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
+cursor.style.left=e.clientX+'px';
+cursor.style.top=e.clientY+'px';
 
 });
 
-const hoverElements = document.querySelectorAll(
-'a, button, img'
+const hoverElements=document.querySelectorAll(
+'a,button,img,.gallery-frame,.brand-box'
 );
 
-hoverElements.forEach(el => {
+hoverElements.forEach(el=>{
 
-el.addEventListener('mouseenter', () => {
+el.addEventListener('mouseenter',()=>{
 cursor.classList.add('active');
 });
 
-el.addEventListener('mouseleave', () => {
+el.addEventListener('mouseleave',()=>{
 cursor.classList.remove('active');
 });
 
