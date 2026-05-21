@@ -57,7 +57,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-transition:opacity 1.2s ease,visibility 1.2s ease;
+transition:opacity 1s ease,visibility 1s ease;
 }
 
 .loader.hide{
@@ -69,14 +69,14 @@ visibility:hidden;
 font-size:72px;
 font-weight:800;
 letter-spacing:-4px;
-animation:loaderPulse 2s ease infinite;
+animation:pulse 2s ease infinite;
 }
 
 .loader-line{
 width:180px;
 height:1px;
-background:rgba(255,255,255,.18);
-margin-top:26px;
+background:rgba(255,255,255,.12);
+margin-top:24px;
 overflow:hidden;
 position:relative;
 }
@@ -89,17 +89,13 @@ left:-100%;
 width:100%;
 height:100%;
 background:#c9a961;
-animation:loaderMove 2s ease infinite;
+animation:load 2s ease infinite;
 }
 
-@keyframes loaderMove{
+@keyframes load{
 
 0%{
 left:-100%;
-}
-
-50%{
-left:0%;
 }
 
 100%{
@@ -108,10 +104,10 @@ left:100%;
 
 }
 
-@keyframes loaderPulse{
+@keyframes pulse{
 
 0%{
-opacity:.45;
+opacity:.4;
 transform:scale(.98);
 }
 
@@ -121,18 +117,16 @@ transform:scale(1);
 }
 
 100%{
-opacity:.45;
+opacity:.4;
 transform:scale(.98);
 }
 
 }
 
-/* PAGE REVEAL */
-
 .page-content{
 opacity:0;
 transform:translateY(20px);
-transition:1.4s ease;
+transition:1.2s ease;
 }
 
 .page-content.show{
@@ -148,9 +142,9 @@ top:0;
 left:0;
 width:100%;
 padding:24px 0;
-background:rgba(0,0,0,.28);
-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,.08);
+background:rgba(0,0,0,.3);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.05);
 z-index:999;
 }
 
@@ -158,7 +152,6 @@ z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
-width:100%;
 }
 
 .logo{
@@ -170,7 +163,7 @@ letter-spacing:-2px;
 .nav-right{
 display:flex;
 align-items:center;
-gap:22px;
+gap:24px;
 }
 
 .nav-links{
@@ -183,21 +176,19 @@ text-transform:uppercase;
 
 .book-btn{
 padding:14px 24px;
-border:1px solid rgba(201,169,97,.22);
 border-radius:999px;
+border:1px solid rgba(201,169,97,.2);
+background:rgba(201,169,97,.08);
 font-size:10px;
 letter-spacing:.28em;
 text-transform:uppercase;
-background:rgba(201,169,97,.10);
-color:#d8c28a;
-backdrop-filter:blur(10px);
+color:#d5b56b;
 transition:.35s ease;
 }
 
 .book-btn:hover{
 background:#c9a961;
 color:#000;
-transform:translateY(-2px);
 }
 
 /* HERO */
@@ -218,7 +209,7 @@ inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
-opacity:.55;
+opacity:.5;
 }
 
 .hero-overlay{
@@ -226,16 +217,16 @@ position:absolute;
 inset:0;
 background:linear-gradient(
 to bottom,
-rgba(0,0,0,.15),
-rgba(0,0,0,.78)
+rgba(0,0,0,.1),
+rgba(0,0,0,.8)
 );
 }
 
 .hero-content{
 position:relative;
 z-index:2;
-max-width:1000px;
 padding:0 20px;
+max-width:1000px;
 }
 
 .hero h1{
@@ -250,8 +241,8 @@ margin-top:28px;
 font-size:18px;
 letter-spacing:.35em;
 text-transform:uppercase;
-color:#e0e0e0;
 line-height:1.8;
+color:#e4e4e4;
 }
 
 /* ABOUT */
@@ -265,44 +256,41 @@ color:#000;
 .about-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:80px;
+gap:70px;
 align-items:center;
 }
 
 .about h2{
-font-size:clamp(52px,6vw,110px);
+font-size:clamp(54px,6vw,110px);
 line-height:.9;
 font-weight:800;
 letter-spacing:-4px;
 }
 
 .about p{
-margin-top:24px;
+margin-top:26px;
 font-size:17px;
 line-height:1.9;
 color:#555;
 max-width:620px;
 }
 
-/* SLIDESHOW */
-
 .slideshow{
 position:relative;
 width:100%;
-height:850px;
+height:760px;
+border-radius:30px;
 overflow:hidden;
-border-radius:28px;
 }
 
 .slide{
 position:absolute;
-top:0;
-left:0;
+inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
 opacity:0;
-transition:opacity 1.2s ease-in-out;
+transition:opacity 1.6s ease;
 }
 
 .slide.active{
@@ -328,18 +316,18 @@ text-align:center;
 .brand-row{
 display:flex;
 justify-content:center;
-gap:60px;
+gap:50px;
 flex-wrap:wrap;
 }
 
 .brand-box{
-padding:20px 34px;
-border:1px solid rgba(255,255,255,.08);
+padding:18px 34px;
 border-radius:999px;
-font-size:12px;
+background:#0d0d0d;
+border:1px solid rgba(255,255,255,.06);
+font-size:11px;
 letter-spacing:.3em;
 text-transform:uppercase;
-background:#0f0f0f;
 }
 
 /* VISUAL GALLERY */
@@ -350,25 +338,23 @@ background:#000;
 }
 
 .gallery-frame{
-border:1px solid rgba(255,255,255,.08);
-border-radius:34px;
 padding:80px 50px;
-text-align:center;
+border-radius:34px;
 background:#0b0b0b;
-position:relative;
-overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+text-align:center;
 }
 
 .gallery-label{
 font-size:11px;
-letter-spacing:.45em;
+letter-spacing:.4em;
 text-transform:uppercase;
 color:#8f8f8f;
 }
 
 .gallery-frame h2{
-margin-top:26px;
-font-size:clamp(58px,8vw,130px);
+margin-top:24px;
+font-size:clamp(60px,8vw,130px);
 line-height:.9;
 letter-spacing:-5px;
 font-weight:800;
@@ -384,22 +370,20 @@ color:#cfcfcf;
 
 .gallery-btn{
 display:inline-flex;
-margin-top:42px;
+margin-top:40px;
 padding:18px 38px;
 border-radius:999px;
-border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 font-size:11px;
 letter-spacing:.3em;
 text-transform:uppercase;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(12px);
 transition:.35s ease;
 }
 
 .gallery-btn:hover{
 background:#fff;
 color:#000;
-transform:translateY(-2px);
 }
 
 /* ARCHIVE */
@@ -414,8 +398,8 @@ text-align:center;
 .archive h2{
 font-size:clamp(60px,8vw,140px);
 line-height:.9;
-font-weight:800;
 letter-spacing:-5px;
+font-weight:800;
 }
 
 .archive p{
@@ -428,20 +412,14 @@ color:#555;
 
 .archive-btn{
 display:inline-flex;
-margin-top:42px;
+margin-top:40px;
 padding:18px 38px;
 border-radius:999px;
-border:1px solid rgba(0,0,0,.08);
+background:#000;
+color:#fff;
 font-size:11px;
 letter-spacing:.3em;
 text-transform:uppercase;
-background:#000;
-color:#fff;
-transition:.35s ease;
-}
-
-.archive-btn:hover{
-transform:translateY(-2px);
 }
 
 /* FOOTER */
@@ -459,29 +437,39 @@ letter-spacing:-4px;
 }
 
 .footer-text{
-margin-top:50px;
-color:#777;
+margin-top:40px;
 font-size:14px;
+color:#777;
+}
+
+/* TABLET */
+
+@media(max-width:1024px){
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+.slideshow{
+height:620px;
+}
+
+.hero h1{
+font-size:110px;
+}
+
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.loader-logo{
-font-size:46px;
-}
-
 .navbar{
-padding:20px 0;
+padding:18px 0;
 }
 
 .logo{
 font-size:24px;
-}
-
-.nav-right{
-gap:12px;
 }
 
 .nav-links{
@@ -495,26 +483,20 @@ font-size:7px;
 }
 
 .hero h1{
-font-size:76px;
+font-size:72px;
 letter-spacing:-4px;
 }
 
 .hero p{
 font-size:12px;
-letter-spacing:.28em;
 }
 
 .about{
 padding:80px 0;
 }
 
-.about-grid{
-grid-template-columns:1fr;
-gap:40px;
-}
-
 .about h2{
-font-size:62px;
+font-size:60px;
 }
 
 .about p{
@@ -522,16 +504,12 @@ font-size:15px;
 }
 
 .slideshow{
-height:520px;
-}
-
-.visual-gallery{
-padding:80px 0;
+height:500px;
+border-radius:24px;
 }
 
 .gallery-frame{
-padding:60px 26px;
-border-radius:24px;
+padding:60px 24px;
 }
 
 .gallery-frame h2{
@@ -539,25 +517,9 @@ font-size:72px;
 letter-spacing:-3px;
 }
 
-.gallery-frame p{
-font-size:15px;
-}
-
-.archive{
-padding:80px 0;
-}
-
 .archive h2{
 font-size:72px;
 letter-spacing:-3px;
-}
-
-.archive p{
-font-size:15px;
-}
-
-.footer{
-padding:70px 0 50px;
 }
 
 .footer-logo{
@@ -572,6 +534,8 @@ font-size:42px;
 
 <body>
 
+<!-- LOADER -->
+
 <div class="loader">
 
 <div class="loader-logo">
@@ -581,6 +545,8 @@ Montage<sup>®</sup>
 <div class="loader-line"></div>
 
 </div>
+
+<!-- PAGE -->
 
 <div class="page-content">
 
@@ -615,7 +581,7 @@ Book Now
 
 <section class="hero">
 
-<video autoplay muted loop playsinline webkit-playsinline preload="auto">
+<video autoplay muted loop playsinline>
 
 <source src="bg.mp4" type="video/mp4">
 
@@ -654,6 +620,8 @@ Montage Studios creates cinematic visual systems for modern brands, artists and 
 
 </div>
 
+<div>
+
 <div class="slideshow">
 
 <img src="Photo1.webp" class="slide active">
@@ -661,6 +629,8 @@ Montage Studios creates cinematic visual systems for modern brands, artists and 
 <img src="Photo3.webp" class="slide">
 <img src="Photo4.webp" class="slide">
 <img src="Photo5.webp" class="slide">
+
+</div>
 
 </div>
 
@@ -817,7 +787,7 @@ currentSlide=(currentSlide+1)%slides.length;
 
 slides[currentSlide].classList.add('active');
 
-},3500);
+},3000);
 
 </script>
 
