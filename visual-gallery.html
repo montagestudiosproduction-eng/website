@@ -1,0 +1,454 @@
+# Montage Studios — Visual Gallery Page
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Gallery — Montage Studios</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, 1400px);
+      margin: auto;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 22px 0;
+      background: rgba(0,0,0,0.28);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+    }
+
+    .hero {
+      padding: 220px 0 120px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: #8f8f8f;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(68px, 10vw, 180px);
+      line-height: .9;
+      letter-spacing: -7px;
+      font-weight: 800;
+      max-width: 1000px;
+    }
+
+    .hero p {
+      margin-top: 28px;
+      max-width: 760px;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #c8c8c8;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 70px;
+    }
+
+    .filter-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: 10px;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: white;
+      color: black;
+    }
+
+    .gallery {
+      padding-bottom: 140px;
+    }
+
+    .gallery-grid {
+      columns: 3 320px;
+      column-gap: 22px;
+    }
+
+    .gallery-item {
+      position: relative;
+      margin-bottom: 22px;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #111;
+      break-inside: avoid;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform .7s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.86), rgba(0,0,0,.06));
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      opacity: 0;
+      transition: .35s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay h3 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .overlay p {
+      margin-top: 8px;
+      color: #d0d0d0;
+      font-size: 14px;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 100px 0 60px;
+    }
+
+    .footer-logo {
+      font-size: 58px;
+      font-weight: 800;
+      letter-spacing: -4px;
+    }
+
+    .footer-text {
+      margin-top: 50px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media(max-width: 768px) {
+      .navbar {
+        padding: 18px 0;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 7px;
+      }
+
+      .hero {
+        padding: 170px 0 80px;
+      }
+
+      .hero h1 {
+        font-size: 72px;
+        letter-spacing: -4px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .gallery-grid {
+        columns: 1;
+      }
+
+      .overlay {
+        opacity: 1;
+      }
+
+      .overlay h3 {
+        font-size: 22px;
+      }
+
+      .footer-logo {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Montage<sup>®</sup></a>
+
+      <nav class="nav-links">
+        <a href="work.html">Work</a>
+        <a href="archive.html">Archive</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-label">Visual Archive</div>
+
+      <h1>
+        Cinematic
+        Visual Gallery.
+      </h1>
+
+      <p>
+        A curated visual collection of cinematic moods, textures, compositions,
+        luxury aesthetics and storytelling frames crafted by Montage Studios.
+      </p>
+    </div>
+  </section>
+
+
+  <section class="container">
+    <div class="filter-row">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Fashion</button>
+      <button class="filter-btn">Luxury</button>
+      <button class="filter-btn">Portrait</button>
+      <button class="filter-btn">Travel</button>
+      <button class="filter-btn">Cafe</button>
+      <button class="filter-btn">Street</button>
+      <button class="filter-btn">Textures</button>
+    </div>
+  </section>
+
+
+  <section class="gallery">
+    <div class="container">
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Velvet Night</h3>
+              <p>Luxury fashion editorial</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Cafe Mood</h3>
+              <p>Warm cinematic storytelling</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Motion Blur</h3>
+              <p>Urban cinematic frames</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Golden Hour</h3>
+              <p>Texture & atmosphere</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Silent Roads</h3>
+              <p>Travel visual diary</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Portrait Study</h3>
+              <p>Human emotion & framing</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Luxury Frame</h3>
+              <p>Premium editorial aesthetic</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="overlay">
+            <div>
+              <h3>Atmospheric Nature</h3>
+              <p>Visual texture composition</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Montage<sup>®</sup></div>
+
+      <div class="footer-text">
+        © 2026 Montage Studios — Cinematic storytelling & visual experiences.
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
+
+# Suggested File Name
+
+```bash
+visual-gallery.html
+```
+
+# Placement Recommendation
+
+Add this page into:
+
+```bash
+/navbar
+/work section
+/archive section
+```
+
+This page works like:
+
+* brand moodboard
+* luxury visual identity showcase
+* cinematic inspiration archive
+* aesthetic proof of taste
+* client attraction page
+
+Basically the page that silently says:
+
+“yeah these guys know visuals.”
