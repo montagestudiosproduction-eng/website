@@ -60,6 +60,7 @@ z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
+width:100%;
 }
 
 .logo{
@@ -68,12 +69,36 @@ font-weight:800;
 letter-spacing:-2px;
 }
 
+.nav-right{
+display:flex;
+align-items:center;
+gap:22px;
+}
+
 .nav-links{
 display:flex;
 gap:30px;
 font-size:11px;
 letter-spacing:.28em;
 text-transform:uppercase;
+}
+
+.book-btn{
+padding:14px 24px;
+border:1px solid rgba(255,255,255,.14);
+border-radius:999px;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
+transition:.35s ease;
+}
+
+.book-btn:hover{
+background:#fff;
+color:#000;
+transform:translateY(-2px);
 }
 
 /* HERO */
@@ -224,8 +249,17 @@ padding:22px 0;
 font-size:22px;
 }
 
+.nav-right{
+gap:12px;
+}
+
 .nav-links{
 gap:18px;
+font-size:7px;
+}
+
+.book-btn{
+padding:10px 14px;
 font-size:7px;
 }
 
@@ -280,11 +314,7 @@ font-size:40px;
 
 <body>
 
-<!-- CUSTOM CURSOR -->
-
 <div class="custom-cursor"></div>
-
-<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -294,17 +324,24 @@ font-size:40px;
 Montage<sup>®</sup>
 </a>
 
+<div class="nav-right">
+
 <nav class="nav-links">
 <a href="work.html">Work</a>
 <a href="archive.html">Archive</a>
 <a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
 </nav>
+
+<a href="contact.html" class="book-btn">
+Book Now
+</a>
+
+</div>
 
 </div>
 
 </header>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -326,15 +363,11 @@ Reach out for campaigns, brand films, music videos, commercials or creative coll
 
 </section>
 
-<!-- CONTACT -->
-
 <section class="contact-section">
 
 <div class="container">
 
 <div class="contact-grid">
-
-<!-- LEFT -->
 
 <div class="contact-card">
 
@@ -363,8 +396,6 @@ WhatsApp
 </div>
 
 </div>
-
-<!-- RIGHT -->
 
 <div class="contact-card">
 
@@ -410,8 +441,6 @@ Send Inquiry
 
 </section>
 
-<!-- FOOTER -->
-
 <footer class="footer">
 
 <div class="container">
@@ -427,8 +456,6 @@ Montage<sup>®</sup>
 </div>
 
 </footer>
-
-<!-- CURSOR -->
 
 <script>
 
