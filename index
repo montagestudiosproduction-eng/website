@@ -572,8 +572,6 @@ font-size:42px;
 
 <body>
 
-<!-- LOADER -->
-
 <div class="loader">
 
 <div class="loader-logo">
@@ -583,8 +581,6 @@ Montage<sup>®</sup>
 <div class="loader-line"></div>
 
 </div>
-
-<!-- PAGE -->
 
 <div class="page-content">
 
@@ -794,11 +790,15 @@ const hoverElements=document.querySelectorAll(
 hoverElements.forEach(el=>{
 
 el.addEventListener('mouseenter',()=>{
+
 cursor.classList.add('active');
+
 });
 
 el.addEventListener('mouseleave',()=>{
+
 cursor.classList.remove('active');
+
 });
 
 });
