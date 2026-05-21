@@ -38,7 +38,7 @@ color:inherit;
 }
 
 .container{
-width:min(1280px,90%);
+width:min(1280px,92%);
 margin:auto;
 }
 
@@ -50,9 +50,9 @@ top:0;
 left:0;
 width:100%;
 padding:24px 0;
-border-bottom:1px solid rgba(255,255,255,.08);
-background:rgba(0,0,0,.22);
+background:rgba(0,0,0,.28);
 backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,.08);
 z-index:999;
 }
 
@@ -60,57 +60,66 @@ z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
+width:100%;
 }
 
 .logo{
-font-size:38px;
+font-size:34px;
 font-weight:800;
 letter-spacing:-2px;
 }
 
-.logo sup{
-font-size:12px;
-top:-1.5em;
+.nav-right{
+display:flex;
+align-items:center;
+gap:22px;
 }
 
 .nav-links{
 display:flex;
-gap:32px;
+gap:30px;
 font-size:11px;
 letter-spacing:.28em;
 text-transform:uppercase;
-color:#f0f0f0;
 }
 
-.nav-links a{
-transition:.4s ease;
+.book-btn{
+padding:14px 24px;
+border:1px solid rgba(255,255,255,.14);
+border-radius:999px;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
+transition:.35s ease;
 }
 
-.nav-links a:hover{
-color:#fff;
+.book-btn:hover{
+background:#fff;
+color:#000;
+transform:translateY(-2px);
 }
 
 /* HERO */
 
 .hero{
 position:relative;
-min-height:100vh;
+height:100vh;
+overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-overflow:hidden;
-padding:140px 20px 90px;
 }
 
-.hero-video{
+.hero video{
 position:absolute;
 inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
-opacity:.58;
-filter:brightness(1.12) contrast(1.05) saturate(1.05);
+opacity:.55;
 }
 
 .hero-overlay{
@@ -118,247 +127,237 @@ position:absolute;
 inset:0;
 background:linear-gradient(
 to bottom,
-rgba(0,0,0,.18),
-rgba(0,0,0,.48)
+rgba(0,0,0,.15),
+rgba(0,0,0,.75)
 );
 }
 
-.hero-inner{
+.hero-content{
 position:relative;
 z-index:2;
 max-width:1000px;
+padding:0 20px;
 }
 
 .hero h1{
-font-size:clamp(76px,11vw,180px);
+font-size:clamp(80px,10vw,180px);
 font-weight:800;
 line-height:.88;
-letter-spacing:-8px;
-text-shadow:0 0 30px rgba(0,0,0,.42);
+letter-spacing:-7px;
 }
 
 .hero p{
-margin-top:24px;
-font-size:13px;
-letter-spacing:.42em;
+margin-top:28px;
+font-size:18px;
+letter-spacing:.35em;
 text-transform:uppercase;
-color:#fff;
-padding:0 10px;
+color:#e0e0e0;
+line-height:1.8;
 }
 
-/* STATEMENT */
+/* ABOUT */
 
-.statement{
-padding:80px 0 45px;
+.about{
+padding:120px 0;
 background:#fff;
 color:#000;
-text-align:center;
 }
 
-.statement h2{
-font-size:clamp(28px,4vw,56px);
-font-weight:700;
-letter-spacing:-2px;
-max-width:900px;
-margin:auto;
-line-height:1.08;
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+.about h2{
+font-size:clamp(52px,6vw,110px);
+line-height:.9;
+font-weight:800;
+letter-spacing:-4px;
+}
+
+.about p{
+margin-top:24px;
+font-size:17px;
+line-height:1.9;
+color:#555;
+max-width:620px;
+}
+
+.about img{
+width:100%;
+border-radius:28px;
+object-fit:cover;
 }
 
 /* BRANDS */
 
 .brands{
-background:#fff;
-padding:10px 0 90px;
+padding:90px 0;
+background:#050505;
 }
 
-.brands-row{
+.brand-title{
+font-size:11px;
+letter-spacing:.35em;
+text-transform:uppercase;
+color:#8f8f8f;
+margin-bottom:40px;
+text-align:center;
+}
+
+.brand-row{
 display:flex;
 justify-content:center;
-gap:22px;
+gap:60px;
 flex-wrap:wrap;
 }
 
 .brand-box{
-width:90px;
-height:90px;
-border:1px solid rgba(0,0,0,.08);
-background:#fafafa;
-border-radius:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:11px;
-letter-spacing:.18em;
+padding:20px 34px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:999px;
+font-size:12px;
+letter-spacing:.3em;
 text-transform:uppercase;
-color:#777;
+background:#0f0f0f;
 }
 
 /* VISUAL GALLERY */
 
 .visual-gallery{
-background:#fff;
-padding:0 0 100px;
+padding:120px 0;
+background:#000;
 }
 
 .gallery-frame{
+border:1px solid rgba(255,255,255,.08);
+border-radius:34px;
+padding:80px 50px;
+text-align:center;
+background:#0b0b0b;
 position:relative;
-height:420px;
-border-radius:36px;
 overflow:hidden;
-background:#000;
-display:flex;
-align-items:center;
-justify-content:center;
 }
 
 .gallery-frame::before{
 content:'';
 position:absolute;
 inset:0;
-background:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop') center/cover;
-opacity:.42;
-transition:.6s ease;
+background:radial-gradient(circle at top, rgba(255,255,255,.08), transparent 60%);
+pointer-events:none;
 }
 
-.gallery-frame:hover::before{
-transform:scale(1.04);
-}
-
-.gallery-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,.1),
-rgba(0,0,0,.72)
-);
-}
-
-.gallery-content{
+.gallery-label{
+font-size:11px;
+letter-spacing:.45em;
+text-transform:uppercase;
+color:#8f8f8f;
 position:relative;
 z-index:2;
-text-align:center;
-padding:0 20px;
 }
 
-.gallery-content h3{
-font-size:clamp(44px,6vw,96px);
+.gallery-frame h2{
+margin-top:26px;
+font-size:clamp(58px,8vw,130px);
+line-height:.9;
+letter-spacing:-5px;
 font-weight:800;
-letter-spacing:-4px;
-line-height:.95;
+position:relative;
+z-index:2;
+}
+
+.gallery-frame p{
+margin:28px auto 0;
+max-width:760px;
+font-size:17px;
+line-height:1.9;
+color:#cfcfcf;
+position:relative;
+z-index:2;
 }
 
 .gallery-btn{
 display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:26px;
-padding:18px 36px;
+margin-top:42px;
+padding:18px 38px;
 border-radius:999px;
-border:1px solid rgba(255,255,255,.2);
+border:1px solid rgba(255,255,255,.12);
+font-size:11px;
+letter-spacing:.3em;
+text-transform:uppercase;
 background:rgba(255,255,255,.06);
-backdrop-filter:blur(8px);
-font-size:14px;
-transition:.4s ease;
+backdrop-filter:blur(12px);
+transition:.35s ease;
+position:relative;
+z-index:2;
 }
 
 .gallery-btn:hover{
 background:#fff;
 color:#000;
+transform:translateY(-2px);
 }
 
 /* ARCHIVE */
 
-.archive-section{
+.archive{
+padding:120px 0;
 background:#fff;
-padding:0 0 120px;
-}
-
-.archive-box{
-height:320px;
-border-radius:36px;
-background:#000;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-}
-
-.archive-box::before{
-content:'';
-position:absolute;
-inset:0;
-background:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop') center/cover;
-opacity:.35;
-}
-
-.archive-content{
-position:relative;
-z-index:2;
+color:#000;
 text-align:center;
-padding:0 20px;
 }
 
-.archive-content h3{
-font-size:clamp(44px,6vw,96px);
+.archive h2{
+font-size:clamp(60px,8vw,140px);
+line-height:.9;
 font-weight:800;
-letter-spacing:-4px;
-line-height:.95;
+letter-spacing:-5px;
+}
+
+.archive p{
+margin:28px auto 0;
+max-width:760px;
+font-size:18px;
+line-height:1.9;
+color:#555;
 }
 
 .archive-btn{
 display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:26px;
-padding:18px 36px;
+margin-top:42px;
+padding:18px 38px;
 border-radius:999px;
-border:1px solid rgba(255,255,255,.2);
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(8px);
-font-size:14px;
-transition:.4s ease;
+border:1px solid rgba(0,0,0,.08);
+font-size:11px;
+letter-spacing:.3em;
+text-transform:uppercase;
+background:#000;
+color:#fff;
+transition:.35s ease;
 }
 
 .archive-btn:hover{
-background:#fff;
-color:#000;
+transform:translateY(-2px);
 }
 
 /* FOOTER */
 
 .footer{
-padding:90px 0 60px;
+padding:100px 0 60px;
 background:#000;
+border-top:1px solid rgba(255,255,255,.08);
 }
 
 .footer-logo{
-font-size:54px;
+font-size:58px;
 font-weight:800;
 letter-spacing:-4px;
 }
 
-.footer-grid{
-margin-top:60px;
-display:grid;
-grid-template-columns:repeat(2,220px);
-gap:40px;
-}
-
-.footer-column{
-display:flex;
-flex-direction:column;
-gap:22px;
-}
-
-.footer-column a{
-color:#d0d0d0;
-font-size:17px;
-}
-
-.copyright{
-margin-top:90px;
+.footer-text{
+margin-top:50px;
 color:#777;
 font-size:14px;
 }
@@ -367,111 +366,84 @@ font-size:14px;
 
 @media(max-width:768px){
 
-.container{
-width:94%;
-}
-
 .navbar{
-padding:24px 0;
+padding:20px 0;
 }
 
 .logo{
-font-size:22px;
-letter-spacing:-1px;
+font-size:24px;
 }
 
-.logo sup{
-font-size:9px;
+.nav-right{
+gap:12px;
 }
 
 .nav-links{
-gap:22px;
+gap:14px;
 font-size:7px;
-letter-spacing:.28em;
 }
 
-.hero{
-padding:170px 18px 70px;
-min-height:92vh;
+.book-btn{
+padding:10px 14px;
+font-size:7px;
 }
 
 .hero h1{
-font-size:78px;
-line-height:.9;
-letter-spacing:-5px;
+font-size:76px;
+letter-spacing:-4px;
 }
 
 .hero p{
-margin-top:18px;
-font-size:10px;
-letter-spacing:.35em;
-line-height:1.8;
+font-size:12px;
+letter-spacing:.28em;
 }
 
-.statement{
-padding:65px 0 36px;
+.about{
+padding:80px 0;
 }
 
-.statement h2{
-font-size:34px;
-line-height:1.1;
-letter-spacing:-2px;
-padding:0 8px;
+.about-grid{
+grid-template-columns:1fr;
+gap:40px;
 }
 
-.brands{
-padding:0 0 70px;
+.about h2{
+font-size:62px;
 }
 
-.brands-row{
-gap:14px;
-}
-
-.brand-box{
-width:72px;
-height:72px;
-font-size:8px;
-border-radius:14px;
+.about p{
+font-size:15px;
 }
 
 .visual-gallery{
-padding:0 0 70px;
+padding:80px 0;
 }
 
 .gallery-frame{
-height:260px;
-border-radius:26px;
+padding:60px 26px;
+border-radius:24px;
 }
 
-.gallery-content h3{
-font-size:48px;
+.gallery-frame h2{
+font-size:72px;
 letter-spacing:-3px;
 }
 
-.gallery-btn{
-margin-top:18px;
-padding:15px 28px;
-font-size:11px;
+.gallery-frame p{
+font-size:15px;
 }
 
-.archive-section{
-padding:0 0 90px;
+.archive{
+padding:80px 0;
 }
 
-.archive-box{
-height:240px;
-border-radius:26px;
-}
-
-.archive-content h3{
-font-size:48px;
+.archive h2{
+font-size:72px;
 letter-spacing:-3px;
 }
 
-.archive-btn{
-margin-top:18px;
-padding:15px 28px;
-font-size:11px;
+.archive p{
+font-size:15px;
 }
 
 .footer{
@@ -480,25 +452,6 @@ padding:70px 0 50px;
 
 .footer-logo{
 font-size:42px;
-}
-
-.footer-grid{
-grid-template-columns:1fr 1fr;
-gap:26px;
-margin-top:42px;
-}
-
-.footer-column{
-gap:18px;
-}
-
-.footer-column a{
-font-size:14px;
-}
-
-.copyright{
-margin-top:60px;
-font-size:12px;
 }
 
 }
@@ -517,19 +470,28 @@ font-size:12px;
 
 <header class="navbar">
 
-<div class="container nav-wrapper">
+  <div class="container nav-wrapper">
 
-<a href="index.html" class="logo">
-Montage<sup>®</sup>
-</a>
+    <a href="index.html" class="logo">
+      Montage<sup>®</sup>
+    </a>
 
-<nav class="nav-links">
-<a href="work.html">Work</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-</nav>
+    <div class="nav-right">
 
-</div>
+      <nav class="nav-links">
+        <a href="work.html">Work</a>
+        <a href="archive.html">Archive</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a href="contact.html" class="book-btn">
+        Book Now
+      </a>
+
+    </div>
+
+  </div>
 
 </header>
 
@@ -537,7 +499,7 @@ Montage<sup>®</sup>
 
 <section class="hero">
 
-<video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture class="hero-video">
+<video autoplay muted loop playsinline webkit-playsinline preload="auto">
 
 <source src="bg.mp4" type="video/mp4">
 
@@ -545,7 +507,7 @@ Montage<sup>®</sup>
 
 <div class="hero-overlay"></div>
 
-<div class="hero-inner">
+<div class="hero-content">
 
 <h1>
 Montage<br>
@@ -553,22 +515,36 @@ Studios
 </h1>
 
 <p>
-Cinematic storytelling for modern brands.
+Cinematic Storytelling For Modern Brands.
 </p>
 
 </div>
 
 </section>
 
-<!-- STATEMENT -->
+<!-- ABOUT -->
 
-<section class="statement">
+<section class="about">
 
-<div class="container">
+<div class="container about-grid">
+
+<div>
 
 <h2>
-Crafting cinematic visuals for modern brands.
+Crafting Cinematic Visuals.
 </h2>
+
+<p>
+Montage Studios creates cinematic visual systems for modern brands, artists and businesses through emotionally driven storytelling, luxury framing and premium digital-first execution.
+</p>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop">
+
+</div>
 
 </div>
 
@@ -580,14 +556,16 @@ Crafting cinematic visuals for modern brands.
 
 <div class="container">
 
-<div class="brands-row">
+<div class="brand-title">
+Brands We Worked With
+</div>
 
-<div class="brand-box">Nike</div>
-<div class="brand-box">Sony</div>
-<div class="brand-box">A24</div>
-<div class="brand-box">BMW</div>
-<div class="brand-box">Meta</div>
-<div class="brand-box">Apple</div>
+<div class="brand-row">
+
+<div class="brand-box">Veloura</div>
+<div class="brand-box">Noir Cafe</div>
+<div class="brand-box">Aether</div>
+<div class="brand-box">Midnight Echo</div>
 
 </div>
 
@@ -603,13 +581,18 @@ Crafting cinematic visuals for modern brands.
 
 <div class="gallery-frame">
 
-<div class="gallery-overlay"></div>
-
-<div class="gallery-content">
-
-<h3>
+<div class="gallery-label">
 Visual Gallery
-</h3>
+</div>
+
+<h2>
+Explore<br>
+Visual Atmospheres
+</h2>
+
+<p>
+A cinematic archive of moods, textures, compositions and luxury visual storytelling crafted through the Montage Studios lens.
+</p>
 
 <a href="visual-gallery.html" class="gallery-btn">
 Explore
@@ -619,31 +602,25 @@ Explore
 
 </div>
 
-</div>
-
 </section>
 
 <!-- ARCHIVE -->
 
-<section class="archive-section">
+<section class="archive">
 
 <div class="container">
 
-<div class="archive-box">
+<h2>
+Explore The Archive
+</h2>
 
-<div class="archive-content">
-
-<h3>
-Explore the Archive
-</h3>
+<p>
+Dive into project breakdowns, production challenges, BTS moments and storytelling systems behind our cinematic work.
+</p>
 
 <a href="archive.html" class="archive-btn">
 View Projects
 </a>
-
-</div>
-
-</div>
 
 </div>
 
@@ -659,29 +636,8 @@ View Projects
 Montage<sup>®</sup>
 </div>
 
-<div class="footer-grid">
-
-<div class="footer-column">
-
-<a href="index.html">Home</a>
-<a href="work.html">Work</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-
-</div>
-
-<div class="footer-column">
-
-<a href="#">Instagram</a>
-<a href="#">Email</a>
-<a href="#">WhatsApp</a>
-
-</div>
-
-</div>
-
-<div class="copyright">
-© Montage Studios
+<div class="footer-text">
+© 2026 Montage Studios — Cinematic storytelling & visual experiences.
 </div>
 
 </div>
@@ -702,7 +658,7 @@ cursor.style.top = e.clientY + 'px';
 });
 
 const hoverElements = document.querySelectorAll(
-'a, button, img, .card, .project, .gallery-frame'
+'a, button, img'
 );
 
 hoverElements.forEach(el => {
