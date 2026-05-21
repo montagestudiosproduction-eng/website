@@ -36,6 +36,100 @@ color:#fff;
 overflow-x:hidden;
 }
 
+/* LOADER */
+
+.loader{
+position:fixed;
+inset:0;
+background:#000;
+z-index:999999;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+transition:opacity 1.2s ease,visibility 1.2s ease;
+}
+
+.loader.hide{
+opacity:0;
+visibility:hidden;
+}
+
+.loader-logo{
+font-size:72px;
+font-weight:800;
+letter-spacing:-4px;
+animation:loaderPulse 2s ease infinite;
+}
+
+.loader-line{
+width:180px;
+height:1px;
+background:rgba(255,255,255,.18);
+margin-top:26px;
+overflow:hidden;
+position:relative;
+}
+
+.loader-line::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:#c9a961;
+animation:loaderMove 2s ease infinite;
+}
+
+@keyframes loaderMove{
+
+0%{
+left:-100%;
+}
+
+50%{
+left:0%;
+}
+
+100%{
+left:100%;
+}
+
+}
+
+@keyframes loaderPulse{
+
+0%{
+opacity:.45;
+transform:scale(.98);
+}
+
+50%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:.45;
+transform:scale(.98);
+}
+
+}
+
+/* PAGE REVEAL */
+
+.page-content{
+opacity:0;
+transform:translateY(20px);
+transition:1.4s ease;
+}
+
+.page-content.show{
+opacity:1;
+transform:translateY(0);
+}
+
 a{
 text-decoration:none;
 color:inherit;
@@ -246,21 +340,11 @@ position:relative;
 overflow:hidden;
 }
 
-.gallery-frame::before{
-content:'';
-position:absolute;
-inset:0;
-background:radial-gradient(circle at top, rgba(255,255,255,.08), transparent 60%);
-pointer-events:none;
-}
-
 .gallery-label{
 font-size:11px;
 letter-spacing:.45em;
 text-transform:uppercase;
 color:#8f8f8f;
-position:relative;
-z-index:2;
 }
 
 .gallery-frame h2{
@@ -269,8 +353,6 @@ font-size:clamp(58px,8vw,130px);
 line-height:.9;
 letter-spacing:-5px;
 font-weight:800;
-position:relative;
-z-index:2;
 }
 
 .gallery-frame p{
@@ -279,8 +361,6 @@ max-width:760px;
 font-size:17px;
 line-height:1.9;
 color:#cfcfcf;
-position:relative;
-z-index:2;
 }
 
 .gallery-btn{
@@ -295,8 +375,6 @@ text-transform:uppercase;
 background:rgba(255,255,255,.06);
 backdrop-filter:blur(12px);
 transition:.35s ease;
-position:relative;
-z-index:2;
 }
 
 .gallery-btn:hover{
@@ -370,6 +448,10 @@ font-size:14px;
 /* MOBILE */
 
 @media(max-width:768px){
+
+.loader-logo{
+font-size:46px;
+}
 
 .navbar{
 padding:20px 0;
@@ -466,6 +548,22 @@ font-size:42px;
 </head>
 
 <body>
+
+<!-- LOADER -->
+
+<div class="loader">
+
+<div class="loader-logo">
+Montage<sup>®</sup>
+</div>
+
+<div class="loader-line"></div>
+
+</div>
+
+<!-- PAGE -->
+
+<div class="page-content">
 
 <div class="custom-cursor"></div>
 
@@ -633,7 +731,25 @@ Montage<sup>®</sup>
 
 </footer>
 
+</div>
+
 <script>
+
+/* LOADER */
+
+window.addEventListener('load',()=>{
+
+setTimeout(()=>{
+
+document.querySelector('.loader').classList.add('hide');
+
+document.querySelector('.page-content').classList.add('show');
+
+},1800);
+
+});
+
+/* CURSOR */
 
 const cursor=document.querySelector('.custom-cursor');
 
