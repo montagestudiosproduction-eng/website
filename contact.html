@@ -121,6 +121,7 @@ font-size:clamp(72px,10vw,180px);
 font-weight:800;
 line-height:.88;
 letter-spacing:-7px;
+max-width:1000px;
 }
 
 .hero p{
@@ -145,20 +146,26 @@ align-items:flex-start;
 }
 
 .contact-card{
-padding:40px;
+padding:42px;
 border:1px solid rgba(255,255,255,.08);
-border-radius:28px;
-background:#0d0d0d;
+border-radius:30px;
+background:linear-gradient(
+180deg,
+rgba(255,255,255,.03),
+rgba(255,255,255,.01)
+);
+backdrop-filter:blur(20px);
 }
 
 .contact-card h2{
-font-size:42px;
+font-size:52px;
 font-weight:800;
-letter-spacing:-2px;
+letter-spacing:-3px;
+line-height:.92;
 }
 
 .contact-card p{
-margin-top:18px;
+margin-top:20px;
 font-size:16px;
 line-height:1.9;
 color:#cfcfcf;
@@ -172,8 +179,8 @@ gap:18px;
 }
 
 .contact-links a{
-font-size:14px;
-letter-spacing:.28em;
+font-size:11px;
+letter-spacing:.32em;
 text-transform:uppercase;
 color:#fff;
 }
@@ -208,11 +215,12 @@ border:none;
 border-radius:999px;
 background:#c9a961;
 color:#000;
-font-size:12px;
+font-size:11px;
 letter-spacing:.28em;
 text-transform:uppercase;
 cursor:pointer;
-transition:.4s ease;
+transition:.35s ease;
+font-weight:600;
 }
 
 .submit-btn:hover{
@@ -292,7 +300,7 @@ padding:28px;
 }
 
 .contact-card h2{
-font-size:34px;
+font-size:38px;
 }
 
 .contact-card p{
@@ -370,33 +378,46 @@ Reach out for campaigns, brand films, music videos, commercials or creative coll
 
 <div class="contact-grid">
 
+<!-- LEFT CARD -->
+
 <div class="contact-card">
 
 <h2>
-Contact Info
+Start<br>
+Brainstorming
 </h2>
 
 <p>
-Available for premium cinematic productions, branded storytelling and digital-first campaigns.
+Book a consultation to understand what exactly you need and how much you should spend on your project before committing.
 </p>
 
 <div class="contact-links">
 
 <a href="#">
-Instagram
+Creative Direction
 </a>
 
 <a href="#">
-Email
+Budget Planning
 </a>
 
 <a href="#">
-WhatsApp
+Brand Positioning
+</a>
+
+<a href="#">
+Visual Strategy
 </a>
 
 </div>
 
+<a href="#" class="submit-btn" style="display:inline-flex;width:auto;margin-top:34px;padding:16px 30px;align-items:center;justify-content:center;">
+Connect Now
+</a>
+
 </div>
+
+<!-- RIGHT CARD -->
 
 <div class="contact-card">
 
