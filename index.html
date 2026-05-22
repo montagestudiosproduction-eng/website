@@ -313,29 +313,54 @@ margin-bottom:40px;
 text-align:center;
 }
 
+.brands{
+padding:90px 0;
+background:#050505;
+overflow:hidden;
+}
+
+.brand-title{
+font-size:11px;
+letter-spacing:.35em;
+text-transform:uppercase;
+color:#8f8f8f;
+margin-bottom:50px;
+text-align:center;
+}
+
 .brand-row{
 display:flex;
-justify-content:center;
 align-items:center;
-gap:60px;
-flex-wrap:wrap;
+gap:70px;
+width:max-content;
+animation:scrollBrands 30s linear infinite;
 }
 
 .brand-logo{
-height:34px;
-width:auto;
-opacity:.7;
-filter:grayscale(100%) brightness(1.2);
-transition:.4s ease;
-object-fit:contain;
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+flex-shrink:0;
+opacity:.9;
+transition:.3s ease;
+background:#111;
+padding:8px;
 }
 
 .brand-logo:hover{
+transform:scale(1.08);
 opacity:1;
-filter:grayscale(0%) brightness(1);
-transform:translateY(-2px) scale(1.04);
 }
 
+@keyframes scrollBrands{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
 /* VISUAL GALLERY */
 
 .visual-gallery{
@@ -653,6 +678,21 @@ Brands We Worked With
 </div>
 
 <div class="brand-row">
+
+<img src="L1.jpg" class="brand-logo">
+<img src="L2.jpg" class="brand-logo">
+<img src="L3.jpg" class="brand-logo">
+<img src="L4.jpg" class="brand-logo">
+<img src="L5.jpg" class="brand-logo">
+<img src="L6.jpg" class="brand-logo">
+<img src="L7.jpg" class="brand-logo">
+<img src="L8.jpg" class="brand-logo">
+<img src="L9.jpg" class="brand-logo">
+<img src="L10.jpg" class="brand-logo">
+<img src="L11.jpg" class="brand-logo">
+<img src="L12.jpg" class="brand-logo">
+<img src="L13.jpg" class="brand-logo">
+<img src="L14.jpg" class="brand-logo">
 
 <img src="L1.jpg" class="brand-logo">
 <img src="L2.jpg" class="brand-logo">
