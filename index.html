@@ -444,24 +444,37 @@ color:#000;
 
 .archive{
 padding:120px 0;
-background:#fff;
-color:#000;
+background:#000;
+color:#fff;
+}
+
+.archive .container{
+width:min(1280px,92%);
+margin:auto;
+}
+
+.archive-frame{
+padding:80px 50px;
+border-radius:34px;
+background:#0b0b0b;
+border:1px solid rgba(255,255,255,.08);
 text-align:center;
 }
 
-.archive h2{
-font-size:clamp(60px,8vw,140px);
+.archive-frame h2{
+margin-top:0;
+font-size:clamp(60px,8vw,130px);
 line-height:.9;
 letter-spacing:-5px;
 font-weight:800;
 }
 
-.archive p{
+.archive-frame p{
 margin:28px auto 0;
 max-width:760px;
-font-size:18px;
+font-size:17px;
 line-height:1.9;
-color:#555;
+color:#cfcfcf;
 }
 
 .archive-btn{
@@ -469,11 +482,289 @@ display:inline-flex;
 margin-top:40px;
 padding:18px 38px;
 border-radius:999px;
-background:#000;
-color:#fff;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 font-size:11px;
 letter-spacing:.3em;
 text-transform:uppercase;
+transition:.35s ease;
+}
+
+.archive-btn:hover{
+background:#fff;
+color:#000;
+}
+
+/* MOBILE */
+/* ==============================
+   CINEMATIC HUB
+   ============================== */
+
+.cinematic-hub{
+    position:relative;
+    min-height:900px;
+    padding:140px 0;
+    overflow:hidden;
+    background:#050505;
+    color:#f3f0e8;
+}
+
+
+/* BACKGROUND */
+
+.cinematic-hub-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+
+    background-image:url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2400&q=85");
+    background-size:cover;
+    background-position:center;
+
+    transform:scale(1.04);
+
+    filter:brightness(.55) saturate(.75);
+}
+
+
+/* DARK GLASS ATMOSPHERE */
+
+.cinematic-hub-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,255,255,.05),
+            transparent 55%
+        ),
+        rgba(0,0,0,.42);
+
+    backdrop-filter:blur(2px);
+}
+
+
+/* CARD CONTAINER */
+.cinematic-hub-content{
+    position:relative;
+    z-index:2;
+
+    width:min(1200px,90%);
+    min-height:620px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    column-gap:48px;
+}
+
+/* GLASS CARDS */
+
+.cinematic-card{
+    position:relative;
+
+     width:350px;
+     height:450px;
+     flex:0 0 350px;
+
+    box-sizing:border-box;
+
+    padding:38px;
+
+    display:flex;
+    flex-direction:column;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.075);
+
+    border:1px solid rgba(255,255,255,.16);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+
+    transition:
+        transform .45s cubic-bezier(.2,.7,.2,1),
+        background .4s ease,
+        box-shadow .4s ease;
+}
+/* CARD POSITIONS */
+
+.card-screening,
+.card-gallery,
+.card-archive{
+    transform:none;
+    position:relative;
+    z-index:2;
+}
+
+.card-gallery{
+    z-index:3;
+}
+
+
+/* CARD HOVER */
+
+.cinematic-card:hover{
+    background:rgba(255,255,255,.105);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+
+/* CARD INDEX */
+
+.card-index{
+    display:none;
+}
+
+/* CARD CONTENT */
+
+.card-content{
+    max-width:330px;
+}
+
+
+.card-label{
+    display:block;
+
+    margin-bottom:22px;
+
+    font-size:10px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+
+    color:#d4af5a;
+}
+
+.cinematic-card h2{
+    margin:0;
+
+    min-height:105px;
+
+    font-size:52px;
+    line-height:.92;
+    letter-spacing:-2px;
+
+    font-weight:700;
+
+    color:#f3f0e8;
+}
+.cinematic-card p{
+    margin:0;
+
+    min-height:78px;
+    max-width:280px;
+
+    font-size:13px;
+    line-height:1.7;
+
+    color:rgba(243,240,232,.68);
+}
+
+
+/* BUTTON */
+
+.cinematic-btn{
+    display:inline-flex;
+    align-items:center;
+
+    margin-top:auto;
+    padding:14px 22px;
+
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+
+    background:rgba(255,255,255,.055);
+
+    color:#f3f0e8;
+
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .35s ease;
+}
+
+
+.cinematic-btn:hover{
+    background:#d4af5a;
+    border-color:#d4af5a;
+
+    color:#050505;
+
+    transform:translateY(-3px);
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .cinematic-hub{
+        min-height:auto;
+        padding:100px 0;
+    }
+
+    .cinematic-hub-content{
+        min-height:auto;
+
+        display:flex;
+        flex-direction:column;
+
+        gap:24px;
+    }
+
+    .cinematic-card{
+        position:relative;
+
+        width:100%;
+        min-height:420px;
+
+        transform:none !important;
+    }
+
+    .cinematic-card:hover{
+        transform:translateY(-6px) !important;
+    }
+
+}
+
+@media(max-width:768px){
+
+.archive{
+padding:80px 0;
+}
+
+.archive-frame{
+padding:60px 24px;
+}
+
+.archive-frame h2{
+font-size:72px;
+letter-spacing:-3px;
+}
+
+.archive-frame p{
+font-size:15px;
+}
+
 }
 
 /* FOOTER */
@@ -613,6 +904,7 @@ Montage<sup>®</sup>
 <div class="nav-right">
 
 <nav class="nav-links">
+<a href="about.html">About</a>
 <a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 </nav>
@@ -731,49 +1023,96 @@ Brands We Worked With
 </div>
 
 </section>
-<section class="visual-gallery">
+<!-- CINEMATIC HUB -->
 
-<div class="container">
+<section class="cinematic-hub">
 
-<div class="gallery-frame">
+    <div class="cinematic-hub-bg"></div>
 
-<h2>
-Visual Gallery
-</h2>
+    <div class="cinematic-hub-overlay"></div>
 
-<p>
-A cinematic archive of moods, textures, compositions and luxury visual storytelling crafted through the Montage Studios lens.
-</p>
+    <div class="cinematic-hub-content">
 
-<a href="visual-gallery.html" class="gallery-btn">
-Explore Gallery ↗
-</a>
+        <div class="cinematic-card card-screening">
 
-</div>
+            <div class="card-index">01</div>
 
-</div>
+            <div class="card-content">
 
-</div>
+                <span class="card-label">WATCH</span>
 
-</section>
+                <h2>
+                    Screening<br>
+                    Room
+                </h2>
 
-<section class="archive">
+                <p>
+                    A selection of films, stories and visual worlds
+                    created through the Montage Studios lens.
+                </p>
 
-<div class="container">
+                <a href="work.html" class="cinematic-btn">
+                    Enter Screening Room ↗
+                </a>
 
-<h2>
-Explore The Archive
-</h2>
+            </div>
 
-<p>
-Dive into project breakdowns, production challenges, BTS moments and storytelling systems behind our cinematic work.
-</p>
+        </div>
 
-<a href="archive.html" class="archive-btn">
-View Projects
-</a>
 
-</div>
+        <div class="cinematic-card card-gallery">
+
+            <div class="card-index">02</div>
+
+            <div class="card-content">
+
+                <span class="card-label">EXPLORE</span>
+
+                <h2>
+                    Visual<br>
+                    Gallery
+                </h2>
+
+                <p>
+                    Moods, textures, compositions and visual
+                    storytelling.
+                </p>
+
+                <a href="visual-gallery.html" class="cinematic-btn">
+                    Explore Gallery ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="cinematic-card card-archive">
+
+            <div class="card-index">03</div>
+
+            <div class="card-content">
+
+                <span class="card-label">DISCOVER</span>
+
+                <h2>
+                    Archive
+                </h2>
+
+                <p>
+                    Project stories, production journeys,
+                    BTS moments and everything behind the frame.
+                </p>
+
+                <a href="archive.html" class="cinematic-btn">
+                    Enter Archive ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
