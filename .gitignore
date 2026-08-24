@@ -1,0 +1,8 @@
+.vscode/
+backups/
+hive/
+roster-backups/
+temp-ffmpeg/
+temp-git/
+temp-test/
+roster.json

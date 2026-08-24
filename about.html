@@ -6,6 +6,24 @@
 
 <title>About — Montage Studios</title>
 
+<meta name="description" content="Montage Studios is a visual production studio creating films, campaigns and visual experiences through considered cinematography, storytelling and production. Built around the story.">
+<link rel="canonical" href="https://themontagestudios.com/about.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="About — Montage Studios">
+<meta property="og:description" content="Montage Studios is a visual production studio creating films, campaigns and visual experiences through considered cinematography, storytelling and production. Built around the story.">
+<meta property="og:url" content="https://themontagestudios.com/about.html">
+<meta property="og:site_name" content="Montage Studios">
+<meta property="og:image" content="https://themontagestudios.com/Photo2.webp">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="cursor.css">
 
 <style>
@@ -522,25 +540,71 @@ a {
 
 
 /* =========================================================
-   FOOTER
+   FOOTER (UNIFIED LUXURY STYLE)
 ========================================================= */
 
 .footer {
     padding: 100px 0 60px;
     background: #000;
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    max-width: 320px;
 }
 
 .footer-logo {
-    font-size: 58px;
+    font-size: 42px;
     font-weight: 800;
-    letter-spacing: -4px;
+    letter-spacing: -2px;
+    color: #fff;
 }
 
-.footer-text {
-    margin-top: 40px;
+.footer-statement {
+    margin-top: 16px;
     font-size: 14px;
-    color: #777;
+    line-height: 1.7;
+    color: #888;
+}
+
+.footer-nav,
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-nav a,
+.footer-social a {
+    font-size: 11px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(243, 240, 232, 0.75);
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-nav a:hover,
+.footer-social a:hover {
+    color: #d4af5a;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 12px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: #555;
 }
 
 
@@ -587,7 +651,20 @@ a {
     .about-hero .container { flex-direction: column; gap: 40px; }
     .about-hero h1 { font-size: 56px; letter-spacing: -3px; }
     .create-list { grid-template-columns: 1fr; }
-    .footer-logo { font-size: 42px; }
+    .footer {
+        padding: 70px 0 40px;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 36px;
+    }
+    .footer-logo {
+        font-size: 32px;
+    }
+    .footer-bottom {
+        margin-top: 40px;
+        padding-top: 20px;
+    }
 }
 
 </style>
@@ -847,14 +924,31 @@ a {
 
 </main>
 
+<!-- UNIFIED LUXURY FOOTER -->
 <footer class="footer">
-    <div class="container">
-        <div class="footer-logo">
-            Montage<sup>®</sup>
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                Montage<sup>®</sup>
+            </div>
+            <p class="footer-statement">
+                Cinematic storytelling for modern brands.
+            </p>
         </div>
-        <div class="footer-text">
-            © 2026 Montage Studios — Cinematic storytelling & visual experiences.
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
         </div>
+        <div class="footer-social">
+            <a href="https://instagram.com/themontagestudios" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:themontagestudios@gmail.com">Email</a>
+            <a href="contact.html">WhatsApp</a>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p>© 2026 Montage Studios</p>
     </div>
 </footer>
 

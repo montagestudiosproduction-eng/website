@@ -8,6 +8,31 @@
 
 <title>Contact — Montage Studios</title>
 
+<meta name="description" content="Let's build something cinematic. Reach out to Montage Studios for campaigns, brand films, music videos, commercials or creative collaborations engineered for modern attention.">
+<link rel="canonical" href="https://themontagestudios.com/contact.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Montage Studios">
+<meta property="og:description" content="Let's build something cinematic. Reach out to Montage Studios for campaigns, brand films, music videos, commercials or creative collaborations engineered for modern attention.">
+<meta property="og:url" content="https://themontagestudios.com/contact.html">
+<meta property="og:site_name" content="Montage Studios">
+<meta property="og:image" content="https://themontagestudios.com/Photo5.webp">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Montage Studios",
+  "url": "https://themontagestudios.com/",
+  "email": "themontagestudios@gmail.com",
+  "sameAs": [
+    "https://instagram.com/themontagestudios"
+  ]
+}
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,64 +65,89 @@ color:inherit;
 .container{
 width:min(1280px,92%);
 margin:auto;
+}/* =========================================================
+   NAVBAR (UNIFIED LUXURY GLASS STYLE)
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 0;
+    background: rgba(5,5,5,0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 999;
 }
 
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:24px 0;
-background:rgba(0,0,0,.28);
-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,.08);
-z-index:999;
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(1280px, 92%);
+    margin: auto;
 }
 
-.nav-wrapper{
-display:flex;
-justify-content:space-between;
-align-items:center;
-width:100%;
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #f3f0e8;
+    text-decoration: none;
+    transition: opacity .3s ease;
 }
 
-.logo{
-font-size:34px;
-font-weight:800;
-letter-spacing:-2px;
+.logo:hover {
+    opacity: 0.8;
 }
 
-.nav-right{
-display:flex;
-align-items:center;
-gap:22px;
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
-.nav-links{
-display:flex;
-gap:30px;
-font-size:11px;
-letter-spacing:.28em;
-text-transform:uppercase;
+.nav-links {
+    display: flex;
+    gap: 36px;
+    font-size: 11px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(243,240,232,0.75);
 }
 
-.book-btn{
-padding:14px 24px;
-border:1px solid rgba(201,169,97,.22);
-border-radius:999px;
-font-size:10px;
-letter-spacing:.28em;
-text-transform:uppercase;
-background:rgba(201,169,97,.10);
-color:#d8c28a;
-backdrop-filter:blur(10px);
-transition:.35s ease;
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    transition: color .3s ease;
 }
 
-.book-btn:hover{
-background:#c9a961;
-color:#000;
-transform:translateY(-2px);
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d4af5a;
+}
+
+.book-btn {
+    padding: 12px 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(212,175,90,0.3);
+    background: rgba(212,175,90,0.08);
+    font-size: 10px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #d4af5a;
+    text-decoration: none;
+    transition: all .35s ease;
+}
+
+.book-btn:hover {
+    background: #d4af5a;
+    color: #050505;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212,175,90,0.25);
 }
 
 .hero{
@@ -238,46 +288,80 @@ font-weight:600;
 transform:translateY(-2px);
 }
 
-.footer{
-padding:100px 0 60px;
-border-top:1px solid rgba(255,255,255,.08);
+/* =========================================================
+   FOOTER (UNIFIED LUXURY STYLE)
+========================================================= */
+
+.footer {
+    padding: 100px 0 60px;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-logo{
-font-size:52px;
-font-weight:800;
-letter-spacing:-4px;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
-.copyright{
-margin-top:60px;
-color:#777;
-font-size:14px;
+.footer-brand {
+    max-width: 320px;
+}
+
+.footer-logo {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #fff;
+}
+
+.footer-statement {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #888;
+}
+
+.footer-nav,
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-nav a,
+.footer-social a {
+    font-size: 11px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(243, 240, 232, 0.75);
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-nav a:hover,
+.footer-social a:hover {
+    color: #d4af5a;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 12px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: #555;
 }
 
 @media(max-width:768px){
 
-.navbar{
-padding:22px 0;
-}
-
-.logo{
-font-size:22px;
-}
-
-.nav-right{
-gap:12px;
-}
-
-.nav-links{
-gap:18px;
-font-size:7px;
-}
-
-.book-btn{
-padding:10px 14px;
-font-size:7px;
-}
+.navbar { padding: 18px 0; }
+.logo { font-size: 22px; }
+.nav-links { gap: 14px; font-size: 7px; }
+.book-btn { padding: 10px 14px; font-size: 7px; }
 
 .hero{
 padding:170px 0 80px;
@@ -314,12 +398,19 @@ font-size:38px;
 font-size:14px;
 }
 
-.footer{
-padding:70px 0 50px;
+.footer {
+    padding: 70px 0 40px;
 }
-
-.footer-logo{
-font-size:40px;
+.footer-content {
+    flex-direction: column;
+    gap: 36px;
+}
+.footer-logo {
+    font-size: 32px;
+}
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
 }
 
 }
@@ -332,31 +423,24 @@ font-size:40px;
 
 <div class="custom-cursor"></div>
 
+<!-- UNIFIED LUXURY GLASS NAVBAR -->
 <header class="navbar">
-
-<div class="container nav-wrapper">
-
-<a href="index.html" class="logo">
-Montage<sup>®</sup>
-</a>
-
-<div class="nav-right">
-
-<nav class="nav-links">
-<a href="work.html">Work</a>
-<a href="archive.html">Archive</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-<a href="contact.html" class="book-btn">
-Book Now
-</a>
-
-</div>
-
-</div>
-
+    <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+            Montage<sup>®</sup>
+        </a>
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="work.html">Work</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <a href="contact.html" class="book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
 </header>
 
 <section class="hero">
@@ -466,20 +550,32 @@ Send Inquiry
 
 </section>
 
+<!-- UNIFIED LUXURY FOOTER -->
 <footer class="footer">
-
-<div class="container">
-
-<div class="footer-logo">
-Montage<sup>®</sup>
-</div>
-
-<div class="copyright">
-© Montage Studios
-</div>
-
-</div>
-
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                Montage<sup>®</sup>
+            </div>
+            <p class="footer-statement">
+                Cinematic storytelling for modern brands.
+            </p>
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://instagram.com/themontagestudios" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:themontagestudios@gmail.com">Email</a>
+            <a href="contact.html">WhatsApp</a>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p>© 2026 Montage Studios</p>
+    </div>
 </footer>
 
 <script>
