@@ -237,13 +237,20 @@ input,
 textarea{
 width:100%;
 padding:22px 26px;
-border:none;
+border:1px solid transparent;
 outline:none;
 background:#111;
 color:#fff;
 border-radius:18px;
 font-size:15px;
 line-height:1.6;
+transition:border-color .3s ease, box-shadow .3s ease;
+}
+
+input:focus,
+textarea:focus{
+border-color:rgba(212,175,90,0.45);
+box-shadow:0 0 20px rgba(212,175,90,0.12);
 }
 
 input::placeholder{
@@ -482,25 +489,25 @@ Book a consultation to understand what exactly you need and how much you should 
 
 <div class="contact-links">
 
-<a href="#">
+<a href="#project-form">
 Creative Direction
 </a>
 
-<a href="#">
+<a href="#project-form">
 Budget Planning
 </a>
 
-<a href="#">
+<a href="#project-form">
 Brand Positioning
 </a>
 
-<a href="#">
+<a href="#project-form">
 Visual Strategy
 </a>
 
 </div>
 
-<a href="#" class="submit-btn" style="display:inline-flex;width:auto;margin-top:34px;padding:16px 30px;align-items:center;justify-content:center;">
+<a href="#project-form" class="submit-btn" style="display:inline-flex;width:auto;margin-top:34px;padding:16px 30px;align-items:center;justify-content:center;text-decoration:none;">
 Connect Now
 </a>
 
@@ -516,27 +523,29 @@ Start a Project
 Share your idea, vision or business goal and let’s engineer a cinematic visual system around it.
 </p>
 
-<form>
+<form id="project-form">
 
 <div class="form-group">
 
-<input type="text" placeholder="Your Name">
+<input type="text" id="form-name" placeholder="Your Name" required>
 
 </div>
 
 <div class="form-group">
 
-<input type="email" placeholder="Your Email">
+<input type="email" id="form-email" placeholder="Your Email" required>
 
 </div>
 
 <div class="form-group">
 
-<textarea placeholder="Tell us about your project"></textarea>
+<textarea id="form-message" placeholder="Tell us about your project" required></textarea>
 
 </div>
 
-<button class="submit-btn">
+<div id="form-status" style="display:none;margin-bottom:22px;padding:16px 20px;border-radius:14px;font-size:13px;letter-spacing:.06em;line-height:1.6;"></div>
+
+<button type="submit" class="submit-btn">
 Send Inquiry
 </button>
 
@@ -604,6 +613,77 @@ cursor.classList.remove('active');
 });
 
 });
+
+// Topic pre-fill and smooth scroll
+document.querySelectorAll('.contact-links a').forEach(tag => {
+    tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        const topic = tag.textContent.trim();
+        const msg = document.getElementById('form-message');
+        if (msg) {
+            msg.value = `Interested in ${topic} consultation: `;
+            msg.focus();
+        }
+        const formEl = document.getElementById('project-form');
+        if (formEl) {
+            formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+});
+
+// Connect Now smooth scroll
+const connectBtn = document.querySelector('.contact-card > a.submit-btn[href="#project-form"]');
+if (connectBtn) {
+    connectBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const formEl = document.getElementById('project-form');
+        if (formEl) {
+            formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const nameInput = document.getElementById('form-name');
+            if (nameInput) nameInput.focus();
+        }
+    });
+}
+
+// Client-side Form Validation & Direct Submission Workflow
+const projectForm = document.getElementById('project-form');
+const formStatus = document.getElementById('form-status');
+
+if (projectForm) {
+    projectForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('form-name');
+        const emailInput = document.getElementById('form-email');
+        const messageInput = document.getElementById('form-message');
+
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+
+        if (!name || !email || !message) {
+            formStatus.style.display = 'block';
+            formStatus.style.color = '#ff8585';
+            formStatus.style.border = '1px solid rgba(255,133,133,0.3)';
+            formStatus.style.background = 'rgba(255,133,133,0.08)';
+            formStatus.textContent = 'Please fill out all fields before submitting.';
+            return;
+        }
+
+        // Display luxury confirmation status
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#d4af5a';
+        formStatus.style.border = '1px solid rgba(212,175,90,0.3)';
+        formStatus.style.background = 'rgba(212,175,90,0.08)';
+        formStatus.textContent = `Thank you, ${name}. Your inquiry has been prepared. Opening your email client to connect with Montage Studios...`;
+
+        // Direct mailto link workflow
+        const mailtoUrl = `mailto:themontagestudios@gmail.com?subject=${encodeURIComponent('Project Inquiry - ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nProject Details:\n' + message)}`;
+
+        setTimeout(() => {
+            window.location.href = mailtoUrl;
+        }, 800);
+    });
+}
 
 </script>
 
