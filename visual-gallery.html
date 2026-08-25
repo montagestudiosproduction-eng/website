@@ -220,6 +220,7 @@ border-radius:28px;
 background:#111;
 break-inside:avoid;
 cursor:pointer;
+transition:opacity .35s ease, transform .35s ease;
 }
 
 .gallery-item img{
@@ -431,14 +432,14 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 <div class="filter-row">
 
-<button class="filter-btn active">All</button>
-<button class="filter-btn">Fashion</button>
-<button class="filter-btn">Luxury</button>
-<button class="filter-btn">Portrait</button>
-<button class="filter-btn">Travel</button>
-<button class="filter-btn">Cafe</button>
-<button class="filter-btn">Street</button>
-<button class="filter-btn">Textures</button>
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="fashion">Fashion</button>
+<button class="filter-btn" data-filter="luxury">Luxury</button>
+<button class="filter-btn" data-filter="portrait">Portrait</button>
+<button class="filter-btn" data-filter="travel">Travel</button>
+<button class="filter-btn" data-filter="cafe">Cafe</button>
+<button class="filter-btn" data-filter="street">Street</button>
+<button class="filter-btn" data-filter="textures">Textures</button>
 
 </div>
 
@@ -450,7 +451,7 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 <div class="gallery-grid">
 
-<div class="gallery-item">
+<div class="gallery-item" data-category="fashion luxury portrait">
 
 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
 
@@ -468,7 +469,7 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item" data-category="cafe textures travel">
 
 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop">
 
@@ -486,7 +487,7 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item" data-category="street fashion music-videos">
 
 <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
 
@@ -504,7 +505,7 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item" data-category="textures portrait travel">
 
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
 
@@ -522,7 +523,7 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item" data-category="travel street textures">
 
 <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop">
 
@@ -540,7 +541,7 @@ A curated visual collection of cinematic moods, textures, compositions, luxury a
 
 </div>
 
-<div class="gallery-item">
+<div class="gallery-item" data-category="portrait luxury fashion">
 
 <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
 
@@ -617,6 +618,36 @@ el.addEventListener('mouseleave',()=>{
 cursor.classList.remove('active');
 });
 
+});
+
+// Filter Functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+            const categories = (item.getAttribute('data-category') || '').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+                item.style.display = '';
+                requestAnimationFrame(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                });
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 350);
+            }
+        });
+    });
 });
 
 </script>

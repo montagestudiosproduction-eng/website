@@ -212,9 +212,19 @@ padding:14px 24px;
 border-radius:999px;
 border:1px solid rgba(0,0,0,.08);
 background:#f7f7f7;
+color:#333;
 font-size:10px;
 letter-spacing:.28em;
 text-transform:uppercase;
+cursor:pointer;
+transition:all .3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+background:#000;
+color:#fff;
+border-color:#000;
 }
 
 /* PROJECTS */
@@ -230,6 +240,7 @@ gap:54px;
 align-items:flex-start;
 padding:48px 0;
 border-bottom:1px solid rgba(0,0,0,.08);
+transition:opacity .35s ease, transform .35s ease;
 }
 
 .project-thumb{
@@ -481,14 +492,14 @@ Selected Projects.
 
 <div class="filter-row">
 
-<button class="filter-btn">All</button>
-<button class="filter-btn">Music Videos</button>
-<button class="filter-btn">Cafe</button>
-<button class="filter-btn">Product</button>
-<button class="filter-btn">Saree</button>
-<button class="filter-btn">Fashion</button>
-<button class="filter-btn">Luxury</button>
-<button class="filter-btn">Commercial</button>
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="music-videos">Music Videos</button>
+<button class="filter-btn" data-filter="cafe">Cafe</button>
+<button class="filter-btn" data-filter="product">Product</button>
+<button class="filter-btn" data-filter="saree">Saree</button>
+<button class="filter-btn" data-filter="fashion">Fashion</button>
+<button class="filter-btn" data-filter="luxury">Luxury</button>
+<button class="filter-btn" data-filter="commercial">Commercial</button>
 
 </div>
 
@@ -500,7 +511,7 @@ Selected Projects.
 
 <div class="container">
 
-<div class="project-row">
+<div class="project-row" data-category="fashion saree luxury commercial">
 
 <div class="project-thumb">
 
@@ -530,7 +541,7 @@ Open Project
 
 </div>
 
-<div class="project-row">
+<div class="project-row" data-category="music-videos luxury">
 
 <div class="project-thumb">
 
@@ -560,7 +571,7 @@ Open Project
 
 </div>
 
-<div class="project-row">
+<div class="project-row" data-category="cafe commercial product">
 
 <div class="project-thumb">
 
@@ -647,6 +658,36 @@ el.addEventListener('mouseleave', () => {
 cursor.classList.remove('active');
 });
 
+});
+
+// Filter Functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectRows = document.querySelectorAll('.project-row');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectRows.forEach(row => {
+            const categories = (row.getAttribute('data-category') || '').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+                row.style.display = '';
+                requestAnimationFrame(() => {
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                });
+            } else {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    row.style.display = 'none';
+                }, 350);
+            }
+        });
+    });
 });
 
 </script>

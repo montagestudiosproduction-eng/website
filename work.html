@@ -219,9 +219,20 @@ padding:14px 24px;
 border-radius:999px;
 border:1px solid rgba(255,255,255,.08);
 background:#111;
+color:rgba(243,240,232,0.75);
 font-size:10px;
 letter-spacing:.28em;
 text-transform:uppercase;
+cursor:pointer;
+transition:all .3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+background:#d4af5a;
+color:#050505;
+border-color:#d4af5a;
+box-shadow:0 4px 15px rgba(212,175,90,0.2);
 }
 
 /* PROJECT GRID */
@@ -241,6 +252,7 @@ position:relative;
 height:520px;
 border-radius:28px;
 overflow:hidden;
+transition:opacity .35s ease, transform .35s ease;
 }
 
 .project-card img{
@@ -522,14 +534,14 @@ A curated archive of cinematic campaigns, music visuals, luxury storytelling and
 
 <div class="filter-row">
 
-<button class="filter-btn">All</button>
-<button class="filter-btn">Music Videos</button>
-<button class="filter-btn">Cafe</button>
-<button class="filter-btn">Product</button>
-<button class="filter-btn">Saree</button>
-<button class="filter-btn">Fashion</button>
-<button class="filter-btn">Luxury</button>
-<button class="filter-btn">Commercial</button>
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="music-videos">Music Videos</button>
+<button class="filter-btn" data-filter="cafe">Cafe</button>
+<button class="filter-btn" data-filter="product">Product</button>
+<button class="filter-btn" data-filter="saree">Saree</button>
+<button class="filter-btn" data-filter="fashion">Fashion</button>
+<button class="filter-btn" data-filter="luxury">Luxury</button>
+<button class="filter-btn" data-filter="commercial">Commercial</button>
 
 </div>
 
@@ -543,7 +555,7 @@ A curated archive of cinematic campaigns, music visuals, luxury storytelling and
 
 <div class="project-grid">
 
-<a href="project.html" class="project-card">
+<a href="project.html" class="project-card" data-category="fashion saree luxury commercial">
 
 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop">
 
@@ -571,7 +583,7 @@ Open Project
 
 </a>
 
-<a href="project.html" class="project-card">
+<a href="project.html" class="project-card" data-category="music-videos luxury">
 
 <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop">
 
@@ -599,7 +611,7 @@ Open Project
 
 </a>
 
-<a href="project.html" class="project-card">
+<a href="project.html" class="project-card" data-category="cafe commercial product">
 
 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop">
 
@@ -686,6 +698,36 @@ el.addEventListener('mouseleave',()=>{
 cursor.classList.remove('active');
 });
 
+});
+
+// Filter Functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+            const categories = (card.getAttribute('data-category') || '').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+                card.style.display = '';
+                requestAnimationFrame(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                });
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.96)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 350);
+            }
+        });
+    });
 });
 
 </script>
