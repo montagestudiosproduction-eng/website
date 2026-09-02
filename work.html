@@ -8,18 +8,18 @@
 
 <title>Work — Montage Studios</title>
 
-<meta name="description" content="Selected Work. A curated archive of cinematic campaigns, music visuals, luxury storytelling and modern brand films engineered for digital attention by Montage Studios.">
+<meta name="description" content="Cinematic Reels. A premium cinematic viewing experience for music visuals, luxury storytelling and modern brand films engineered for digital attention by Montage Studios.">
 <link rel="canonical" href="https://themontagestudios.com/work.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Work — Montage Studios">
-<meta property="og:description" content="Selected Work. A curated archive of cinematic campaigns, music visuals, luxury storytelling and modern brand films engineered for digital attention by Montage Studios.">
+<meta property="og:description" content="Cinematic Reels. A premium cinematic viewing experience for music visuals, luxury storytelling and modern brand films engineered for digital attention by Montage Studios.">
 <meta property="og:url" content="https://themontagestudios.com/work.html">
 <meta property="og:site_name" content="Montage Studios">
 <meta property="og:image" content="https://themontagestudios.com/Photo4.webp">
 
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="tailwind-build.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,6 +252,7 @@ position:relative;
 height:520px;
 border-radius:28px;
 overflow:hidden;
+cursor:pointer;
 transition:opacity .35s ease, transform .35s ease;
 }
 
@@ -464,6 +465,56 @@ font-size:14px;
 
 }
 
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.3s ease;
+}
+.lightbox-close:hover {
+    color: #d4af5a;
+}
+.lightbox-content {
+    width: 90%;
+    max-width: 1280px;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+.lightbox-content iframe, .lightbox-content video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: contain;
+}
+
 </style>
 
 </head>
@@ -505,11 +556,11 @@ font-size:14px;
 <div class="container hero-content">
 
 <div class="hero-label">
-Montage Archive
+Screening Room
 </div>
 
 <h1>
-Selected Work.
+Cinematic Reels.
 </h1>
 
 </div>
@@ -521,7 +572,7 @@ Selected Work.
 <div class="container">
 
 <p>
-A curated archive of cinematic campaigns, music visuals, luxury storytelling and modern brand films engineered for digital attention.
+A premium cinematic viewing experience for music visuals, luxury storytelling and modern brand films engineered for digital attention.
 </p>
 
 </div>
@@ -555,9 +606,9 @@ A curated archive of cinematic campaigns, music visuals, luxury storytelling and
 
 <div class="project-grid">
 
-<a href="project.html" class="project-card" data-category="fashion saree luxury commercial">
+<div class="project-card" data-video-type="local" data-video-src="About 1.mp4" data-category="fashion saree luxury commercial">
 
-<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop" alt="Veloura Sarees Luxury Fashion Campaign">
+<img loading="lazy" src="Photo1.webp" alt="Veloura Sarees Luxury Fashion Campaign">
 
 <div class="project-overlay"></div>
 
@@ -576,16 +627,16 @@ Luxury cinematic storytelling crafted for modern digital fashion branding.
 </p>
 
 <div class="project-link">
-Open Project
+Play Film
 </div>
 
 </div>
 
-</a>
+</div>
 
-<a href="project.html" class="project-card" data-category="music-videos luxury">
+<div class="project-card" data-video-type="local" data-video-src="About 1.mp4" data-category="music-videos luxury">
 
-<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop" alt="Midnight Echo Atmospheric Music Video">
+<img loading="lazy" src="Photo3.webp" alt="Midnight Echo Atmospheric Music Video">
 
 <div class="project-overlay"></div>
 
@@ -604,16 +655,16 @@ Atmospheric visuals engineered using immersive low-light production.
 </p>
 
 <div class="project-link">
-Open Project
+Play Film
 </div>
 
 </div>
 
-</a>
+</div>
 
-<a href="project.html" class="project-card" data-category="cafe commercial product">
+<div class="project-card" data-video-type="local" data-video-src="About 1.mp4" data-category="cafe commercial product">
 
-<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop" alt="Noir Coffee Social-First Cinematic Campaign">
+<img loading="lazy" src="Photo2.webp" alt="Noir Coffee Social-First Cinematic Campaign">
 
 <div class="project-overlay"></div>
 
@@ -632,18 +683,26 @@ Social-first cinematic campaign optimized for modern reel retention.
 </p>
 
 <div class="project-link">
-Open Project
+Play Film
 </div>
 
 </div>
 
-</a>
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+
+<div class="lightbox" id="video-lightbox">
+    <div class="lightbox-close" id="lightbox-close">Close</div>
+    <div class="lightbox-content" id="lightbox-container">
+        <!-- Video injected via JS -->
+    </div>
+</div>
 
 <!-- UNIFIED LUXURY FOOTER -->
 <footer class="footer">
@@ -665,7 +724,7 @@ Open Project
         <div class="footer-social">
             <a href="https://www-fallback.instagram.com/montagestudios_official/" target="_blank" rel="noopener">Instagram</a>
             <a href="mailto:themontagestudios@gmail.com">Email</a>
-            <a href="contact.html">WhatsApp</a>
+            <a href="https://wa.me/916290094957" target="_blank" rel="noopener">WhatsApp</a>
         </div>
     </div>
     <div class="container footer-bottom">
@@ -685,7 +744,7 @@ cursor.style.top=e.clientY+'px';
 });
 
 const hoverElements=document.querySelectorAll(
-'a,button,img,.project-card'
+'a,button,img,.project-card,.lightbox-close'
 );
 
 hoverElements.forEach(el=>{
@@ -730,8 +789,42 @@ filterBtns.forEach(btn => {
     });
 });
 
+
+// Lightbox Functionality
+const lightbox = document.getElementById('video-lightbox');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxContainer = document.getElementById('lightbox-container');
+
+projectCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const type = card.getAttribute('data-video-type');
+        const src = card.getAttribute('data-video-src');
+        
+        lightboxContainer.innerHTML = ''; // clear previous
+        
+        if (type === 'youtube') {
+            lightboxContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${src}?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        } else if (type === 'vimeo') {
+            lightboxContainer.innerHTML = `<iframe src="https://player.vimeo.com/video/${src}?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        } else {
+            lightboxContainer.innerHTML = `<video controls autoplay playsinline><source src="${src}" type="video/mp4"></video>`;
+        }
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxContainer.innerHTML = ''; }, 400); // clear after fade out
+});
+
 </script>
 
 </body>
 
 </html>
+
+

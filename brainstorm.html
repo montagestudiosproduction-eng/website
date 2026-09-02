@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Discovery — Montage Studios</title>
+<link rel="canonical" href="https://themontagestudios.com/brainstorm.html">
+<link rel="stylesheet" href="tailwind-build.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cursor.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+.container { width:min(1280px,92%); margin:auto; }
+
+/* NAVBAR */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 22px 0; background: rgba(5,5,5,0.65); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.12); z-index: 999; }
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: min(1280px, 92%); margin: auto; }
+.logo { font-size: 28px; font-weight: 800; letter-spacing: -1.5px; color: #f3f0e8; transition: opacity .3s ease; }
+.logo:hover { opacity: 0.8; }
+.nav-right { display: flex; align-items: center; gap: 32px; }
+.nav-links { display: flex; gap: 36px; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: rgba(243,240,232,0.75); }
+.nav-links a:hover, .nav-links a.active { color: #d4af5a; }
+.book-btn { padding: 12px 26px; border-radius: 999px; border: 1px solid rgba(212,175,90,0.3); background: rgba(212,175,90,0.08); font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: #d4af5a; transition: all .35s ease; }
+.book-btn:hover { background: #d4af5a; color: #050505; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212,175,90,0.25); }
+
+/* WIZARD STYLES */
+.wizard-section { padding: 160px 0 100px; min-height: 100vh; display: flex; flex-direction: column; }
+.wizard-content { max-width: 800px; margin: 0 auto; width: 100%; flex-grow: 1; }
+.step-container { display: none; animation: fadeIn 0.4s ease forwards; }
+.step-container.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.wizard-title { font-size: clamp(32px, 5vw, 56px); font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; line-height: 1.1; }
+.wizard-subtitle { font-size: 16px; color: #a0a0a0; line-height: 1.6; margin-bottom: 48px; }
+
+/* Selection Cards */
+.options-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.option-card { padding: 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; background: rgba(255,255,255,0.03); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; }
+.option-card:hover { border-color: rgba(212,175,90,0.4); background: rgba(212,175,90,0.05); }
+.option-card.selected { border-color: #d4af5a; background: rgba(212,175,90,0.1); }
+.option-card span { font-size: 14px; font-weight: 500; letter-spacing: 0.05em; }
+
+/* Text Inputs */
+input[type="text"], input[type="email"], input[type="date"], textarea { width: 100%; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.03); color: #fff; font-size: 15px; transition: border-color 0.3s ease; margin-bottom: 24px; }
+input:focus, textarea:focus { outline: none; border-color: #d4af5a; }
+textarea { min-height: 160px; resize: vertical; }
+
+.reference-block { background: rgba(255,255,255,0.02); padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 16px; }
+
+/* Navigation */
+.wizard-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+.btn-nav { padding: 16px 32px; border-radius: 999px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; }
+.btn-back { background: transparent; color: #888; border: 1px solid rgba(255,255,255,0.2); }
+.btn-back:hover { color: #fff; border-color: #fff; }
+.btn-next { background: #d4af5a; color: #000; }
+.btn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212,175,90,0.25); }
+
+.progress-indicator { font-size: 12px; letter-spacing: 0.2em; color: #666; font-weight: 500; text-align: center; }
+
+/* Review Screen */
+.review-section { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+.review-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: #d4af5a; margin-bottom: 8px; }
+.review-value { font-size: 16px; line-height: 1.6; color: #e0e0e0; }
+
+@media(max-width:768px){
+    .navbar { padding: 18px 0; }
+    .nav-links, .book-btn { display: none; }
+    .wizard-section { padding: 120px 0 60px; }
+    .options-grid { grid-template-columns: 1fr; }
+    .wizard-nav { flex-direction: column-reverse; gap: 20px; }
+    .btn-nav { width: 100%; }
+}
+
+</style>
+</head>
+<body>
+<div class="custom-cursor"></div>
+
+<header class="navbar">
+    <div class="nav-wrapper">
+        <a href="index.html" class="logo">Montage<sup>®</sup></a>
+        <div class="nav-right">
+            <nav class="nav-links">
+                <a href="work.html">Work</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a href="contact.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+</header>
+
+<section class="wizard-section">
+    <div class="container wizard-content">
+        
+        <!-- START SCREEN -->
+        <div class="step-container active" id="step-start">
+            <h1 class="wizard-title">LET'S FIGURE THIS OUT.</h1>
+            <p class="wizard-subtitle">Not sure exactly what you need yet?<br>Tell us what you're trying to achieve and we'll help shape the direction.</p>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="setInitialPath('know')"><span>I KNOW WHAT I WANT</span></div>
+                <div class="option-card" onclick="setInitialPath('unsure')"><span>I'M NOT SURE YET</span></div>
+            </div>
+        </div>
+
+        <!-- STEP 1: SERVICE (KNOW) -->
+        <div class="step-container" id="step-service">
+            <h2 class="wizard-title">WHAT ARE YOU LOOKING TO CREATE?</h2>
+            <div class="options-grid" id="service-options">
+                <div class="option-card" onclick="toggleSingleSelect(this, 'service', 'Brand Film')"><span>Brand Film</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'service', 'Music Video')"><span>Music Video</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'service', 'Product Campaign')"><span>Product Campaign</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'service', 'Something Else')"><span>Something Else</span></div>
+            </div>
+        </div>
+
+        <!-- STEP 1A: UNSURE PATH -->
+        <div class="step-container" id="step-unsure">
+            <h2 class="wizard-title">WHAT ARE YOU TRYING TO ACHIEVE?</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleMultiSelect(this, 'objective', 'Launch something')"><span>Launch something</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'objective', 'Tell a story')"><span>Tell a story</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'objective', 'Build a brand')"><span>Build a brand</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'objective', 'Create awareness')"><span>Create awareness</span></div>
+            </div>
+            
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">TELL US WHAT YOU'RE IMAGINING.</h3>
+            <p class="wizard-subtitle" style="margin-top:-35px;font-size:13px">You don't need to know the technical terms. Just tell us what you want the project to feel like or accomplish.</p>
+            <textarea id="unsure-text" placeholder="I am thinking about..."></textarea>
+        </div>
+
+        <!-- STEP 2: OBJECTIVE & AUDIENCE -->
+        <div class="step-container" id="step-objective">
+            <h2 class="wizard-title">WHAT'S THE JOB OF THIS PROJECT?</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleMultiSelect(this, 'projectJob', 'Sell a product')"><span>Sell a product</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'projectJob', 'Build awareness')"><span>Build awareness</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'projectJob', 'Drive sales')"><span>Drive sales</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'projectJob', 'Tell a story')"><span>Tell a story</span></div>
+            </div>
+            
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">WHO ARE WE SPEAKING TO?</h3>
+            <p class="wizard-subtitle" style="margin-top:-35px;font-size:13px">Who is the audience you're trying to reach?</p>
+            <input type="text" id="audience-text" placeholder="e.g. Gen Z fashion lovers, B2B executives...">
+        </div>
+
+        <!-- STEP 3: CREATIVE DIRECTION -->
+        <div class="step-container" id="step-direction">
+            <h2 class="wizard-title">HOW SHOULD THIS PROJECT FEEL?</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleMultiSelect(this, 'feel', 'Cinematic')"><span>Cinematic</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'feel', 'Luxury')"><span>Luxury</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'feel', 'Raw')"><span>Raw</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'feel', 'Energetic')"><span>Energetic</span></div>
+            </div>
+
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">WHAT SHOULD THE AUDIENCE FEEL?</h3>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleMultiSelect(this, 'audienceFeel', 'Excited')"><span>Excited</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'audienceFeel', 'Inspired')"><span>Inspired</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'audienceFeel', 'Trust')"><span>Trust</span></div>
+            </div>
+            
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">TELL US THE VIBE.</h3>
+            <textarea id="vibe-text" placeholder="Describe the feeling, world or atmosphere you're imagining."></textarea>
+        </div>
+
+        <!-- STEP 4: REFERENCES -->
+        <div class="step-container" id="step-references">
+            <h2 class="wizard-title">SHOW US WHAT INSPIRES YOU</h2>
+            <p class="wizard-subtitle">Found something you like? Send it our way.</p>
+            
+            <div id="references-list">
+                <div class="reference-block">
+                    <input type="text" class="ref-url" placeholder="Reference URL (YouTube, Instagram, Vimeo...)">
+                    <input type="text" class="ref-notes" placeholder="What do you like about it? (Optional)">
+                </div>
+            </div>
+            
+            <button class="btn-nav" style="background:rgba(255,255,255,0.1); color:#fff;" onclick="addReference()">+ ADD ANOTHER REFERENCE</button>
+        </div>
+
+        <!-- STEP 5: DELIVERABLES -->
+        <div class="step-container" id="step-deliverables">
+            <h2 class="wizard-title">WHAT DO YOU NEED FROM US?</h2>
+            <div class="options-grid" id="deliverables-grid">
+                <!-- Dynamically populated based on service -->
+                <div class="option-card" onclick="toggleMultiSelect(this, 'deliverables', 'Main Film')"><span>Main Film</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'deliverables', 'Social Cutdowns')"><span>Social Cutdowns</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'deliverables', 'Photography')"><span>Photography</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'deliverables', 'Not Sure')"><span>Not Sure</span></div>
+            </div>
+
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">HOW MANY PIECES OF CONTENT DO YOU IMAGINE?</h3>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleSingleSelect(this, 'volume', 'One main piece')"><span>One main piece</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'volume', 'A few supporting pieces')"><span>A few supporting pieces</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'volume', 'A full campaign')"><span>A full campaign</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'volume', 'Not sure yet')"><span>Not sure yet</span></div>
+            </div>
+        </div>
+
+        <!-- STEP 6: PRODUCTION -->
+        <div class="step-container" id="step-production">
+            <h2 class="wizard-title">WHERE DO YOU SEE THIS HAPPENING?</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleSingleSelect(this, 'location', 'Studio')"><span>Studio</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'location', 'Real Location')"><span>Real Location</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'location', 'Multiple Locations')"><span>Multiple Locations</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'location', 'Not Sure')"><span>Not Sure</span></div>
+            </div>
+            
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">WHO IS INVOLVED?</h3>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleMultiSelect(this, 'talent', 'Myself')"><span>Myself</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'talent', 'Models/Actors')"><span>Models/Actors</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'talent', 'No People')"><span>No People</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'talent', 'Not Sure')"><span>Not Sure</span></div>
+            </div>
+
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">ANYTHING ELSE WE SHOULD KNOW?</h3>
+            <input type="text" id="production-notes" placeholder="Special locations, products, props, styling...">
+            
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">IS THERE ANYTHING YOU KNOW YOU WANT?</h3>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleMultiSelect(this, 'special', 'VFX')"><span>VFX</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'special', 'Drone')"><span>Drone</span></div>
+                <div class="option-card" onclick="toggleMultiSelect(this, 'special', 'Not Sure')"><span>Not Sure</span></div>
+            </div>
+        </div>
+
+        <!-- STEP 7: TIMELINE -->
+        <div class="step-container" id="step-timeline">
+            <h2 class="wizard-title">WHEN ARE YOU HOPING TO MAKE THIS?</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="toggleSingleSelect(this, 'timeline', 'ASAP')"><span>ASAP</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'timeline', 'Within a Month')"><span>Within a Month</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'timeline', '1-3 Months')"><span>1–3 Months</span></div>
+                <div class="option-card" onclick="toggleSingleSelect(this, 'timeline', 'Not Sure')"><span>Not Sure</span></div>
+            </div>
+            
+            <h3 class="wizard-subtitle mt-8" style="color:#fff">DO YOU HAVE A FIXED DEADLINE?</h3>
+            <input type="date" id="deadline-date">
+            <input type="text" id="deadline-reason" placeholder="What's happening on this date? (Launch, event, etc)">
+        </div>
+
+        <!-- STEP 8: STORY -->
+        <div class="step-container" id="step-story">
+            <h2 class="wizard-title">TELL US THE WHOLE THING.</h2>
+            <p class="wizard-subtitle">Don't worry about making it sound professional. Tell us what you're thinking.</p>
+            <textarea id="story-text" placeholder="My idea is..."></textarea>
+        </div>
+
+        <!-- STEP 9: CONTACT -->
+        <div class="step-container" id="step-contact">
+            <h2 class="wizard-title">WHERE CAN WE REACH YOU?</h2>
+            <input type="text" id="contact-name" placeholder="Name *" required>
+            <input type="text" id="contact-company" placeholder="Company / Brand">
+            <input type="email" id="contact-email" placeholder="Email *" required>
+            <input type="text" id="contact-phone" placeholder="Phone / WhatsApp">
+            <input type="text" id="contact-ig" placeholder="Instagram">
+            <input type="text" id="contact-project" placeholder="Project Name *" required>
+        </div>
+
+        <!-- STEP 10: REVIEW -->
+        <div class="step-container" id="step-review">
+            <h2 class="wizard-title">YOUR PROJECT DIRECTION</h2>
+            <p class="wizard-subtitle">Review your brief below before generating the PDF and sending to Montage.</p>
+            
+            <div id="review-content" style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="wizard-nav" id="wizard-nav" style="display:none;">
+            <button class="btn-nav btn-back" onclick="prevStep()">Back</button>
+            <div class="progress-indicator" id="progress-text">01 / 10</div>
+            <button class="btn-nav btn-next" onclick="nextStep()" id="next-btn">Continue</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+// Data Model
+const projectData = {
+    path: '', // 'know' or 'unsure'
+    service: '',
+    objective: [],
+    unsureText: '',
+    projectJob: [],
+    audience: '',
+    feel: [],
+    audienceFeel: [],
+    vibe: '',
+    references: [],
+    deliverables: [],
+    volume: '',
+    location: '',
+    talent: [],
+    productionNotes: '',
+    special: [],
+    timeline: '',
+    deadlineDate: '',
+    deadlineReason: '',
+    story: '',
+    contact: {}
+};
+
+// Steps order
+let steps = ['step-start'];
+let currentStepIdx = 0;
+
+function setInitialPath(path) {
+    projectData.path = path;
+    if (path === 'know') {
+        steps = ['step-start', 'step-service', 'step-objective', 'step-direction', 'step-references', 'step-deliverables', 'step-production', 'step-timeline', 'step-story', 'step-contact', 'step-review'];
+    } else {
+        steps = ['step-start', 'step-unsure', 'step-objective', 'step-direction', 'step-references', 'step-deliverables', 'step-production', 'step-timeline', 'step-story', 'step-contact', 'step-review'];
+    }
+    document.getElementById('wizard-nav').style.display = 'flex';
+    nextStep();
+}
+
+function showStep(idx) {
+    document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+    document.getElementById(steps[idx]).classList.add('active');
+    
+    // Update progress
+    if (idx === 0) {
+        document.getElementById('wizard-nav').style.display = 'none';
+    } else {
+        document.getElementById('wizard-nav').style.display = 'flex';
+        document.getElementById('progress-text').textContent = `0${idx} / ${steps.length - 1}`.replace('010', '10');
+    }
+
+    const nextBtn = document.getElementById('next-btn');
+    if (idx === steps.length - 1) {
+        nextBtn.textContent = 'YES — CREATE MY PROJECT BRIEF';
+        nextBtn.onclick = submitProject;
+        buildReview();
+    } else {
+        nextBtn.textContent = 'Continue';
+        nextBtn.onclick = nextStep;
+    }
+}
+
+function nextStep() {
+    // Save data from current step
+    saveCurrentStepData();
+    
+    if (currentStepIdx < steps.length - 1) {
+        currentStepIdx++;
+        showStep(currentStepIdx);
+    }
+}
+
+function prevStep() {
+    if (currentStepIdx > 0) {
+        currentStepIdx--;
+        showStep(currentStepIdx);
+    }
+}
+
+function toggleSingleSelect(el, field, value) {
+    const parent = el.parentElement;
+    parent.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    projectData[field] = value;
+}
+
+function toggleMultiSelect(el, field, value) {
+    el.classList.toggle('selected');
+    if (el.classList.contains('selected')) {
+        if (!projectData[field].includes(value)) projectData[field].push(value);
+    } else {
+        projectData[field] = projectData[field].filter(v => v !== value);
+    }
+}
+
+function addReference() {
+    const list = document.getElementById('references-list');
+    const block = document.createElement('div');
+    block.className = 'reference-block';
+    block.innerHTML = `
+        <input type="text" class="ref-url" placeholder="Reference URL (YouTube, Instagram, Vimeo...)">
+        <input type="text" class="ref-notes" placeholder="What do you like about it? (Optional)">
+    `;
+    list.appendChild(block);
+}
+
+function saveCurrentStepData() {
+    // Collect text inputs based on active step
+    const activeStep = steps[currentStepIdx];
+    
+    if (activeStep === 'step-unsure') {
+        projectData.unsureText = document.getElementById('unsure-text').value;
+    } else if (activeStep === 'step-objective') {
+        projectData.audience = document.getElementById('audience-text').value;
+    } else if (activeStep === 'step-direction') {
+        projectData.vibe = document.getElementById('vibe-text').value;
+    } else if (activeStep === 'step-references') {
+        projectData.references = [];
+        document.querySelectorAll('.reference-block').forEach(b => {
+            const url = b.querySelector('.ref-url').value;
+            const notes = b.querySelector('.ref-notes').value;
+            if (url) projectData.references.push({ url, notes });
+        });
+    } else if (activeStep === 'step-production') {
+        projectData.productionNotes = document.getElementById('production-notes').value;
+    } else if (activeStep === 'step-timeline') {
+        projectData.deadlineDate = document.getElementById('deadline-date').value;
+        projectData.deadlineReason = document.getElementById('deadline-reason').value;
+    } else if (activeStep === 'step-story') {
+        projectData.story = document.getElementById('story-text').value;
+    } else if (activeStep === 'step-contact') {
+        projectData.contact = {
+            name: document.getElementById('contact-name').value,
+            company: document.getElementById('contact-company').value,
+            email: document.getElementById('contact-email').value,
+            phone: document.getElementById('contact-phone').value,
+            ig: document.getElementById('contact-ig').value,
+            project: document.getElementById('contact-project').value
+        };
+    }
+    
+    // Persist to local storage
+    localStorage.setItem('montage_brainstorm', JSON.stringify(projectData));
+}
+
+function buildReview() {
+    const rc = document.getElementById('review-content');
+    let html = '';
+    
+    const addSection = (title, val) => {
+        if (!val || val.length === 0) return;
+        const disp = Array.isArray(val) ? val.join(', ') : val;
+        html += `<div class="review-section"><div class="review-label">${title}</div><div class="review-value">${disp}</div></div>`;
+    };
+
+    addSection('Project Name', projectData.contact.project);
+    addSection('Service / Idea', projectData.service || 'Still exploring');
+    addSection('Objective', projectData.objective.concat(projectData.projectJob));
+    addSection('Audience', projectData.audience);
+    addSection('Creative Feel', projectData.feel);
+    addSection('Vibe Notes', projectData.vibe);
+    addSection('Deliverables', projectData.deliverables.join(', ') + ' (' + projectData.volume + ')');
+    addSection('Production', projectData.location + ' | Talent: ' + projectData.talent.join(', '));
+    addSection('Timeline', projectData.timeline + (projectData.deadlineDate ? ' (Deadline: ' + projectData.deadlineDate + ')' : ''));
+    addSection('Story', projectData.story);
+    
+    rc.innerHTML = html;
+}
+
+async function submitProject() {
+    saveCurrentStepData();
+    
+    // Basic validation
+    if (!projectData.contact.name || !projectData.contact.email) {
+        alert("Please ensure your name and email are filled out on the Contact step.");
+        currentStepIdx = steps.indexOf('step-contact');
+        showStep(currentStepIdx);
+        return;
+    }
+
+    document.getElementById('next-btn').textContent = 'GENERATING BRIEF...';
+
+    // 1. Generate PDF (using jsPDF)
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    doc.setFillColor(0, 0, 0);
+    doc.rect(0, 0, 210, 297, 'F'); // Black background
+    doc.setTextColor(255, 255, 255);
+    
+    doc.setFontSize(24);
+    doc.text("MONTAGE STUDIOS", 20, 30);
+    doc.setFontSize(14);
+    doc.setTextColor(212, 175, 90); // Gold
+    doc.text("PROJECT BRIEF", 20, 42);
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(12);
+    let y = 60;
+    
+    const writeLine = (label, value) => {
+        if (!value || value.length === 0) return;
+        doc.setTextColor(150, 150, 150);
+        doc.setFontSize(10);
+        doc.text(label.toUpperCase(), 20, y);
+        y += 6;
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(12);
+        const split = doc.splitTextToSize(Array.isArray(value) ? value.join(', ') : value, 170);
+        doc.text(split, 20, y);
+        y += (split.length * 6) + 8;
+        if (y > 270) { doc.addPage(); doc.setFillColor(0); doc.rect(0,0,210,297,'F'); y = 20; }
+    };
+
+    writeLine("Project", projectData.contact.project);
+    writeLine("Client", projectData.contact.name + (projectData.contact.company ? ` (${projectData.contact.company})` : ''));
+    writeLine("Service", projectData.service || 'Exploratory');
+    writeLine("Objective", projectData.objective.concat(projectData.projectJob));
+    writeLine("Creative Vibe", projectData.vibe);
+    writeLine("Story", projectData.story);
+    
+    if (projectData.references.length > 0) {
+        writeLine("References", projectData.references.map(r => r.url + (r.notes ? ' - ' + r.notes : '')).join('\n'));
+    }
+    
+    // Save PDF
+    doc.save(`Montage_Brief_${projectData.contact.project || 'Project'}.pdf`);
+
+    // 2. Submit to Montage via Mailto
+    let body = `MONTAGE STUDIOS\nNEW PROJECT BRAINSTORM\n\n`;
+    body += `CLIENT\nName: ${projectData.contact.name}\nEmail: ${projectData.contact.email}\nPhone: ${projectData.contact.phone}\n\n`;
+    body += `PROJECT\nName: ${projectData.contact.project}\nService: ${projectData.service}\n\n`;
+    body += `Please see the downloaded PDF brief for full details.`;
+    
+    const mailto = `mailto:themontagestudios@gmail.com?subject=New Project Brief: ${encodeURIComponent(projectData.contact.project)}&body=${encodeURIComponent(body)}`;
+    
+    setTimeout(() => {
+        window.location.href = mailto;
+        localStorage.removeItem('montage_brainstorm');
+        document.getElementById('next-btn').textContent = 'SENT!';
+    }, 1500);
+}
+
+// Check for saved progress
+window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('montage_brainstorm');
+    if (saved) {
+        // Hydration logic could go here
+    }
+});
+
+</script>
+
+</body>
+</html>

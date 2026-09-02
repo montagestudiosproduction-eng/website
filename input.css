@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix CTA Contrast */
+.book-btn { background: #d4af5a !important; color: #050505 !important; border-color: #d4af5a !important; font-weight: 600; }
+.book-btn:hover { background: #c29d49 !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212,175,90,0.4) !important; }
+.submit-btn { background: #d4af5a !important; color: #050505 !important; font-weight: 600 !important; }
+
+/* Fix Mobile Tap Targets */
+@media (max-width: 768px) { .nav-links { font-size: 11px !important; gap: 16px !important; } .book-btn { font-size: 10px !important; padding: 12px 18px !important; } }
